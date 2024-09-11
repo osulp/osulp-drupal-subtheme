@@ -1,6 +1,5 @@
 :root,
 [data-bs-theme=light] {
-  --bs-body-font-family: 'Open Sans', sans-serif !important;
   --bs-body-font-size: 18px;
   --color-beaver-orange: #D73F09;
   --color-beaver-dark: #AC3207;
@@ -17,57 +16,57 @@
   --color-cascades: #0D5257;
   --color-white: #FFFFFF;
   --color-black: #000000;
+  --font-stratum: "Stratum2Web", serif;
 }
 
 [data-bs-theme=dark] {
-  --bs-body-font-family: 'Open Sans', sans-serif !important;
   --bs-body-font-size: 18px;
 }
 
 .color-beaver-orange {
-  color: var(--color-beaver-orange) !important;
+  color: var(--color-beaver-orange);
 }
 .color-beaver-dark {
-  color: var(--color-beaver-dark) !important;
+  color: var(--color-beaver-dark);
 }
 .color-candela {
-  color: var(--color-candela) !important;
+  color: var(--color-candela);
 }
 .color-coastline-100 {
-  color: var(--color-coastline-100) !important;
+  color: var(--color-coastline-100);
 }
 .color-coastline-50 {
-  color: var(--color-coastline-50) !important;
+  color: var(--color-coastline-50);
 }
 .color-coastline-20 {
-  color: var(--color-coastline-20) !important;
+  color: var(--color-coastline-20);
 }
 .color-grey-900 {
-  color: var(--color-grey-900) !important;
+  color: var(--color-grey-900);
 }
 .color-grey-800 {
-  color: var(--color-grey-800) !important;
+  color: var(--color-grey-800);
 }
 .color-grey-700 {
-  color: var(--color-grey-700) !important;
+  color: var(--color-grey-700);
 }
 .color-grey-600 {
-  color: var(--color-grey-600) !important;
+  color: var(--color-grey-600);
 }
 .color-valley {
-  color: var(--color-valley) !important;
+  color: var(--color-valley);
 }
 .color-guin {
-  color: var(--color-guin) !important;
+  color: var(--color-guin);
 }
 .color-cascades {
-  color: var(--color-cascades) !important;
+  color: var(--color-cascades);
 }
 .color-white {
-  color: var(--color-white) !important;
+  color: var(--color-white);
 }
 .color-black {
-  color: var(--color-black) !important;
+  color: var(--color-black);
 }
 
 a.h4 {
@@ -77,5 +76,19 @@ a.h4:hover,
 a.h4:focus,
 .h4 a:hover,
 .h4 a:focus {
-  color: var(--color-black) !important;
+  color: var(--color-black);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-stratum);
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  font-family: var(--font-stratum);
 }

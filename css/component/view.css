@@ -1,4 +1,5 @@
 .header-overline {
+  font-family: var(--font-stratum);
   font-size: 1rem;
   line-height: 125%;
 }
