@@ -1,0 +1,16 @@
+.node--view-mode-news-teaser {
+  max-height: 153px;
+  box-sizing: content-box;
+}
+article.node--view-mode-news-teaser::after {
+  content : "";
+  position: absolute;
+  bottom  : 0;
+  height  : 1px;
+  background: #b7b1af !important;
+  width: 75%;
+}
+.node--view-mode-news-teaser img {
+  max-height: 153px;
+  object-fit: cover;
+}
