@@ -1,8 +1,14 @@
+.header-overline {
+  font-size: 1rem;
+  line-height: 125%;
+}
+
+/* News views page */
 .node--view-mode-news-teaser {
   max-height: 153px;
   box-sizing: content-box;
 }
-article.node--view-mode-news-teaser::after {
+.node--view-mode-news-teaser::after {
   content : "";
   position: absolute;
   bottom  : 0;

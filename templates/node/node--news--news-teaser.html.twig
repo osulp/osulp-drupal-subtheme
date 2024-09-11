@@ -85,23 +85,25 @@
 
     <div class="col-md-9">
       {% apply spaceless %}
-      <div class="d-inline-block pe-3 border-end border-2 border-neutral-500">
+      <span class="header-overline d-inline-block color-grey-600 text-uppercase pe-2-5 border-end border-1 border-neutral-500">
         {{ content.field_branch }}
-      </div>
-      <div class="d-inline-block ps-3">
+      </span>
+      <span class="header-overline d-inline-block color-grey-600 text-uppercase ps-2-5">
         {{ content.field_date }}
-      </div>
+      </span>
       {% endapply %}
 
       {{ title_prefix }}
       {% if label and not page %}
-        <h2{{title_attributes}}>
-          <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        <h2{{title_attributes}} class="h4">
+          <a href="{{ url }}" class="color-beaver-dark" rel="bookmark">{{ label }}</a>
         </h2>
       {% endif %}
       {{ title_suffix }}
 
-      {{ content.body }}
+      <span class="color-grey-700">
+        {{ content.body }}
+      </span>
     </div>
   </div>
 </article>
