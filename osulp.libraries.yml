@@ -18,6 +18,7 @@ global:
       css/component/table.css: {}
       css/component/tabs.css: {}
       css/component/buttons.css: {}
+      css/component/view.css: {}
     layout:
       css/layout/layout.css: {}
     theme:
