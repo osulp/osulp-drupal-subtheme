@@ -79,7 +79,7 @@
 ] %}
 {% set has_image = node.field_news_image is not empty %}
 {% set row_class = not has_image ? 'justify-content-md-end' %}
-{% set col_class = has_image ? 'col-md-9' : 'col-md-11' %}
+{% set col_class = has_image ? 'col-md-6' : 'col-md-9' %}
 
 <article{{attributes.addClass(classes,'container')}}>
   <div class="row {{ row_class }}">
