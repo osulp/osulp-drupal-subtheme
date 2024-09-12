@@ -77,13 +77,19 @@
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   'py-4-5',
 ] %}
-<article{{attributes.addClass(classes,'container')}}>
-  <div class="row">
-    <div class="col-md-3">
-      {{ content.field_news_image }}
-    </div>
+{% set has_image = node.field_news_image is not empty %}
+{% set row_class = not has_image ? 'justify-content-md-end' %}
+{% set col_class = has_image ? 'col-md-9' : 'col-md-11' %}
 
-    <div class="col-md-9">
+<article{{attributes.addClass(classes,'container')}}>
+  <div class="row {{ row_class }}">
+    {% if node.field_news_image is not empty %}
+      <div class="col-md-3">
+        {{ content.field_news_image }}
+      </div>
+    {% endif %}
+
+    <div class="{{ col_class }}">
       {% apply spaceless %}
       <span class="header-overline d-inline-block color-grey-600 text-uppercase pe-2-5 border-end border-1 border-neutral-500">
         {{ content.field_branch }}
