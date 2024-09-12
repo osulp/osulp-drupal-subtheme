@@ -1,6 +1,7 @@
 :root,
 [data-bs-theme=light] {
   --bs-body-font-size: 18px;
+  --bs-border-color: var(--color-coastline-100);
   --color-beaver-orange: #D73F09;
   --color-beaver-dark: #AC3207;
   --color-candela: #FDD26E;
@@ -91,4 +92,12 @@ h5 {
 .h4,
 .h5 {
   font-family: var(--font-stratum);
+}
+
+.clamp-two-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

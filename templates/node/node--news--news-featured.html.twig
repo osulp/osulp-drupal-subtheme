@@ -75,34 +75,24 @@
   node.isSticky() ? 'node--sticky',
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  'py-4-5',
 ] %}
 {% set has_image = node.field_news_image is not empty %}
-{% set row_class = not has_image ? 'justify-content-md-end' %}
-{% set col_class = has_image ? 'col-md-6' : 'col-md-9' %}
 
-<article{{attributes.addClass(classes,'container')}}>
-  <div class="row {{ row_class }}">
+<article{{attributes.addClass(classes)}}>
+  <div>
     {% if node.field_news_image is not empty %}
-      <div class="col-md-3">
-        {{ content.field_news_image }}
-      </div>
+      {{ content.field_news_image }}
     {% endif %}
 
-    <div class="{{ col_class }}">
-      {% apply spaceless %}
-      <span class="header-overline d-inline-block color-grey-600 text-uppercase pe-2-5 border-end border-1 border-neutral-500">
+    <div>
+      <span class="header-overline d-inline-block color-grey-600 text-uppercase pt-3">
         {{ content.field_branch }}
       </span>
-      <span class="header-overline d-inline-block color-grey-600 text-uppercase ps-2-5">
-        {{ content.field_date }}
-      </span>
-      {% endapply %}
 
       {{ title_prefix }}
       {% if label and not page %}
-        <h2{{title_attributes}} class="h4">
-          <a href="{{ url }}" class="color-beaver-dark" rel="bookmark">{{ label }}</a>
+        <h2{{title_attributes}}>
+          <a href="{{ url }}" class="color-beaver-dark clamp-two-lines" rel="bookmark">{{ label }}</a>
         </h2>
       {% endif %}
       {{ title_suffix }}
