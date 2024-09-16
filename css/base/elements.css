@@ -93,6 +93,18 @@ h5 {
 .h5 {
   font-family: var(--font-stratum);
 }
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+.h1 a,
+.h2 a,
+.h3 a,
+.h4 a,
+.h5 a {
+  text-decoration: none;
+}
 
 .clamp-two-lines {
   overflow: hidden;
