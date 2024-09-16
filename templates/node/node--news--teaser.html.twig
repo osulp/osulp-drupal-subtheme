@@ -78,11 +78,10 @@
   'py-4-5',
 ] %}
 {% set has_image = node.field_news_image is not empty %}
-{% set row_class = not has_image ? 'justify-content-md-end' %}
-{% set col_class = has_image ? 'col-md-6' : 'col-md-9' %}
+{% set col_class = has_image ? 'col-md-6' : 'col-md-9 offset-1' %}
 
 <article{{attributes.addClass(classes,'container')}}>
-  <div class="row {{ row_class }}">
+  <div class="row">
     {% if node.field_news_image is not empty %}
       <div class="col-md-3">
         {{ content.field_news_image }}
