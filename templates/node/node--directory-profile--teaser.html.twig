@@ -76,36 +76,37 @@
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 ] %}
-{% set has_image = node.field_news_image is not empty %}
-{% set col_class = "py-4 border-bottom " ~ (has_image ? 'col-md-6' : 'col-md-8 offset-1') %}
+{% set has_image = node.field_image is not empty %}
+{% set col_class = "py-4 border-bottom " ~ (has_image ? 'col-md-8 offset-1' : 'col-md-7 offset-2') %}
 
 <article{{attributes.addClass(classes,'container')}}>
   <div class="row">
-    {% if node.field_image is not empty %}
-      <div class="col-md-3">
+    <div class="{{ col_class }}">
+      <div class="directory-image d-inline-block me-4">
         {{ content.field_image }}
       </div>
-    {% endif %}
+      <div class="d-inline-block align-top">
+        {{ title_prefix }}
+        <h2{{title_attributes}} class="h4 mb-0">
+          <a href="{{ url }}" class="color-beaver-dark d-inline-block fw-bold" rel="bookmark">
+            {{ node.field_last_name.value }},
+            {{ node.field_first_name.value }}
+          </a>
+        </h2>
+        {{ title_suffix }}
 
-    <div class="{{ col_class }}">
-      <h2{{title_attributes}} class="h4 mb-0">
-        <a href="{{ url }}" class="color-beaver-dark d-inline-block fw-bold" rel="bookmark">
-          {{ node.field_last_name.value }},
-          {{ node.field_first_name.value }}
-        </a>
-      </h2>
-
-      {% if node.field_job_title is not empty %}
-        <div class="color-grey-700">
-          {{ content.field_job_title }}
-        </div>
-      {% endif %}
-      {% if node.field_email is not empty or node.field_phone_number is not empty %}
-        <div class="color-grey-700 d-inline-block">
-          <span class="me-5">{{ content.field_email }}</span>
-          <span>{{ content.field_phone_number }}</span>
-        </div>
-      {% endif %}
+        {% if node.field_job_title is not empty %}
+          <div class="color-grey-700">
+            {{ content.field_job_title }}
+          </div>
+        {% endif %}
+        {% if node.field_email is not empty or node.field_phone_number is not empty %}
+          <div class="color-grey-700 d-inline-block">
+            <span class="me-5">{{ content.field_email }}</span>
+            <span>{{ content.field_phone_number }}</span>
+          </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </article>

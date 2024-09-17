@@ -25,3 +25,9 @@
   max-height: 14.75rem;
   object-fit: cover;
 }
+
+/* Directory views page */
+.directory-image img {
+  max-height: 6em;
+  max-width: 6em;
+}
