@@ -25,5 +25,29 @@ function osulp_preprocess_page(array &$variables): void {
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function osulp_preprocess_node(array &$variables): void {
+  $uid = \Drupal::currentUser()->id();
+  $author_id = $variables['node']->getOwner()->id();
+  $variables['is_author'] = $author_id == $uid;
+}
 
+/**
+ * Implements hook_preprocess_HOOK() for field.html.twig.
+ */
+function osulp_preprocess_field(array &$variables): void {
+  $uid = \Drupal::currentUser()->id();
+  $author_id = $variables['element']['#object']->getOwner()->id();
+  $variables['is_author'] = $author_id == $uid;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function osulp_preprocess_form__views_exposed_form(array &$variables): void {
+  if ($variables['attributes']['action'] == '/news') {
+    $variables['attributes']['class'] = array_merge($variables['attributes']['class'], [
+      'mt-5',
+      'pt-4',
+      'border-top',
+    ]);
+  }
 }
