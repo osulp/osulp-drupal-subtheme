@@ -45,7 +45,6 @@ function osulp_preprocess_field(array &$variables): void {
 function osulp_preprocess_form__views_exposed_form(array &$variables): void {
   if ($variables['attributes']['action'] == '/news') {
     $variables['attributes']['class'] = array_merge($variables['attributes']['class'], [
-      'mt-5',
       'pt-4',
       'border-top',
     ]);
