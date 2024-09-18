@@ -75,15 +75,16 @@
   node.isSticky() ? 'node--sticky',
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  'py-4-5',
+  'py-md-4-5',
+  'py-3',
 ] %}
 {% set has_image = node.field_news_image is not empty %}
-{% set col_class = has_image ? 'col-md-6' : 'col-md-9 offset-1' %}
+{% set col_class = has_image ? 'col-md-9 col-lg-6' : 'col-md-9 offset-md-1' %}
 
-<article{{attributes.addClass(classes,'container')}}>
+<article{{attributes.addClass(classes)}}>
   <div class="row">
     {% if node.field_news_image is not empty %}
-      <div class="col-md-3">
+      <div class="col-md-3 d-none d-md-block">
         {{ content.field_news_image }}
       </div>
     {% endif %}
@@ -106,7 +107,7 @@
       {% endif %}
       {{ title_suffix }}
 
-      <span class="color-grey-700">
+      <span class="color-grey-700 d-none d-md-block">
         {{ content.body }}
       </span>
     </div>

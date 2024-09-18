@@ -6,7 +6,6 @@
 
 /* News views page */
 .node--type-news.node--view-mode-teaser {
-  max-height: 10rem;
   box-sizing: content-box;
 }
 .node--type-news.node--view-mode-teaser::after {
@@ -21,9 +20,10 @@
   max-height: 10rem;
   object-fit: cover;
 }
-.node--type-news.node--view-mode-featured img {
+.node--type-news.node--view-mode-news-featured img {
   max-height: 14.75rem;
   object-fit: cover;
+  width: 100%;
 }
 
 /* Directory views page */

@@ -79,7 +79,7 @@
 {% set has_image = node.field_news_image is not empty %}
 
 <article{{attributes.addClass(classes)}}>
-  <div>
+  <div class="pb-4 pb-md-0">
     {% if node.field_news_image is not empty %}
       {{ content.field_news_image }}
     {% endif %}
