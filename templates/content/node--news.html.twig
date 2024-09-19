@@ -76,37 +76,54 @@
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   'px-4',
+  'my-2',
 ] %}
 <article{{attributes.addClass(classes)}}>
+  <div class="row">
+    <div class="d-none d-md-inline-block col-md-5 pb-5 image-w-100">
+      {{ content.field_news_image }}
+      <div class="color-grey-600 smaller">
+        {{ content.field_news_image_caption }}
+      </div>
 
-  {{ title_prefix }}
-  {% if label %}
-    <div class="header-overline color-grey-600 text-uppercase smaller">
-      {{ content.field_branch }}
+      {# border below image for sm display #}
+      <div class="d-md-none border-bottom mb-5"></div>
     </div>
-    <h2{{title_attributes.addClass('h1','text-uppercase','my-1','mb-0')}}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-    <div class="small color-grey-600 fst-italic mb-4">
-      {{ content.field_date }}
+
+    <div class="col-12 col-md-7">
+      {{ title_prefix }}
+      {% if label %}
+        <div class="header-overline color-grey-600 text-uppercase smaller">
+          {{ content.field_branch }}
+        </div>
+        <h2{{title_attributes.addClass('h1','text-uppercase','my-1','mb-0')}}>
+          <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h2>
+        <div class="small color-grey-600 fst-italic mb-4-5">
+          {{ content.field_date }}
+        </div>
+      {% endif %}
+      {{ title_suffix }}
+
+      {# border below title for md display #}
+      <div class="d-none d-md-block border-bottom mb-5"></div>
+
+      <div class="d-md-none pb-5 border-bottom mb-5 image-w-100">
+        {{ content.field_news_image }}
+        <div class="color-grey-600 smaller">
+          {{ content.field_news_image_caption }}
+        </div>
+      </div>
+
+      <div class="mb-2-5 mb-md-5">
+        {{ content.body }}
+      </div>
+
+      <div>
+        <a class="arrow-link" href="/news">
+          <i class="fa-solid fa-circle-arrow-right me-2 color-beaver-dark"></i>All OSU Libraries News</a>
+      </div>
     </div>
-  {% endif %}
-  {{ title_suffix }}
-
-  <div class="pb-5 border-bottom mb-5 image-w-100">
-    {{ content.field_news_image }}
-    <div class="color-grey-600 smaller">
-      {{ content.field_news_image_caption }}
-    </div>
-  </div>
-
-  <div>
-    {{ content.body }}
-  </div>
-
-  <div>
-    <a class="arrow-link" href="/news">
-      <i class="fa-solid fa-circle-arrow-right me-2 color-beaver-dark"></i>All OSU Libraries News</a>
   </div>
 
   {% if display_submitted %}
