@@ -115,9 +115,15 @@
       </div>
       <div class="mb-2-5 mb-md-5">
         {{ content.body }}</div>
-      <div>
-        <a class="arrow-link" href="/news">
+      <div class="mb-2-5 row">
+        <a class="arrow-link col-12 col-sm-5" href="/news">
           <i class="fa-solid fa-circle-arrow-right me-2 color-beaver-dark"></i>All OSU Libraries News</a>
+        {% if node.field_branch.value != 'osu_libraries' %}
+          <a class="arrow-link col-12 col-sm-5" href="/news?field_branch_value={{ node.field_branch.value }}">
+            <i class="fa-solid fa-circle-arrow-right me-2 color-beaver-dark"></i>All
+            {{ node.field_branch.value|capitalize }}
+            News</a>
+        {% endif %}
       </div>
     </div>
   </div>
