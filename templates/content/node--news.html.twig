@@ -78,19 +78,22 @@
   'px-4',
   'my-2',
 ] %}
+{% set has_image = node.field_news_image is not empty %}
 <article{{attributes.addClass(classes)}}>
   <div class="row">
-    <div class="d-none d-md-inline-block col-md-5 pb-5 image-w-100">
-      {{ content.field_news_image }}
-      <div class="color-grey-600 smaller">
-        {{ content.field_news_image_caption }}
+    {% if has_image %}
+      <div class="d-none d-md-inline-block col-md-5 pb-5 image-w-100">
+        {{ content.field_news_image }}
+        <div class="color-grey-600 smaller">
+          {{ content.field_news_image_caption }}
+        </div>
+
+        {# border below image for sm display #}
+        <div class="d-md-none border-bottom mb-5"></div>
       </div>
+    {% endif %}
 
-      {# border below image for sm display #}
-      <div class="d-md-none border-bottom mb-5"></div>
-    </div>
-
-    <div class="col-12 col-md-7">
+    <div class="col-12 {{ has_image ? 'col-md-7' : 'col-md-12' }} col-lg-7">
       {{ title_prefix }}
       {% if label %}
         <div class="header-overline color-grey-600 text-uppercase smaller">
@@ -103,41 +106,30 @@
           {{ content.field_date }}
         </div>
       {% endif %}
-      {{ title_suffix }}
-
-      {# border below title for md display #}
-      <div class="d-none d-md-block border-bottom mb-5"></div>
-
+      {{ title_suffix }}{# border below title for md display #}<div class="d-none d-md-block border-bottom mb-5"></div>
       <div class="d-md-none pb-5 border-bottom mb-5 image-w-100">
         {{ content.field_news_image }}
         <div class="color-grey-600 smaller">
           {{ content.field_news_image_caption }}
         </div>
       </div>
-
       <div class="mb-2-5 mb-md-5">
-        {{ content.body }}
-      </div>
-
+        {{ content.body }}</div>
       <div>
         <a class="arrow-link" href="/news">
           <i class="fa-solid fa-circle-arrow-right me-2 color-beaver-dark"></i>All OSU Libraries News</a>
       </div>
     </div>
   </div>
-
   {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{author_attributes.addClass('fst-italic','text-align-center')}}>
+    <footer>{{ author_picture }}<div{{author_attributes.addClass('fst-italic','text-align-center')}}>
         {% trans %}
         By
         {{ author_name }}
         on
         {{ date }}
         {% endtrans %}
-        {{ metadata }}
-      </div>
+        {{ metadata }}</div>
     </footer>
   {% endif %}
 </article>
