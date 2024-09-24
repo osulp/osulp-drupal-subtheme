@@ -12,6 +12,7 @@
   --color-grey-800: #423E3C;
   --color-grey-700: #555453;
   --color-grey-600: #646362;
+  --color-shared: #423E3C;
   --color-valley: #8E9089;
   --color-guin: #00859B;
   --color-cascades: #0D5257;
@@ -54,6 +55,10 @@
 .color-grey-600 {
   color: var(--color-grey-600);
 }
+/* location text colors*/
+.color-shared {
+  color: var(--color-shared);
+}
 .color-valley {
   color: var(--color-valley);
 }
@@ -62,6 +67,19 @@
 }
 .color-cascades {
   color: var(--color-cascades);
+}
+/* location background colors for bootstrap/layout builder */
+.bg-shared {
+  background-color: var(--color-shared);
+}
+.bg-guin {
+  background-color: var(--color-guin);
+}
+.bg-valley {
+  background-color: var(--color-valley);
+}
+.bg-cascades {
+  background-color: var(--color-cascades);
 }
 .color-white {
   color: var(--color-white);
