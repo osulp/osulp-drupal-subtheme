@@ -78,77 +78,126 @@
 ] %}
 <article{{attributes.addClass(classes)}}>
 
-  {# Disabled for now since `page` is true #}
-  {{ title_prefix }}
-  {% if label and not page %}
-    <h2{{title_attributes}}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
+  <div class="row">
 
-  <div class="pb-4-5 col-12 col-md-8 offset-md-4">
-    <h2>
-      {% apply spaceless %}
-      <span class="d-inline-block">
-        {{ node.field_first_name.value }}
-        {{ node.field_last_name.value }}
-      </span>
-      {% endapply %}
-    </h2>
-    <h3 class="color-grey-900">
-      {{ node.field_job_title.value }}
-    </h3>
-    <div>
-      <span class="d-inline-bl fw-bold">
-        {{node.field_colleges.fieldDefinition.label}}:
-      </span>
-      {% for college in node.field_colleges %}
-        {{- college.entity.label -}}
-        {% if not loop.last %};
-        {% endif %}
-      {% endfor %}
+    {# Desktop only left image #}
+    <div class="d-none d-md-block col-md-4">
+
+      <div class="pb-4-5">
+        {{ content.field_image }}
+      </div>
+
+      {% if content.field_contact_me_for_help_with%}
+        <div class="pb-4-5 border-bottom">
+          <h2 class="fw-medium pb-2 mb-0 fs-5">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
+          <div class="lh-small fs-7 pb-3">
+            {{ content.field_contact_me_for_help_with }}
+          </div>
+          <a href="#" class="fs-6">Schedule a Research Consultation</a>
+        </div>
+      {% endif %}
+
+      {% if content.field_websites %}
+        <div class="py-4">
+          {{ content.field_websites }}
+        </div>
+      {% endif %}
     </div>
-  </div>
-  <div class="d-none d-md-block"></div>
+    {# End Desktop only left image #}
 
-  {# Mobile only image #}
-  <div class="d-md-none pb-4-5">
-    {{ content.field_image }}
-  </div>
+    <div class="pb-4-5 col-12 col-md-8">
+      {# Name, title, colleges for Mobile & Desktop #}
+      <h2>
+        {% apply spaceless %}
+        <span class="d-inline-block">
+          {{ node.field_first_name.value }}
+          {{ node.field_last_name.value }}
+        </span>
+        {% endapply %}
+      </h2>
+      <h3 class="color-grey-900">
+        {{ node.field_job_title.value }}
+      </h3>
+      <div class="pb-md-4-5">
+        <span class="d-inline-bl fw-bold">
+          {{node.field_colleges.fieldDefinition.label}}:
+        </span>
+        {% for college in node.field_colleges %}
+          {{- college.entity.label -}}
+          {% if not loop.last %};
+          {% endif %}
+        {% endfor %}
+      </div>
+      {# End name, title, college mobile/desktop #}
 
-  <div class="py-4-5 header-overline border-bottom border-top font-open-sans small row mx-0">
-    {% apply spaceless %}
-    <span class="pe-md-3 border-end border-dark border-end-md-0 col-12 col-md-auto">
-      <a href="mailto:{{node.field_email.value}}">{{- node.field_email.value -}}</a>
-    </span>
-    <span class="px-md-3 py-2-5 py-md-0 border-end border-dark border-end-md-0 col-12 col-md-auto">
-      <a href="tel:{{node.field_phone_number.value}}">
-        {{- node.field_phone_number.value -}}</a>
-    </span>
-    <span class="ps-md-3 col-12 col-md-auto">{{- node.field_branch_campuses_and_other.entity.field_full_name.value -}}</span>
-    {% endapply %}
-  </div>
+      {# Contact info for Desktop only #}
+      <div class="d-none d-md-block py-4-5 header-overline border-bottom border-top font-open-sans small row mx-0">
+        {% apply spaceless %}
+        <span class="pe-md-3 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="mailto:{{node.field_email.value}}">{{- node.field_email.value -}}</a>
+        </span>
+        <span class="px-md-3 py-2-5 py-md-0 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="tel:{{node.field_phone_number.value}}">
+            {{- node.field_phone_number.value -}}</a>
+        </span>
+        <span class="ps-md-3 col-12 col-md-auto">{{- node.field_branch_campuses_and_other.entity.field_full_name.value -}}</span>
+        {% endapply %}
+      </div>
+      {# End contact for desktop #}
 
-  <h2 class="visually-hidden">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
-
-
-  {# Mobile only contact me #}
-  <div class="d-md-none pb-4-5 border-bottom">
-    <h2 class="fw-medium py-4 mb-0">Contact me for help with</h2>
-    <span class="lh-small">
-      {{ content.field_contact_me_for_help_with }}
-    </span>
-    <a href="#">Schedule a Research Consultation</a>
-  </div>
-
-  {% if content.field_websites %}
-    <div class="border-bottom py-4">
-      {{ content.field_websites }}
+      {# CV for desktop only #}
+      <div class="d-none d-md-block pt-5">
+        <h2 class="visually-hidden">Professional Development</h2>
+        {{ content.field_brief_cv }}
+      </div>
     </div>
-  {% endif %}
+    {# End CV for desktop #}
 
-  <div class="pt-5 field_brief_cv">
-    {{ content.field_brief_cv }}
+    {# Mobile only image #}
+    <div class="d-md-none pb-4-5">
+      {{ content.field_image }}
+    </div>
+
+    <div class="d-md-none">
+      {# Mobile only contact info #}
+      <div class="py-4-5 header-overline border-bottom border-top font-open-sans small row mx-0">
+        {% apply spaceless %}
+        <span class="pe-md-3 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="mailto:{{node.field_email.value}}">{{- node.field_email.value -}}</a>
+        </span>
+        <span class="px-md-3 py-2-5 py-md-0 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="tel:{{node.field_phone_number.value}}">
+            {{- node.field_phone_number.value -}}</a>
+        </span>
+        <span class="ps-md-3 col-12 col-md-auto">{{- node.field_branch_campuses_and_other.entity.field_full_name.value -}}</span>
+        {% endapply %}
+      </div>
+      {# End mobile contact info #}
+
+      {# Mobile only contact link #}
+      <div class="d-md-none pb-4-5 border-bottom">
+        <h2 class="fw-medium py-4 mb-0">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
+        <span class="lh-small">
+          {{ content.field_contact_me_for_help_with }}
+        </span>
+        <a href="#">Schedule a Research Consultation</a>
+      </div>
+      {# End mobile contact link #}
+
+      {# Mobile only websites #}
+      {% if content.field_websites %}
+        <div class="border-bottom py-4">
+          {{ content.field_websites }}
+        </div>
+      {% endif %}
+      {# end mobile websites #}
+
+      {# Mobile only CV #}
+      <div class="pt-5">
+        <h2 class="visually-hidden">Professional Development</h2>
+        {{ content.field_brief_cv }}
+      </div>
+      {# End mobile only CV #}
+    </div>
   </div>
 </article>
