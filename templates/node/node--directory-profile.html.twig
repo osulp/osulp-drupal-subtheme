@@ -1,0 +1,203 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: (optional) The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: (optional) Themed creation date field.
+ * - author_name: (optional) Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+] %}
+<article{{attributes.addClass(classes)}}>
+
+  <div class="row">
+
+    {# Desktop only left image #}
+    <div class="d-none d-md-block col-md-4">
+
+      <div class="pb-4-5">
+        {{ content.field_image }}
+      </div>
+
+      {% if content.field_contact_me_for_help_with%}
+        <div class="pb-4-5 border-bottom">
+          <h2 class="fw-medium pb-2 mb-0 fs-5">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
+          <div class="lh-small fs-7 pb-3">
+            {{ content.field_contact_me_for_help_with }}
+          </div>
+          <a href="#" class="fs-6">Schedule a Research Consultation</a>
+        </div>
+      {% endif %}
+
+      {% if content.field_websites %}
+        <div class="py-4">
+          {{ content.field_websites }}
+        </div>
+      {% endif %}
+    </div>
+    {# End Desktop only left image #}
+
+    <div class="pb-4-5 col-12 col-md-8">
+      {# Name, title, colleges for Mobile & Desktop #}
+      <h2>
+        {% apply spaceless %}
+        <span class="d-inline-block">
+          {{ node.field_first_name.value }}
+          {{ node.field_last_name.value }}
+        </span>
+        {% endapply %}
+      </h2>
+      <h3 class="color-grey-900">
+        {{ node.field_job_title.value }}
+      </h3>
+      <div class="pb-md-4-5">
+        <span class="d-inline-bl fw-bold">
+          {{node.field_colleges.fieldDefinition.label}}:
+        </span>
+        {% for college in node.field_colleges %}
+          {{- college.entity.label -}}
+          {% if not loop.last %};
+          {% endif %}
+        {% endfor %}
+      </div>
+      {# End name, title, college mobile/desktop #}
+
+      {# Contact info for Desktop only #}
+      <div class="d-none d-md-block py-4-5 header-overline border-bottom border-top font-open-sans small row mx-0">
+        {% apply spaceless %}
+        <span class="pe-md-3 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="mailto:{{node.field_email.value}}">{{- node.field_email.value -}}</a>
+        </span>
+        <span class="px-md-3 py-2-5 py-md-0 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="tel:{{node.field_phone_number.value}}">
+            {{- node.field_phone_number.value -}}</a>
+        </span>
+        <span class="ps-md-3 col-12 col-md-auto">{{- node.field_branch_campuses_and_other.entity.field_full_name.value -}}</span>
+        {% endapply %}
+      </div>
+      {# End contact for desktop #}
+
+      {# CV for desktop only #}
+      <div class="d-none d-md-block pt-5">
+        <h2 class="visually-hidden">Professional Development</h2>
+        {{ content.field_brief_cv }}
+      </div>
+    </div>
+    {# End CV for desktop #}
+
+    {# Mobile only image #}
+    <div class="d-md-none pb-4-5">
+      {{ content.field_image }}
+    </div>
+
+    <div class="d-md-none">
+      {# Mobile only contact info #}
+      <div class="py-4-5 header-overline border-bottom border-top font-open-sans small row mx-0">
+        {% apply spaceless %}
+        <span class="pe-md-3 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="mailto:{{node.field_email.value}}">{{- node.field_email.value -}}</a>
+        </span>
+        <span class="px-md-3 py-2-5 py-md-0 border-end border-dark border-end-md-0 col-12 col-md-auto">
+          <a href="tel:{{node.field_phone_number.value}}">
+            {{- node.field_phone_number.value -}}</a>
+        </span>
+        <span class="ps-md-3 col-12 col-md-auto">{{- node.field_branch_campuses_and_other.entity.field_full_name.value -}}</span>
+        {% endapply %}
+      </div>
+      {# End mobile contact info #}
+
+      {# Mobile only contact link #}
+      <div class="d-md-none pb-4-5 border-bottom">
+        <h2 class="fw-medium py-4 mb-0">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
+        <span class="lh-small">
+          {{ content.field_contact_me_for_help_with }}
+        </span>
+        <a href="#">Schedule a Research Consultation</a>
+      </div>
+      {# End mobile contact link #}
+
+      {# Mobile only websites #}
+      {% if content.field_websites %}
+        <div class="border-bottom py-4">
+          {{ content.field_websites }}
+        </div>
+      {% endif %}
+      {# end mobile websites #}
+
+      {# Mobile only CV #}
+      <div class="pt-5">
+        <h2 class="visually-hidden">Professional Development</h2>
+        {{ content.field_brief_cv }}
+      </div>
+      {# End mobile only CV #}
+    </div>
+  </div>
+</article>
