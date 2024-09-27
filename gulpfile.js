@@ -13,20 +13,10 @@ function buildStyles() {
     .pipe(gulp.dest("./dist"));
 }
 
-function copyBSScripts() {
-  return gulp
-    .src([
-      "./node_modules/bootstrap/dist/js/bootstrap.bundle.js",
-      "./node_modules/bootstrap/dist/js/bootstrap.bundle.js.map",
-    ])
-    .pipe(gulp.dest("dist/"));
-}
-
 function watchFiles() {
   gulp.watch("./src/**/*.scss", gulp.series(buildStyles));
 }
 
 exports.buildStyles = buildStyles;
-exports.copyBSScripts = copyBSScripts;
-exports.watch = gulp.series(buildStyles, copyBSScripts, watchFiles);
-exports.default = gulp.series(buildStyles, copyBSScripts);
+exports.watch = gulp.series(buildStyles, watchFiles);
+exports.default = gulp.series(buildStyles);
