@@ -2,7 +2,27 @@
   "name": "osulp",
   "private": true,
   "scripts": {
+    "lint:scss": "stylelint \"./src/**/*.scss\"",
+    "prettier:js": "prettier --write \"./src/**/*.js\"",
+    "prettier:scss": "prettier --write \"./src/**/*.scss\"",
     "livereload": "livereload --exclusions node_modules/ --exts 'css,js,twig,theme,apng,avif,gif,jpg,jpeg,jfif,pjpeg,pjp,png,svg,webp'"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "bootstrap": "^5.2",
+    "eslint": "^8.5.0",
+    "eslint-config-drupal": "^5.0.2",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.4.7",
+    "prettier": "^3.0.0",
+    "sass": "^1.45.0",
+    "stylelint": "^15.10.2",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "stylelint-order": "^6.0.3"
   },
   "devDependencies": {
     "livereload": "^0.9.3"
