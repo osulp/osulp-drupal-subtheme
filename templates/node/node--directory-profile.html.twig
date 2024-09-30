@@ -86,13 +86,23 @@
       <div class="pb-4-5">
         {{ content.field_image }}
       </div>
-
-      {% if content.field_contact_me_for_help_with%}
+{# desktop only contact. If there's content in "contact me for help with" or "subjects", display "Schedule a research consultation" #}
+      {% if content.field_contact_me_for_help_with.0 or content.field_subjects.0 %}
         <div class="pb-4-5 border-bottom">
+        {# if there's content in "contact me for help with", display #}
+        {% if content.field_contact_me_for_help_with.0 %}
           <h2 class="fw-medium pb-2 mb-0 fs-5">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
-          <div class="lh-small fs-7 pb-3">
+          <div class="lh-small fs-9 pb-3">
             {{ content.field_contact_me_for_help_with }}
           </div>
+        {% endif %}
+        {# if there's content in "subjects", display #}
+        {% if content.field_subjects.0 %}
+          <h2 class="fw-medium pb-2 mb-0 fs-5">{{ node.field_subjects.fieldDefinition.label }}</h2>
+          <div class="lh-small fs-7 pb-3">
+            {{ content.field_subjects }}
+          </div>
+        {% endif %}
           <a href="#" class="fs-6">Schedule a Research Consultation</a>
         </div>
       {% endif %}
@@ -106,6 +116,9 @@
     {# End Desktop only left image #}
 
     <div class="pb-4-5 col-12 col-md-8">
+    <span class="mb-4-5 font-stratum2web">
+      {{- node.field_department.entity.name.value|upper }} | {{ node.field_branch_campuses_and_other.entity.field_full_name.value|upper -}}
+    </span>
       {# Name, title, colleges for Mobile & Desktop #}
       <h2>
         {% apply spaceless %}
@@ -118,16 +131,20 @@
       <h3 class="color-grey-900">
         {{ node.field_job_title.value }}
       </h3>
+      {# Colleges hidden if no college is set #}
+      {% if node.field_colleges.0 %}
       <div class="pb-md-4-5">
         <span class="d-inline-bl fw-bold">
           {{node.field_colleges.fieldDefinition.label}}:
         </span>
+ 
         {% for college in node.field_colleges %}
           {{- college.entity.label -}}
           {% if not loop.last %};
           {% endif %}
         {% endfor %}
       </div>
+      {% endif %}
       {# End name, title, college mobile/desktop #}
 
       {# Contact info for Desktop only #}
@@ -147,11 +164,17 @@
 
       {# CV for desktop only #}
       <div class="d-none d-md-block pt-5">
-        <h2 class="visually-hidden">Professional Development</h2>
+        <h2 class="visually-hidden">Duties and C.V.</h2>
+        {{ content.field_primary_duties }}
+      </div>
+      
+
+      <div class="d-none d-md-block pt-5">
         {{ content.field_brief_cv }}
       </div>
+      {# End CV for desktop #}
     </div>
-    {# End CV for desktop #}
+    
 
     {# Mobile only image #}
     <div class="d-md-none pb-4-5">
@@ -174,14 +197,25 @@
       </div>
       {# End mobile contact info #}
 
-      {# Mobile only contact link #}
+
+      {# Mobile only contact me for help with, subjects, link #}
+      {% if content.field_contact_me_for_help_with.0 or content.field_subjects.0 %}
       <div class="d-md-none pb-4-5 border-bottom">
-        <h2 class="fw-medium py-4 mb-0">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
-        <span class="lh-small">
-          {{ content.field_contact_me_for_help_with }}
-        </span>
+        {% if content.field_contact_me_for_help_with.0 %}
+          <h2 class="fw-medium py-4 mb-0">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
+          <span class="lh-small">
+            {{ content.field_contact_me_for_help_with }}
+          </span>
+        {% endif %}
+        {% if content.field_subjects.0 %}
+          <h2 class="fw-medium py-4 mb-0">{{ node.field_subjects.fieldDefinition.label }}</h2>
+          <span class="lh-small">
+            {{ content.field_subjects }}
+          </span>
+        {% endif %}
         <a href="#">Schedule a Research Consultation</a>
       </div>
+      {% endif %}
       {# End mobile contact link #}
 
       {# Mobile only websites #}
@@ -194,7 +228,7 @@
 
       {# Mobile only CV #}
       <div class="pt-5">
-        <h2 class="visually-hidden">Professional Development</h2>
+        <h2 class="visually-hidden">C.V.</h2>
         {{ content.field_brief_cv }}
       </div>
       {# End mobile only CV #}
