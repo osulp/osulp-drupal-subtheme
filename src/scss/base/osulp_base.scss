@@ -1,91 +1,75 @@
 :root,
 [data-bs-theme=light] {
   --bs-body-font-size: 18px;
-  --bs-border-color: var(--color-coastline-100);
-  --color-beaver-orange: #D73F09;
-  --color-beaver-dark: #AC3207;
-  --color-candela: #FDD26E;
-  --color-coastline-100: #A7ACA2;
-  --color-coastline-50: #C8CCC7;
-  --color-coastline-20: #ECEBE9;
-  --color-grey-900: #221F1E;
-  --color-grey-800: #423E3C;
-  --color-grey-700: #555453;
-  --color-grey-600: #646362;
-  --color-shared: #423E3C;
-  --color-valley: #8E9089;
-  --color-guin: #00859B;
-  --color-cascades: #0D5257;
-  --color-white: #FFFFFF;
-  --color-black: #000000;
-  --font-stratum: "Stratum2Web", serif;
+  --bs-border-color: $color-coastline-100;
 }
 
 [data-bs-theme=dark] {
   --bs-body-font-size: 18px;
+  // Dark theme border color?
 }
 
 .color-beaver-orange {
-  color: var(--color-beaver-orange);
+  color: $color-beaver-orange;
 }
 .color-beaver-dark {
-  color: var(--color-beaver-dark);
+  color: $color-beaver-dark;
 }
 .color-candela {
-  color: var(--color-candela);
+  color: $color-candela;
 }
 .color-coastline-100 {
-  color: var(--color-coastline-100);
+  color: $color-coastline-100;
 }
 .color-coastline-50 {
-  color: var(--color-coastline-50);
+  color: $color-coastline-50;
 }
 .color-coastline-20 {
-  color: var(--color-coastline-20);
+  color: $color-coastline-20;
 }
 .color-grey-900 {
-  color: var(--color-grey-900);
+  color: $color-grey-900;
 }
 .color-grey-800 {
-  color: var(--color-grey-800);
+  color: $color-grey-800;
 }
 .color-grey-700 {
-  color: var(--color-grey-700);
+  color: $color-grey-700;
 }
 .color-grey-600 {
-  color: var(--color-grey-600);
+  color: $color-grey-600;
 }
 /* location text colors*/
 .color-shared {
-  color: var(--color-shared);
+  color: $color-shared;
 }
 .color-valley {
-  color: var(--color-valley);
+  color: $color-valley;
 }
 .color-guin {
-  color: var(--color-guin);
+  color: $color-guin;
 }
 .color-cascades {
-  color: var(--color-cascades);
+  color: $color-cascades;
 }
 /* location background colors for bootstrap/layout builder */
 .bg-shared {
-  background-color: var(--color-shared);
+  background-color: $color-shared;
 }
 .bg-guin {
-  background-color: var(--color-guin);
+  background-color: $color-guin;
 }
 .bg-valley {
-  background-color: var(--color-valley);
+  background-color: $color-valley;
 }
 .bg-cascades {
-  background-color: var(--color-cascades);
+  background-color: $color-cascades;
 }
 .color-white {
-  color: var(--color-white);
+  color: $color-white;
 }
 .color-black {
-  color: var(--color-black);
+  color: $color-black;
 }
 
 a.h4 {
@@ -95,40 +79,23 @@ a.h4:hover,
 a.h4:focus,
 .h4 a:hover,
 .h4 a:focus {
-  color: var(--color-black);
+  color: $color-black;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-stratum);
-  color: var(--color-grey-900);
-}
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: var(--font-stratum);
-  color: var(--color-grey-900);
-}
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-.h1 a,
-.h2 a,
-.h3 a,
-.h4 a,
-.h5 a {
-  text-decoration: none;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: $font-stratum;
+  color: $color-grey-900;
+  a {
+    text-decoration: none;
+  }
 }
 
 @media (max-width: 575.98px) {
+  // Borderless for small
   .border-x-sm-0 {
     border-left: 0 !important;
     border-right: 0 !important;
@@ -151,6 +118,7 @@ h5 a,
   }
 }
 @media (max-width: 767.98px) {
+  // Borderless for med
   .border-x-md-0 {
     border-left: 0 !important;
     border-right: 0 !important;
@@ -174,9 +142,10 @@ h5 a,
 }
 
 .font-open-sans {
-  font-family: var(--bs-body-font-family) !important;
+  font-family: $bs-body-font-family) !important;
 }
 
+// Limit text to two lines and end w/ an ellipsis
 .clamp-two-lines {
   overflow: hidden;
   display: -webkit-box;
@@ -186,7 +155,7 @@ h5 a,
 }
 
 .header-overline {
-  font-family: var(--font-stratum);
+  font-family: $font-stratum;
   font-size: 1rem;
   line-height: 125%;
 }
@@ -205,6 +174,6 @@ a.arrow-link::before {
   position: absolute;
   bottom  : 0;
   height  : 1px;
-  background: var(--color-coastline-100) !important;
+  background: $color-coastline-100 !important;
   width: 50%;
 }
