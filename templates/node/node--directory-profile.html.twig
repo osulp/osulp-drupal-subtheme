@@ -92,14 +92,14 @@
         {# if there's content in "contact me for help with", display #}
         {% if content.field_contact_me_for_help_with.0 %}
           <h2 class="fw-medium pb-2 mb-0 fs-5">{{ node.field_contact_me_for_help_with.fieldDefinition.label }}</h2>
-          <div class="lh-small fs-9 pb-3">
+          <div class="lh-small fs-9 pb-3 fw-light">
             {{ content.field_contact_me_for_help_with }}
           </div>
         {% endif %}
         {# if there's content in "subjects", display #}
         {% if content.field_subjects.0 %}
           <h2 class="fw-medium pb-2 mb-0 fs-5">{{ node.field_subjects.fieldDefinition.label }}</h2>
-          <div class="lh-small fs-7 pb-3">
+          <div class="lh-small fs-9 pb-3 fw-light">
             {{ content.field_subjects }}
           </div>
         {% endif %}
@@ -116,11 +116,11 @@
     {# End Desktop only left image #}
 
     <div class="pb-4-5 col-12 col-md-8">
-    <span class="mb-4-5 font-stratum2web">
+    <span class="mb-4-5 font-stratum2web d-inline-block fs-9">
       {{- node.field_department.entity.name.value|upper }} | {{ node.field_branch_campuses_and_other.entity.field_full_name.value|upper -}}
     </span>
       {# Name, title, colleges for Mobile & Desktop #}
-      <h2>
+      <h2 class="fw-normal">
         {% apply spaceless %}
         <span class="d-inline-block">
           {{ node.field_first_name.value }}
@@ -128,18 +128,18 @@
         </span>
         {% endapply %}
       </h2>
-      <h3 class="color-grey-900">
+      <h3 class="fw-normal color-grey-900">
         {{ node.field_job_title.value }}
       </h3>
       {# Colleges hidden if no college is set #}
       {% if node.field_colleges.0 %}
-      <div class="pb-md-4-5">
-        <span class="d-inline-bl fw-bold">
+      <div class="pb-md-4-5 fw-normal">
+        <span class="d-inline-bl">
           {{node.field_colleges.fieldDefinition.label}}:
         </span>
  
         {% for college in node.field_colleges %}
-          {{- college.entity.label -}}
+          <span class="fw-light">{{- college.entity.label -}}</span>
           {% if not loop.last %};
           {% endif %}
         {% endfor %}
@@ -165,11 +165,15 @@
       {# CV for desktop only #}
       <div class="d-none d-md-block pt-5">
         <h2 class="visually-hidden">Duties and C.V.</h2>
-        {{ content.field_primary_duties }}
       </div>
-      
-
-      <div class="d-none d-md-block pt-5">
+      {% if content.field_primary_duties.0 %}
+        <div class="d-none d-md-block pt-5 fw-lighter">
+        <h3 class="color-grey-900">{{ node.field_primary_duties.fieldDefinition.label }}</h3>
+          {# {{ dump(node.field_primary_duties.fieldDefinition.label) }} #}
+          {{ content.field_primary_duties }}
+        </div>
+      {% endif %}
+      <div class="d-none d-md-block pt-5 fw-lighter">
         {{ content.field_brief_cv }}
       </div>
       {# End CV for desktop #}
