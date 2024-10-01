@@ -1,11 +1,13 @@
 :root,
 [data-bs-theme=light] {
   --bs-body-font-size: 18px;
+  // --bs-body-font-weight: 100;
   --bs-border-color: $color-coastline-100;
 }
 
 [data-bs-theme=dark] {
   --bs-body-font-size: 18px;
+  --bs-body-font-weight: 100;
   // Dark theme border color?
 }
 
@@ -142,7 +144,7 @@ h6, .h6 {
 }
 
 .font-open-sans {
-  font-family: $bs-body-font-family) !important;
+  font-family: var(--bs-body-font-family) !important;
 }
 
 // Limit text to two lines and end w/ an ellipsis
