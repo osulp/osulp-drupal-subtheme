@@ -1,16 +1,43 @@
 {
-    "name": "osulp/osulp-drupal-subtheme",
-    "description": "Drupal Theme for OSULP",
-    "type": "drupal-custom-theme",
-    "authors": [
-        {
-            "name": "Corey Gillen",
-            "email": "corey.gillen@oregonstate.edu"
-        },
-	{
-	    "name": "Kenna Warsinske",
-	    "email": "warsinsk@oregonstate.edu"
-	}
+  "name": "osulp/osulp-drupal-subtheme",
+  "description": "Drupal Theme for OSULP",
+  "type": "drupal-custom-theme",
+  "authors": [
+    {
+      "name": "Corey Gillen",
+      "email": "corey.gillen@oregonstate.edu"
+    },
+    {
+      "name": "Kenna Warsinske",
+      "email": "warsinsk@oregonstate.edu"
+    }
+  ],
+  "require-dev": {
+    "brainmaestro/composer-git-hooks": "^3.0",
+    "squizlabs/php_codesniffer": "*",
+    "friendsoftwig/twigcs": "^6.4"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "vendor/bin/cghooks add"
     ],
-    "require": {}
+    "post-update-cmd": [
+      "vendor/bin/cghooks update"
+    ]
+  },
+  "extra": {
+    "hooks": {
+      "config": {
+        "stop-on-failure": [
+          "pre-commit",
+          "pre-push"
+        ]
+      },
+      "pre-push": [],
+      "pre-commit": [
+        "node_modules/gulp-cli/bin/gulp.js",
+        "git add dist"
+      ]
+    }
+  }
 }

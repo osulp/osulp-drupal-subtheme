@@ -23,4 +23,4 @@ regions:
   pre_footer: Full width above the Footer
   footer: Footer
 ckeditor_stylesheets:
-  - dist/madrone.css
+  - dist/osulp.css

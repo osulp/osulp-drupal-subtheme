@@ -1,0 +1,181 @@
+:root,
+[data-bs-theme=light] {
+  --bs-body-font-size: 18px;
+  // --bs-body-font-weight: 100;
+  --bs-border-color: $color-coastline-100;
+}
+
+[data-bs-theme=dark] {
+  --bs-body-font-size: 18px;
+  --bs-body-font-weight: 100;
+  // Dark theme border color?
+}
+
+.color-beaver-orange {
+  color: $color-beaver-orange;
+}
+.color-beaver-dark {
+  color: $color-beaver-dark;
+}
+.color-candela {
+  color: $color-candela;
+}
+.color-coastline-100 {
+  color: $color-coastline-100;
+}
+.color-coastline-50 {
+  color: $color-coastline-50;
+}
+.color-coastline-20 {
+  color: $color-coastline-20;
+}
+.color-grey-900 {
+  color: $color-grey-900;
+}
+.color-grey-800 {
+  color: $color-grey-800;
+}
+.color-grey-700 {
+  color: $color-grey-700;
+}
+.color-grey-600 {
+  color: $color-grey-600;
+}
+/* location text colors*/
+.color-shared {
+  color: $color-shared;
+}
+.color-valley {
+  color: $color-valley;
+}
+.color-guin {
+  color: $color-guin;
+}
+.color-cascades {
+  color: $color-cascades;
+}
+/* location background colors for bootstrap/layout builder */
+.bg-shared {
+  background-color: $color-shared;
+}
+.bg-guin {
+  background-color: $color-guin;
+}
+.bg-valley {
+  background-color: $color-valley;
+}
+.bg-cascades {
+  background-color: $color-cascades;
+}
+.color-white {
+  color: $color-white;
+}
+.color-black {
+  color: $color-black;
+}
+
+a.h4 {
+  font-weight: bold;
+}
+a.h4:hover,
+a.h4:focus,
+.h4 a:hover,
+.h4 a:focus {
+  color: $color-black;
+}
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: $font-stratum;
+  color: $color-grey-900;
+  a {
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  // Borderless for small
+  .border-x-sm-0 {
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+  .border-y-sm-0 {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+  }
+  .border-end-sm-0 {
+    border-right: 0 !important;
+  }
+  .border-start-sm-0 {
+    border-left: 0 !important;
+  }
+  .border-top-sm-0 {
+    border-top: 0 !important;
+  }
+  .border-bottom-sm-0 {
+    border-bottom: 0 !important;
+  }
+}
+@media (max-width: 767.98px) {
+  // Borderless for med
+  .border-x-md-0 {
+    border-left: 0 !important;
+    border-right: 0 !important;
+  }
+  .border-y-md-0 {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+  }
+  .border-end-md-0 {
+    border-right: 0 !important;
+  }
+  .border-start-md-0 {
+    border-left: 0 !important;
+  }
+  .border-top-md-0 {
+    border-top: 0 !important;
+  }
+  .border-bottom-md-0 {
+    border-bottom: 0 !important;
+  }
+}
+
+.font-open-sans {
+  font-family: var(--bs-body-font-family) !important;
+}
+
+// Limit text to two lines and end w/ an ellipsis
+.clamp-two-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.header-overline {
+  font-family: $font-stratum;
+  font-size: 1rem;
+  line-height: 125%;
+}
+.smaller {
+  font-size: 0.75em;
+  line-height: 1.4em;
+}
+.object-fit-cover img {
+  object-fit: cover;
+}
+.image-w-100 img {
+  width: 100%;
+}
+a.arrow-link::before {
+  content : "";
+  position: absolute;
+  bottom  : 0;
+  height  : 1px;
+  background: $color-coastline-100 !important;
+  width: 50%;
+}
