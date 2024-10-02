@@ -18,7 +18,8 @@ regions:
   help: Help
   page_top: Page Top
   content: Content
-  sidebar: Sidebar
+  left_sidebar: Left Sidebar
+  right_sidebar: Right Sidebar
   page_bottom: Page Bottom
   pre_footer: Full width above the Footer
   footer: Footer
