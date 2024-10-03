@@ -84,6 +84,7 @@
     <div class="{{ col_class }}">
       <div class="directory-image d-inline-block me-4">
         {{ content.field_image }}
+        {# {{ dump(content.field_image) }} #}
       </div>
       <div class="d-inline-block align-top">
         {{ title_prefix }}
@@ -102,11 +103,27 @@
         {% endif %}
         {% if node.field_email is not empty or node.field_phone_number is not empty %}
           <div class="color-grey-700 d-inline-block">
-            <span class="me-5">{{ content.field_email }}</span>
-            <span>{{ content.field_phone_number }}</span>
+            <span class="me-5">{{ content.field_phone_number }}</span>
+            <span>{{ content.field_email }}</span>
           </div>
         {% endif %}
+      {# Colleges hidden if no college is set #}
+      {% if node.field_colleges.0 %}
+      <div class="small">
+        <span class="d-inline-bl small">
+          {{node.field_colleges.fieldDefinition.label}}:
+        </span>
+ 
+        {% for college in node.field_colleges %}
+          <span class="fw-light small">{{- college.entity.label -}}</span>
+          {% if not loop.last %}<br/>
+          {% endif %}
+        {% endfor %}
       </div>
+      {% endif %}
+      {# End name, title, college mobile/desktop #}
+      </div>
+
     </div>
   </div>
 </article>
