@@ -1,12 +1,14 @@
 :root,
 [data-bs-theme=light] {
   --bs-body-font-size: 18px;
-  --bs-border-color: $color-coastline-100;
+  --bs-body-font-weight: 100;
+  --bs-border-color: #A7ACA2;
 }
 
 [data-bs-theme=dark] {
   --bs-body-font-size: 18px;
   --bs-body-font-weight: 100;
+  --bs-border-color: #A7ACA2;
 }
 
 .color-beaver-orange {
