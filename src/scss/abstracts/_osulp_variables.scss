@@ -1,6 +1,7 @@
 $color-beaver-orange: #D73F09;
 $color-beaver-dark: #AC3207;
 $color-candela: #FDD26E;
+$color-candela-dark: #D6B25C;
 $color-coastline-100: #A7ACA2;
 $color-coastline-50: #C8CCC7;
 $color-coastline-20: #ECEBE9;
@@ -12,6 +13,41 @@ $color-shared: #423E3C;
 $color-valley: #8E9089;
 $color-guin: #00859B;
 $color-cascades: #0D5257;
+$color-neutral: #FDFCFC;
 $color-white: #FFFFFF;
 $color-black: #000000;
 $font-stratum: "Stratum2Web", serif;
+
+// Map array for color classes
+$osulp-all-colors: (
+  'beaver-orange': $color-beaver-orange,
+  'beaver-dark': $color-beaver-dark,
+  'candela': $color-candela,
+  'candela-dark': $color-candela-dark,
+  'coastline-100': $color-coastline-100,
+  'coastline-50': $color-coastline-50,
+  'coastline-20': $color-coastline-20,
+  'grey-900': $color-grey-900,
+  'grey-800': $color-grey-800,
+  'grey-700': $color-grey-700,
+  'grey-600': $color-grey-600,
+  'neutral': $color-neutral,
+  'white': $color-white,
+  'black': $color-black,
+  'shared': $color-shared,
+  'valley': $color-valley,
+  'guin': $color-guin,
+  'cascades': $color-cascades,
+);
+
+@each $name, $color in $osulp-all-colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  .border-#{$name} {
+    border-color: $color;
+  }
+  .color-#{$name} {
+    color: $color;
+  }
+}
