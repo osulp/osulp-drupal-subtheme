@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{# Replace this with the group color id when we find it #}
+{% set group_id = '' %}
+
+{% set region_id = 'madrone-' ~ region|clean_class ~ '-container' %}
+{% set region_class = [
+  'madrone-' ~ region|clean_class,
+  'translate-middle',
+  'position-absolute',
+  'start-50',
+  'border',
+  'border-' ~ group_id|clean_class,
+  'rounded',
+  'bg-neutral',
+] %}
+{% if content %}
+  <div class="container-fluid mb-4">
+    <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
+      {{ content }}
+    </div>
+  </div>
+{% endif %}
