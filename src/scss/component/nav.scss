@@ -1,0 +1,20 @@
+
+#madrone-full-top-container {
+  .menu {
+    .nav-item {
+      .nav-link {
+        --bs-nav-link-padding-y: 0.75rem;
+
+        &.active {
+          --bs-nav-pills-link-active-color: #{$color-white};
+          --bs-nav-pills-link-active-bg: #{$color-beaver-orange}; // Figure out a way to get this color to be location specific.
+        }
+        &:hover,
+        &:focus {
+          background-color: $color-beaver-dark; // Figure out a way to get this color to be location specific. It should be a lighter accent to the location color.
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
