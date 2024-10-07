@@ -348,6 +348,9 @@ a.arrow-link::before {
   background-position: left 0.5rem center;
 }
 
+#madrone-full-top-container .menu .nav-item .nav-link {
+  --bs-nav-link-padding-y: 0.75rem;
+}
 #madrone-full-top-container .menu .nav-item .nav-link.active {
   --bs-nav-pills-link-active-color: #FFFFFF;
   --bs-nav-pills-link-active-bg: #D73F09;
