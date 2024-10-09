@@ -374,6 +374,18 @@ a.arrow-link::before {
   background-position: left 0.5rem center;
 }
 
+#madrone-full-top-container .menu .nav-item .nav-link {
+  --bs-nav-link-padding-y: 0.75rem;
+}
+#madrone-full-top-container .menu .nav-item .nav-link.active {
+  --bs-nav-pills-link-active-color: #FFFFFF;
+  --bs-nav-pills-link-active-bg: #D73F09;
+}
+#madrone-full-top-container .menu .nav-item .nav-link:hover, #madrone-full-top-container .menu .nav-item .nav-link:focus {
+  background-color: #AC3207;
+  color: #FFFFFF;
+}
+
 /* News views page */
 .node--type-news.node--view-mode-teaser {
   box-sizing: content-box;

@@ -50,12 +50,16 @@ We call a macro which calls itself to render the full tree.
         {% for item in items %}
           {% set li_classes = [
             item.in_active_trail ? 'nav-item active' : 'nav-item',
-            loop.last ? '' : 'border-end',
           ] %}
           {% set link_classes = [
             item.in_active_trail ? 'nav-link active' : 'nav-link',
             'color-grey-900',
             'fw-normal',
+            'border',
+            loop.last ? '' : 'border-end-0',
+            'bg-neutral',
+            loop.first ? 'rounded-start' : '',
+            loop.last ? 'rounded-end' : '',
           ] %}
           <li{{item.attributes.addCLass(li_classes)}}>
             {{ link(item.title, item.url, item.attributes.addClass(link_classes).removeClass(li_classes)) }}
