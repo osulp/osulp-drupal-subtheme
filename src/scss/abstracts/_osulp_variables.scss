@@ -10,7 +10,7 @@ $color-grey-800: #423E3C;
 $color-grey-700: #555453;
 $color-grey-600: #646362;
 $color-shared: #423E3C;
-$color-valley: #8E9089;
+$color-valley: #7B806F;
 $color-guin: #00859B;
 $color-cascades: #0D5257;
 $color-neutral: #FDFCFC;
@@ -42,12 +42,12 @@ $osulp-all-colors: (
 
 @each $name, $color in $osulp-all-colors {
   .bg-#{$name} {
-    background-color: $color;
+    background-color: $color !important;
   }
   .border-#{$name} {
-    border-color: $color;
+    border-color: $color !important;
   }
   .color-#{$name} {
-    color: $color;
+    color: $color !important;
   }
 }
