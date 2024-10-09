@@ -1,36 +1,10 @@
 :root,
 [data-bs-theme=light] {
-  --bs-body-font-size: 18px;
-  --bs-body-font-weight: 100;
   --bs-border-color: #{$color-coastline-100};
 }
 
 [data-bs-theme=dark] {
-  --bs-body-font-size: 18px;
-  --bs-body-font-weight: 100;
   --bs-border-color: #{$color-coastline-100};
-}
-
-a.h4 {
-  font-weight: bold;
-}
-a.h4:hover,
-a.h4:focus,
-.h4 a:hover,
-.h4 a:focus {
-  color: $color-black;
-}
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  font-family: $font-stratum;
-  color: $color-grey-900;
-  a {
-    text-decoration: none;
-  }
 }
 
 @media (max-width: 575.98px) {
@@ -116,37 +90,3 @@ a.arrow-link::before {
   background: $color-coastline-100 !important;
   width: 50%;
 }
-// icons for link lists
-.block-system-main-block ul:not(.nav,
-.navbar,
-.list-unstyled,
-.contextual-links,
-.vertical-tabs__menu,
-.pager__items,
-.select2-selection__rendered) > li:not([style*="list-style: none"])::marker {
-  content: unset;
-}
-
-.block-system-main-block {
-  ul:not(
-      .nav,
-      .navbar,
-      .list-unstyled,
-      .contextual-links,
-      .vertical-tabs__menu,
-      .pager__items,
-      .select2-selection__rendered
-    )
-  > li:not([style*='list-style: none']) {
-    &::marker {
-      color: $color-beaver-orange;
-      content: '\f0a9\2000';
-      display: inline-block;
-      font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free';
-      font-weight: 900;
-      letter-spacing: normal;
-    }
-  }
-}
-
-//list-style-type: square; \f0a9
