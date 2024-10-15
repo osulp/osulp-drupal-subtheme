@@ -608,6 +608,11 @@ h6 a, .h6 a {
   color: #FFFFFF;
 }
 
+#madrone-left-sidebar-container .nav-link {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.25rem;
+}
+
 /* News views page */
 .node--type-news.node--view-mode-teaser {
   box-sizing: content-box;
