@@ -34,10 +34,16 @@
     view_mode ? 'block--view-mode-' ~ view_mode|clean_class,
     'bg-white',
     'p-3',
-    'h-100',
     'color-black',
+    'm-4',
+    'my-4-5',
   ] %}
   <div{{attributes.addClass(classes)}}>
+    {% if content.field_image.0 %}
+      <div class="pb-2-5">
+        {{ content.field_image }}
+      </div>
+    {% endif %}
     {{ title_prefix }}
     <h2{{title_attributes}} class="fw-medium">
       {{ configuration["label"] }}
