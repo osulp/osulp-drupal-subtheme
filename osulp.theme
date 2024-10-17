@@ -19,6 +19,8 @@ function osulp_preprocess_html(array &$variables): void {
  */
 function osulp_preprocess_page(array &$variables): void {
 
+  // Add list of `groups` as a variable to page templates
+  $variables['groups'] = getGroupsByEntity($variables['node']);
 }
 
 /**
@@ -28,9 +30,6 @@ function osulp_preprocess_node(array &$variables): void {
   // $uid = \Drupal::currentUser()->id();
   // $author_id = $variables['node']->getOwner()->id();
   // $variables['is_author'] = $author_id == $uid;
-
-  // Add list of `groups` as a variable to node templates
-  $variables['groups'] = getGroupsByEntity($variables['node']);
 }
 
 /**
@@ -59,6 +58,8 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
  */
 function getGroupsByEntity($entity) {
   $groups = array();
+  if (!$entity) return $groups;
+
   $relations = \Drupal\group\Entity\GroupRelationship::loadByEntity($entity);
 
   foreach ($relations as $rel) {
