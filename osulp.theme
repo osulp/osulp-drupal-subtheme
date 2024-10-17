@@ -28,6 +28,9 @@ function osulp_preprocess_node(array &$variables): void {
   // $uid = \Drupal::currentUser()->id();
   // $author_id = $variables['node']->getOwner()->id();
   // $variables['is_author'] = $author_id == $uid;
+
+  // Add list of `groups` as a variable to node templates
+  $variables['groups'] = getGroupsByEntity($variables['node']);
 }
 
 /**
@@ -49,4 +52,20 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
       'border-top',
     ]);
   }
+}
+
+/**
+ * Retrieve all group module Group Entity an entity is in
+ */
+function getGroupsByEntity($entity) {
+  $groups = array();
+  $relations = \Drupal\group\Entity\GroupRelationship::loadByEntity($entity);
+
+  foreach ($relations as $rel) {
+    if ($rel->getEntity()->getEntityTypeId() == 'node') {
+      $groups[] = $rel->getGroup();
+    }
+  }
+
+  return $groups;
 }
