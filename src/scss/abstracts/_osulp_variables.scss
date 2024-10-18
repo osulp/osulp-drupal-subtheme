@@ -47,6 +47,18 @@ $osulp-all-colors: (
   .border-#{$name} {
     border-color: $color !important;
   }
+  .border-#{$name}-left {
+    border-left-color: $color !important;
+  }
+  .border-#{$name}-top {
+    border-top-color: $color !important;
+  }
+  .border-#{$name}-right {
+    border-right-color: $color !important;
+  }
+  .border-#{$name}-bottom {
+    border-bottom-color: $color !important;
+  }
   .color-#{$name} {
     color: $color !important;
   }
