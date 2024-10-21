@@ -20,7 +20,9 @@
 {% if content %}
   <div class="container-fluid bg-coastline-20 g-0 pb-4">
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
-      {{ content }}
+      <div class="row">
+        {{ content }}
+      </div>
     </div>
   </div>
 {% endif %}
