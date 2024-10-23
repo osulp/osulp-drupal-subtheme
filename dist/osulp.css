@@ -1176,6 +1176,12 @@ h6 a, .h6 a {
   background-position: left 0.5rem center;
 }
 
+#osulp-title-block-container {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 25% 100%;
+}
+
 #madrone-full-top-container .menu .nav-item .nav-link {
   --bs-nav-link-padding-y: 0.75rem;
 }
