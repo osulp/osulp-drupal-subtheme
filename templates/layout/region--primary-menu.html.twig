@@ -17,11 +17,14 @@
   'madrone-' ~ region|clean_class,
   'container',
 ] %}
+{% set background_image_style = image_uri ? 'background-image: url(' ~ image_uri ~ ');' : '' %}
 {% if content %}
-  <div class="container-fluid bg-coastline-20 g-0 pb-4">
+  <div id="osulp-title-block-container" class="container-fluid bg-coastline-20 g-0 pb-4" style="{{background_image_style}}">
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
       <div class="row">
-        {{ content }}
+        <div class="col-9">
+          {{ content }}
+        </div>
       </div>
     </div>
   </div>
