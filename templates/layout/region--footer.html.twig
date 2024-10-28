@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% set classes = [
+  'region',
+  'region-' ~ region|clean_class,
+  'bg-grey-900',
+  'osu-text-bucktoothwhite',
+  'osu-min-h-300',
+  'px-4',
+  'py-4-5',
+  'd-flex',
+  'justify-content-between',
+] %}
+
+{% set region_id = 'madrone-' ~ region|clean_class ~ '-container' %}
+{% set region_class = [
+  'madrone-' ~ region|clean_class,
+  'row',
+  'flex-grow-1',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div{{ attributes.setAttribute('id', region_id).addClass(region_class).removeClass(classes) }}>
+    <div class="col-3 border-end border-candela-dark px-5 position-relative">
+      <a id="osu-logo-crest" class="text-decoration-none" href="{{ companion_logo_link }}">
+        <img class="d-block m-auto" src="{{ base_path ~ directory }}/assets/osu-logo-white.svg"
+              alt="Oregon State University"/>
+      </a>
+      <a class="osu-link-white position-absolute bottom-0 fs-7 fw-light" href="https://oregonstate.edu/copyright"> &#169; {{ 'now'|date('Y') }}
+    Oregon State University <span class="d-none d-sm-inline"> </a>
+    </div>  
+    <div class="col-9 px-5">
+      <div class="font-stratum2web fs-5 fw-bold pb-4">
+        <span>Oregon State University Libraries & Press</span>
+        <span class="float-end">*Social Media Placeholder*</span>
+      </div>
+      <div id="footer-menus" class="d-flex justify-content-around">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</div>

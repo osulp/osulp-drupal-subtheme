@@ -1,0 +1,20 @@
+#footer-menus {
+  h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: $color-coastline-100;
+    font-weight: normal;
+    margin-bottom: .334rem;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  li a {
+    padding: 0;
+  }
+}
+#osu-logo-crest {
+  img {
+    max-width: 248px;
+  }
+}
