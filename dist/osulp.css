@@ -1176,6 +1176,24 @@ h6 a, .h6 a {
   background-position: left 0.5rem center;
 }
 
+#footer-menus h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #A7ACA2;
+  font-weight: normal;
+  margin-bottom: 0.334rem;
+}
+#footer-menus nav ul {
+  flex-direction: column;
+}
+#footer-menus li a {
+  padding: 0;
+}
+
+#osu-logo-crest img {
+  max-width: 248px;
+}
+
 #osulp-title-block-container {
   background-repeat: no-repeat;
   background-position: right;
