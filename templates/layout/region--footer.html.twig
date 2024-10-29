@@ -31,24 +31,42 @@
   'flex-grow-1',
 ] %}
 
-<div{{ attributes.addClass(classes) }}>
-  <div{{ attributes.setAttribute('id', region_id).addClass(region_class).removeClass(classes) }}>
+<div{{attributes.addClass(classes)}}>
+  <div{{attributes.setAttribute('id',region_id).addClass(region_class).removeClass(classes)}}>
     <div class="col-3 border-end border-candela-dark px-5 position-relative">
       <a id="osu-logo-crest" class="text-decoration-none" href="{{ companion_logo_link }}">
-        <img class="d-block m-auto" src="{{ base_path ~ directory }}/assets/osu-logo-white.svg"
-              alt="Oregon State University"/>
+        <img class="d-block m-auto" src="{{ base_path ~ directory }}/assets/osu-logo-white.svg" alt="Oregon State University"/>
       </a>
-      <a class="osu-link-white position-absolute bottom-0 fs-7 fw-light" href="https://oregonstate.edu/copyright"> &#169; {{ 'now'|date('Y') }}
-    Oregon State University <span class="d-none d-sm-inline"> </a>
-    </div>  
-    <div class="col-9 px-5">
+      <div class="position-absolute bottom-0 osu-link-white fs-7 fw-light">
+        <a href="https://oregonstate.edu/copyright">
+          &#169;
+          {{ 'now'|date('Y') }}
+          Oregon State University
+        </a>
+        <span class="d-none d-sm-inline">
+          |
+        </span>
+        <span class="d-sm-none">
+          <br/>
+        </span>
+        <a href="/sitemap.xml">
+          {{ 'Sitemap'|t }}
+        </a>
+      </div>
+    </div>
+    <div class="col-9 px-5 position-relative">
       <div class="font-stratum2web fs-5 fw-bold pb-4">
-        <span>Oregon State University Libraries & Press</span>
-        <span class="float-end">*Social Media Placeholder*</span>
+        <span>
+          Oregon State University Libraries & Press
+        </span>
+        <span class="float-end">
+          *Social Media Placeholder*
+        </span>
       </div>
       <div id="footer-menus" class="d-flex justify-content-around">
         {{ content }}
       </div>
+      <img class="position-absolute bottom-0" src="{{ base_path ~ directory }}/assets/fdlp-gpo-partner-lig-365px.png" alt="GPO Official Partnership" title="U.S. Government Publishing Office Official Partnership" height="64"/>
     </div>
   </div>
 </div>
