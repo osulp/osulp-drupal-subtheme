@@ -35,7 +35,7 @@
   <div{{attributes.setAttribute('id',region_id).addClass(region_class).removeClass(classes)}}>
     <div class="col-3 border-end border-candela-dark px-5 position-relative">
       <a id="osu-logo-crest" class="text-decoration-none" href="{{ companion_logo_link }}">
-        <img class="d-block m-auto" src="{{ base_path ~ directory }}/assets/osu-logo-white.svg" alt="Oregon State University"/>
+        <img class="d-block m-auto" src="/{{ directory }}/assets/osu-logo-white.svg" alt="Oregon State University"/>
       </a>
       <div class="position-absolute bottom-0 osu-link-white fs-7 fw-light">
         <a href="https://oregonstate.edu/copyright">
@@ -66,7 +66,7 @@
       <div id="footer-menus" class="d-flex justify-content-around">
         {{ content }}
       </div>
-      <img class="position-absolute bottom-0" src="{{ base_path ~ directory }}/assets/fdlp-gpo-partner-lig-365px.png" alt="GPO Official Partnership" title="U.S. Government Publishing Office Official Partnership" height="64"/>
+      <img class="position-absolute bottom-0" src="/{{ directory }}/assets/fdlp-gpo-partner-lig-365px.png" alt="GPO Official Partnership" title="U.S. Government Publishing Office Official Partnership" height="64"/>
     </div>
   </div>
 </div>
