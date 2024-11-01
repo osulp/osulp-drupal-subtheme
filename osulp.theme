@@ -20,7 +20,9 @@ function osulp_preprocess_html(array &$variables): void {
 function osulp_preprocess_page(array &$variables): void {
 
   // Add list of `groups` as a variable to page templates
-  $variables['groups'] = getGroupsByEntity($variables['node']);
+  if (array_key_exists('node', $variables)) {
+    $variables['groups'] = getGroupsByEntity($variables['node']);
+  }
 }
 
 /**
