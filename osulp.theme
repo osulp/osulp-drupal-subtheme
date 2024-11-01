@@ -35,6 +35,24 @@ function osulp_preprocess_node(array &$variables): void {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function osulp_preprocess_block(array &$variables): void {
+  // $uid = \Drupal::currentUser()->id();
+  // $author_id = $variables['node']->getOwner()->id();
+  // $variables['is_author'] = $author_id == $uid;
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $group = \Drupal::routeMatch()->getParameter('group');
+  if ($node) {
+    // add the node to twig variables
+    $variables['node'] = $node;
+    $variables['groups'] = getGroupsByEntity($variables['node']);
+  } else if ($group) {
+    $variables['groups'] = [$group];
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for field.html.twig.
  */
 function osulp_preprocess_field(array &$variables): void {

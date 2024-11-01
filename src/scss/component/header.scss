@@ -1,6 +1,40 @@
+#madrone-header-container {
+  border: none !important;
+}
 #osulp-title-block-container {
   // Set title block image as a background
   background-repeat: no-repeat;
   background-position: right;
   background-size: 25% 100%;
+}
+#block-osulp-sitebranding {
+  > div {
+    height: 100%;
+  }
+}
+#block-osulp-headermenus {
+  .cascades {
+    &.cascades-active a, a:hover, a:focus {
+      --bs-nav-tabs-link-hover-border-color: #{$color-cascades};
+
+      background-color: $color-cascades;
+      color: var(--bs-nav-link-hover-color);
+    }
+  }
+  .guin {
+    &.guin-active a, a:hover, a:focus {
+      --bs-nav-tabs-link-hover-border-color: #{$color-guin};
+
+      background-color: $color-guin;
+      color: var(--bs-nav-link-hover-color);
+    }
+  }
+  .valley {
+    &.valley-active a, a:hover, a:focus {
+      --bs-nav-tabs-link-hover-border-color: #{$color-valley};
+
+      background-color: $color-valley;
+      color: var(--bs-nav-link-hover-color);
+    }
+  }
 }

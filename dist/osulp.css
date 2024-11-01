@@ -1194,10 +1194,34 @@ h6 a, .h6 a {
   max-width: 248px;
 }
 
+#madrone-header-container {
+  border: none !important;
+}
+
 #osulp-title-block-container {
   background-repeat: no-repeat;
   background-position: right;
   background-size: 25% 100%;
+}
+
+#block-osulp-sitebranding > div {
+  height: 100%;
+}
+
+#block-osulp-headermenus .cascades.cascades-active a, #block-osulp-headermenus .cascades a:hover, #block-osulp-headermenus .cascades a:focus {
+  --bs-nav-tabs-link-hover-border-color: #0D5257;
+  background-color: #0D5257;
+  color: var(--bs-nav-link-hover-color);
+}
+#block-osulp-headermenus .guin.guin-active a, #block-osulp-headermenus .guin a:hover, #block-osulp-headermenus .guin a:focus {
+  --bs-nav-tabs-link-hover-border-color: #00859B;
+  background-color: #00859B;
+  color: var(--bs-nav-link-hover-color);
+}
+#block-osulp-headermenus .valley.valley-active a, #block-osulp-headermenus .valley a:hover, #block-osulp-headermenus .valley a:focus {
+  --bs-nav-tabs-link-hover-border-color: #7B806F;
+  background-color: #7B806F;
+  color: var(--bs-nav-link-hover-color);
 }
 
 #madrone-full-top-container .menu .nav-item .nav-link {
