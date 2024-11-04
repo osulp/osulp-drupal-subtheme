@@ -33,6 +33,7 @@
   hide_main_navigation ? 'madrone-group-nav' : 'madrone-global-nav',
   'border-start',
   'border-5',
+  'border-' ~ groups[0].label.value|lower,
 ] %}
 <div{{attributes.addClass(classes)}}>
   {{ title_prefix }}
