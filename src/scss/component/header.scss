@@ -12,29 +12,3 @@
     height: 100%;
   }
 }
-#block-osulp-headermenus {
-  .cascades {
-    &.cascades-active a, a:hover, a:focus {
-      --bs-nav-tabs-link-hover-border-color: #{$color-cascades};
-
-      background-color: $color-cascades;
-      color: var(--bs-nav-link-hover-color);
-    }
-  }
-  .guin {
-    &.guin-active a, a:hover, a:focus {
-      --bs-nav-tabs-link-hover-border-color: #{$color-guin};
-
-      background-color: $color-guin;
-      color: var(--bs-nav-link-hover-color);
-    }
-  }
-  .valley {
-    &.valley-active a, a:hover, a:focus {
-      --bs-nav-tabs-link-hover-border-color: #{$color-valley};
-
-      background-color: $color-valley;
-      color: var(--bs-nav-link-hover-color);
-    }
-  }
-}

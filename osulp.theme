@@ -8,21 +8,30 @@ declare(strict_types=1);
  */
 
 /**
+ * Implements hook_preprocess_HOOK() for all templates.
+ */
+function osulp_preprocess(array &$variables): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $group = \Drupal::routeMatch()->getParameter('group');
+  if ($node) {
+    // add the node to twig variables
+    $variables['node'] = $node;
+    $variables['groups'] = getGroupsByEntity($variables['node']);
+  } else if ($group) {
+    $variables['groups'] = [$group];
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function osulp_preprocess_html(array &$variables): void {
-
 }
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function osulp_preprocess_page(array &$variables): void {
-
-  // Add list of `groups` as a variable to page templates
-  if (array_key_exists('node', $variables)) {
-    $variables['groups'] = getGroupsByEntity($variables['node']);
-  }
 }
 
 /**
@@ -41,15 +50,6 @@ function osulp_preprocess_block(array &$variables): void {
   // $uid = \Drupal::currentUser()->id();
   // $author_id = $variables['node']->getOwner()->id();
   // $variables['is_author'] = $author_id == $uid;
-  $node = \Drupal::routeMatch()->getParameter('node');
-  $group = \Drupal::routeMatch()->getParameter('group');
-  if ($node) {
-    // add the node to twig variables
-    $variables['node'] = $node;
-    $variables['groups'] = getGroupsByEntity($variables['node']);
-  } else if ($group) {
-    $variables['groups'] = [$group];
-  }
 }
 
 /**
@@ -77,15 +77,9 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
  * Implements hook_preprocess_HOOK() for regions.
  */
 function osulp_preprocess_region(array &$variables): void {
-  // Find the possible node we're on
-  $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node) {
-    // add the node to twig variables
-    $variables['node'] = $node;
-    // check for title block image and set uri as twig variable if it exists
-    if ($node->field_page_image[0]) {
-      $variables['image_uri'] = $node->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
-    }
+  // check for title block image and set uri as twig variable if it exists
+  if ($variables['node'] && $variables['node']->field_page_image[0] ) {
+    $variables['image_uri'] = $node->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
   }
 }
 
