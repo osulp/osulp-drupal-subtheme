@@ -23,9 +23,9 @@
 We call a macro which calls itself to render the full tree.
 @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes.removeAttribute('region'), 0, menu_name) }}
+{{ menus.menu_links(items, attributes.removeAttribute('region'), 0, menu_name, groups[0].label.value|lower) }}
 
-{% macro menu_links(items, attributes, menu_level, menu_name) %}
+{% macro menu_links(items, attributes, menu_level, menu_name, group) %}
   {% import _self as menus %}
   {% set menu_classes = [
     'menu',
@@ -33,6 +33,7 @@ We call a macro which calls itself to render the full tree.
     'nav',
     'nav-pills',
     'osu-nav-link-hover--dark',
+    'bg-transparent',
   ] %}
   {% set submenu_classes = [
     'menu--' ~ menu_name|clean_class ~ '__submenu'
@@ -49,15 +50,15 @@ We call a macro which calls itself to render the full tree.
         {% set attributes = attributes.removeClass(menu_levels) %}
         {% for item in items %}
           {% set li_classes = [
-            item.in_active_trail ? 'nav-item active' : 'nav-item',
+            group,
+            item.in_active_trail ? 'nav-item active ' ~ group ~ '-active' : 'nav-item',
           ] %}
           {% set link_classes = [
             item.in_active_trail ? 'nav-link active' : 'nav-link',
-            'color-grey-900',
+            item.in_active_trail ?: 'bg-neutral',
             'fw-normal',
             'border',
             loop.last ? '' : 'border-end-0',
-            'bg-neutral',
             loop.first ? 'rounded-start' : '',
             loop.last ? 'rounded-end' : '',
           ] %}

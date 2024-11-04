@@ -4,16 +4,38 @@
     .nav-item {
       .nav-link {
         --bs-nav-link-padding-y: 0.75rem;
+        --bs-nav-link-color: #{$color-grey-900};
+      }
+    }
+  }
+}
+#block-osulp-headermenus, #madrone-full-top-container {
+  .nav {
+    li.nav-item.cascades {
+      &.cascades-active a, a:hover, a:focus {
+        --bs-nav-tabs-link-hover-border-color: #{$color-cascades};
+        --bs-border-color: #{$color-cascades};
 
-        &.active {
-          --bs-nav-pills-link-active-color: #{$color-white};
-          --bs-nav-pills-link-active-bg: #{$color-beaver-orange}; // Figure out a way to get this color to be location specific.
-        }
-        &:hover,
-        &:focus {
-          background-color: $color-beaver-dark; // Figure out a way to get this color to be location specific. It should be a lighter accent to the location color.
-          color: $color-white;
-        }
+        background-color: $color-cascades !important;
+        color: $white;
+      }
+    }
+    li.nav-item.guin {
+      &.guin-active a, a:hover, a:focus {
+        --bs-nav-tabs-link-hover-border-color: #{$color-guin};
+        --bs-border-color: #{$color-guin};
+
+        background-color: $color-guin !important;
+        color: $white;
+      }
+    }
+    li.nav-item.valley {
+      &.valley-active a, a:hover, a:focus {
+        --bs-nav-tabs-link-hover-border-color: #{$color-valley};
+        --bs-border-color: #{$color-valley};
+
+        background-color: $color-valley !important;
+        color: $white;
       }
     }
   }
