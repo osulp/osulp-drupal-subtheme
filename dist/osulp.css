@@ -307,6 +307,34 @@
   color: #646362 !important;
 }
 
+.bg-paddletailblack {
+  background-color: #212529 !important;
+}
+
+.border-paddletailblack {
+  border-color: #212529 !important;
+}
+
+.border-paddletailblack-left {
+  border-left-color: #212529 !important;
+}
+
+.border-paddletailblack-top {
+  border-top-color: #212529 !important;
+}
+
+.border-paddletailblack-right {
+  border-right-color: #212529 !important;
+}
+
+.border-paddletailblack-bottom {
+  border-bottom-color: #212529 !important;
+}
+
+.color-paddletailblack {
+  color: #212529 !important;
+}
+
 .bg-neutral {
   background-color: #FDFCFC !important;
 }
@@ -902,6 +930,34 @@ a.arrow-link::before {
 
 .color-grey-600 {
   color: #646362 !important;
+}
+
+.bg-paddletailblack {
+  background-color: #212529 !important;
+}
+
+.border-paddletailblack {
+  border-color: #212529 !important;
+}
+
+.border-paddletailblack-left {
+  border-left-color: #212529 !important;
+}
+
+.border-paddletailblack-top {
+  border-top-color: #212529 !important;
+}
+
+.border-paddletailblack-right {
+  border-right-color: #212529 !important;
+}
+
+.border-paddletailblack-bottom {
+  border-bottom-color: #212529 !important;
+}
+
+.color-paddletailblack {
+  color: #212529 !important;
 }
 
 .bg-neutral {
