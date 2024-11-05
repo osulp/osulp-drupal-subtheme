@@ -28,7 +28,7 @@
 {% macro site_link(is_front, site_name) %}
   <a class="site-name__site-link text-decoration-none color-paddletailblack fs-1 fw-light border-start border-2 border-grey-700 ps-4 ps-3 ms-4 {% if is_front %}site-name__site-front{% endif %}" href="{{ path('<front>') }}" rel="home">
     {% if is_front %}
-      <h1>
+      <h1 class="fw-light">
       {% endif %}
       {{ site_name }}
       {% if is_front %}
