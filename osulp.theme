@@ -79,7 +79,7 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
 function osulp_preprocess_region(array &$variables): void {
   // check for title block image and set uri as twig variable if it exists
   if ($variables['node'] && $variables['node']->field_page_image[0] ) {
-    $variables['image_uri'] = $node->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
+    $variables['image_uri'] = $variables['node']->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
   }
 }
 
