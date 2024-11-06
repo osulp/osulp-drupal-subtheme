@@ -15,8 +15,8 @@ function osulp_preprocess(array &$variables): void {
   $group = \Drupal::routeMatch()->getParameter('group');
   if ($node) {
     // add the node to twig variables
-    $variables['node'] = $node;
-    $variables['groups'] = getGroupsByEntity($variables['node']);
+    $variables['page_node'] = $node;
+    $variables['groups'] = getGroupsByEntity($node);
   } else if ($group) {
     $variables['groups'] = [$group];
   }
