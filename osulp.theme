@@ -120,7 +120,7 @@ function libcal_location_data() {
   $data = [];
   // Invalidate every 6 hours
   // Now + 60 seconds * 60 minutes * 6 hours
-  $invalid_time = time() + 60; //(60 * 60 * 6);
+  $invalid_time = time() + 60 * 60 * 6;
   // Shared instance of the Drupal Cache
   $cache = \Drupal::cache();
 
@@ -176,7 +176,17 @@ function authorized_libcal_client($cache) {
  * @return object JSON of libcal location hours data
  */
 function fetch_libcal_data($client, $location_id) {
-  $response = $client->get("https://oregonstate.libcal.com/api/1.1/hours/$location_id?from=2024-11-00&to=2024-11-20");
+  // Get timestamp for a week from now
+  $additional_end_time = time() + 60 * 60 * 24 * 7;
+
+  // Get the first date of the month
+  $first_day_of_month = date('Y-m-01');
+  // Get the last date of the month
+  $last_day_of_month  = date('Y-m-t');
+  // Or a week out if the last date is less than a week away
+  $last_day_of_month = strtotime($last_day_of_month) > $additional_end_time ? $last_day_of_month : date('Y-m-d', $additional_end_time);
+
+  $response = $client->get("https://oregonstate.libcal.com/api/1.1/hours/$location_id?from=$first_day_of_month&to=$last_day_of_month");
   $result = json_decode((string)$response->getBody(), TRUE);
 
   return $result;
