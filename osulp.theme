@@ -26,6 +26,8 @@ function osulp_preprocess(array &$variables): void {
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function osulp_preprocess_html(array &$variables): void {
+  // Add LibCal location hours data to template variables
+  $variables['libcal_data'] = libcal_location_data();
 }
 
 /**
@@ -99,4 +101,102 @@ function getGroupsByEntity($entity) {
   }
 
   return $groups;
+}
+
+/**
+ * Fetch LibCal hours data for all locations from cache or source
+ *
+ * @return array Array JSON of objects for LibCal location hours data
+ */
+function libcal_location_data() {
+  // list of library location ids
+  // TODO: Convert to env var
+  $libcal_location_ids = json_decode(getenv('LIBCAL_LOCATIONS'), true)[0];
+  // [
+  //   5018 => 'valley',
+  // ];
+
+  // returned valley, cascades, and guin data
+  $data = [];
+  // Invalidate every 6 hours
+  // Now + 60 seconds * 60 minutes * 6 hours
+  $invalid_time = time() + 60; //(60 * 60 * 6);
+  // Shared instance of the Drupal Cache
+  $cache = \Drupal::cache();
+
+  // Iterate locations and retrieve/cache LibCal data
+  foreach ($libcal_location_ids as $loc_id => $group) {
+    $cid = "osulp_libcal_$loc_id";
+
+    // Check Drupal cache for this location's data
+    if ($cache_data = $cache->get($cid)) {
+        $data[$group] = $cache_data->data;
+    } else { // Else retreive from LibCal source
+        // HTTP Client with pre-filled LibCal bearer token. Either an existing one or a new instance
+        $client = $client ?? authorized_libcal_client($cache);
+
+        // Fetch remote data and cache for later
+        $data[$group] = fetch_libcal_data($client, $loc_id);
+        $cache->set($cid, $data[$group], $invalid_time);
+    }
+  }
+
+  return $data;
+}
+
+/**
+ * Create a \GuzzleHttp\Client with a valid LibCal bearer token
+ *
+ * @param \Drupal::cache Current Drupal Cache object
+ * @return \GuzzleHttp\Client Client with bearer token
+ */
+function authorized_libcal_client($cache) {
+  // Check Drupal cache for an active token
+  if ($cache_data = $cache->get('libcal_access_token')) {
+    $access_token = $cache_data->data;
+  } else { // Else retreive token from LibCal
+    $access_token = libcal_bearer_token();
+    // Expire after 3400 seconds
+    // LibCal tokens are valid for 3600 seconds so lets leave some wiggle room
+    $cache->set('libcal_access_token', $access_token, time() + 3400);
+  }
+
+  return new \GuzzleHttp\Client([
+    'headers' => [
+      'Authorization' => "Bearer $access_token",
+    ],
+  ]);
+}
+
+/**
+ * Fetch from source the LibCal hours data for a location ID
+ *
+ * @param \GuzzleHttp\Client Client with bearer token
+ * @param integer Location ID
+ * @return object JSON of libcal location hours data
+ */
+function fetch_libcal_data($client, $location_id) {
+  $response = $client->get("https://oregonstate.libcal.com/api/1.1/hours/$location_id?from=2024-11-00&to=2024-11-20");
+  $result = json_decode((string)$response->getBody(), TRUE);
+
+  return $result;
+}
+
+/**
+ * Retrieve new LibCal bearer token
+ *
+ * @return string New libcal bearer token
+ */
+function libcal_bearer_token() {
+  $client = \Drupal::httpClient();
+  $response = $client->post("https://oregonstate.libcal.com/api/1.1/oauth/token",[
+    'form_params' => [
+      'client_id' => getenv('LIBCAL_CLIENT_ID'),
+      'client_secret' => getenv('LIBCAL_CLIENT_SECRET'),// ?? 'daf3455ced9af6b5cc97ca39104d4e53',
+      'grant_type' => 'client_credentials',
+    ],
+  ]);
+  $result = json_decode((string) $response->getBody());
+
+  return $result->access_token;
 }
