@@ -180,9 +180,9 @@ function authorized_libcal_client($cache): \GuzzleHttp\Client {
  *
  * @param \GuzzleHttp\Client Client with bearer token
  * @param integer Location ID
- * @return object JSON of libcal location hours data
+ * @return array JSON of libcal location hours data
  */
-function fetch_libcal_data($client, $location_id): object {
+function fetch_libcal_data($client, $location_id): array {
   // Start of last week
   $start_time = new DateTime('midnight last week - 1 day');
   $start_time = $start_time->format('Y-m-d');
