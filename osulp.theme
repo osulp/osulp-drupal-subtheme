@@ -83,7 +83,7 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
  */
 function osulp_preprocess_region(array &$variables): void {
   // check for title block image and set uri as twig variable if it exists
-  if (array_key_exists('page_node', $variables) && $variables['page_node']->field_page_image[0] ) {
+  if (isset($variables['page_node']) && $variables['page_node']->field_page_image[0] ) {
     $variables['image_uri'] = $variables['page_node']->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
   }
 }
@@ -112,12 +112,16 @@ function getGroupsByEntity($entity): array {
  * @return array Array JSON of objects for LibCal location hours data
  */
 function libcal_location_data(): array {
-  // list of library location ids
-  // TODO: Convert to env var
-  $libcal_location_ids = json_decode(getenv('LIBCAL_LOCATIONS'), true)[0];
+  // LIBCAL_LOCATIONS is a list of library location ids as json. eg:
   // [
+  //  {
   //   1234 => 'valley',
-  // ];
+  //   5678 => 'guin',
+  //   9012 => 'cascades',
+  //  }
+  // ]
+  // This takes just the interior hash
+  $libcal_location_ids = json_decode(getenv('LIBCAL_LOCATIONS'), true)[0];
 
   // returned valley, cascades, and guin data
   $data = [];
@@ -186,6 +190,7 @@ function fetch_libcal_data($client, $location_id): object {
   $end_time = new DateTime('midnight next week + 5 days');
   $end_time = $end_time->format('Y-m-d');
 
+  // Retrieve data for $location_id (LibCal ID for Library), for time period $start_time - $end_time
   $response = $client->get("https://oregonstate.libcal.com/api/1.1/hours/$location_id?from=$start_time&to=$end_time");
   $result = json_decode((string)$response->getBody(), TRUE);
 
