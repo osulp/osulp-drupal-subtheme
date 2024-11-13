@@ -240,25 +240,33 @@ function format_this_weeks_dates($libcal_dates): array {
     $start_time->modify("+1 days");
     $date = $start_time->format('Y-m-d');
 
-    // From and to time for this day
-    $from = $libcal_dates[$date]['hours'][0]['from'];
-    $to = $libcal_dates[$date]['hours'][0]['to'];
-    // Convert that to unix timestamp
-    $from_unix = strtotime($from);
-    $to_unix = strtotime($to);
-    // If the closing hour is less than the opening hour, it actually closes the next day
-    if ($to_unix < $from_unix) $to_unix = strtotime("$to + 1 day");
-    // Structure the open/close hours for <time> datetime attribute
-    $from_structured = date('Y-m-d H:i', $from_unix);
-    $to_structured = date('Y-m-d H:i', $to_unix);
-    // Wrap it all together for a twig variable
-    $dates[$date] = [
-      'day' => $start_time->format('l'),
-      'from' => $from,
-      'from_structured' => $from_structured,
-      'to' => $to,
-      'to_structured' => $to_structured,
-    ];
+    if (isset($libcal_dates[$date]['hours'])) {
+      // From and to time for this day
+      $from = $libcal_dates[$date]['hours'][0]['from'];
+      $to = $libcal_dates[$date]['hours'][0]['to'];
+      // Convert that to unix timestamp
+      $from_unix = strtotime($from);
+      $to_unix = strtotime($to);
+      // If the closing hour is less than the opening hour, it actually closes the next day
+      if ($to_unix < $from_unix) $to_unix = strtotime("$to + 1 day");
+      // Structure the open/close hours for <time> datetime attribute
+      $from_structured = date('Y-m-d H:i', $from_unix);
+      $to_structured = date('Y-m-d H:i', $to_unix);
+      // Wrap it all together for a twig variable
+      $dates[$date] = [
+        'from' => $from,
+        'from_structured' => $from_structured,
+        'to' => $to,
+        'to_structured' => $to_structured,
+      ];
+    } else { // If this is an exception just get the message or a default
+      $dates[$date] = [
+        'message' => $libcal_dates[$date]['note'] ?: '',
+      ];
+    }
+    // Add some consistent information
+    $dates[$date]['day'] = $start_time->format('l');
+    $dates[$date]['status'] = $libcal_dates[$date]['status'];
   }
   // Add today's info as a unique element
   array_unshift($dates, $dates[$today]);

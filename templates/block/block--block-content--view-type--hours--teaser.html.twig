@@ -59,9 +59,12 @@
         {{ content['field_library'][0]['#title'] ~ ' Library'|t }}
       </div>
       <div class="fs-7">
-        <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
-        &ndash;
-        <time datetime="{{ hours[0]['to_structured'] }}">{{ hours[0]['to'] }}</time>
+        {% if hours[0]['from_structured'] %}
+          <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
+          &ndash;
+          <time datetime="{{ hours[0]['to_structured'] }}">{{ hours[0]['to'] }}</time>
+        {% endif %}
+        {{ hours[0]['message'] }}
       </div>
     {% else %}
       Check the

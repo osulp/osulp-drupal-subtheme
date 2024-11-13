@@ -51,9 +51,12 @@
     {% if hours %}
       <p class="fs-5">
         <b>Today:</b>
-        <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
-        &ndash;
-        <time datetime="{{ hours[0]['to_structured'] }}">{{ hours[0]['to'] }}</time>
+        {% if hours[0]['from_structured'] %}
+          <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
+          &ndash;
+          <time datetime="{{ hours[0]['to_structured'] }}">{{ hours[0]['to'] }}</time>
+        {% endif %}
+        {{ hours[0]['message'] }}
       </p>
       <ul class="list-unstyled">
         {% for hour in hours|slice(1) %}
@@ -61,13 +64,16 @@
             <b>
               {{ hour['day'] }}:
             </b>
-            <time datetime="{{ hour['from_structured'] }}">
-              {{ hour['from'] }}
-            </time>
-            &ndash;
-            <time datetime="{{ hour['to_structured'] }}">
-              {{ hour['to'] }}
-            </time>
+            {% if hour['from_structured'] %}
+              <time datetime="{{ hour['from_structured'] }}">
+                {{ hour['from'] }}
+              </time>
+              &ndash;
+              <time datetime="{{ hour['to_structured'] }}">
+                {{ hour['to'] }}
+              </time>
+            {% endif %}
+            {{ hour['message'] }}
           </li>
         {% endfor %}
       </ul>
