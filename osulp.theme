@@ -26,8 +26,6 @@ function osulp_preprocess(array &$variables): void {
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function osulp_preprocess_html(array &$variables): void {
-  // Add LibCal location hours data to template variables
-  $variables['libcal_data'] = libcal_location_data();
 }
 
 /**
@@ -49,9 +47,14 @@ function osulp_preprocess_node(array &$variables): void {
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
 function osulp_preprocess_block(array &$variables): void {
-  // $uid = \Drupal::currentUser()->id();
-  // $author_id = $variables['node']->getOwner()->id();
-  // $variables['is_author'] = $author_id == $uid;
+  // Do libcal hours stuff if this is an hours block
+  if (isset($variables['bundle']) && $variables['bundle'] == 'hours') {
+    $group = strtolower($variables['content']['field_library'][0]['#title']);
+
+    // Add LibCal location hours data to template variables
+    $variables['libcal_data'] = libcal_location_data();
+    $variables['hours'] = format_this_weeks_dates($variables['libcal_data'][$group][0]['dates']);
+  }
 }
 
 /**
@@ -80,7 +83,7 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
  */
 function osulp_preprocess_region(array &$variables): void {
   // check for title block image and set uri as twig variable if it exists
-  if (array_key_exists('page_node', $variables) && $variables['page_node']->field_page_image[0] ) {
+  if (isset($variables['page_node']) && $variables['page_node']->field_page_image[0] ) {
     $variables['image_uri'] = $variables['page_node']->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
   }
 }
@@ -88,7 +91,7 @@ function osulp_preprocess_region(array &$variables): void {
 /**
  * Retrieve all group module Group Entity an entity is in
  */
-function getGroupsByEntity($entity) {
+function getGroupsByEntity($entity): array {
   $groups = array();
   if (!$entity) return $groups;
 
@@ -108,13 +111,17 @@ function getGroupsByEntity($entity) {
  *
  * @return array Array JSON of objects for LibCal location hours data
  */
-function libcal_location_data() {
-  // list of library location ids
-  // TODO: Convert to env var
-  $libcal_location_ids = json_decode(getenv('LIBCAL_LOCATIONS'), true)[0];
+function libcal_location_data(): array {
+  // LIBCAL_LOCATIONS is a list of library location ids as json. eg:
   // [
-  //   5018 => 'valley',
-  // ];
+  //  {
+  //   1234 => 'valley',
+  //   5678 => 'guin',
+  //   9012 => 'cascades',
+  //  }
+  // ]
+  // This takes just the interior hash
+  $libcal_location_ids = json_decode(getenv('LIBCAL_LOCATIONS'), true)[0];
 
   // returned valley, cascades, and guin data
   $data = [];
@@ -150,7 +157,7 @@ function libcal_location_data() {
  * @param \Drupal::cache Current Drupal Cache object
  * @return \GuzzleHttp\Client Client with bearer token
  */
-function authorized_libcal_client($cache) {
+function authorized_libcal_client($cache): \GuzzleHttp\Client {
   // Check Drupal cache for an active token
   if ($cache_data = $cache->get('libcal_access_token')) {
     $access_token = $cache_data->data;
@@ -173,20 +180,18 @@ function authorized_libcal_client($cache) {
  *
  * @param \GuzzleHttp\Client Client with bearer token
  * @param integer Location ID
- * @return object JSON of libcal location hours data
+ * @return array JSON of libcal location hours data
  */
-function fetch_libcal_data($client, $location_id) {
-  // Get timestamp for a week from now
-  $additional_end_time = time() + 60 * 60 * 24 * 7;
+function fetch_libcal_data($client, $location_id): array {
+  // Start of last week
+  $start_time = new DateTime('midnight last week - 1 day');
+  $start_time = $start_time->format('Y-m-d');
+  // End of next week
+  $end_time = new DateTime('midnight next week + 5 days');
+  $end_time = $end_time->format('Y-m-d');
 
-  // Get the first date of the month
-  $first_day_of_month = date('Y-m-01');
-  // Get the last date of the month
-  $last_day_of_month  = date('Y-m-t');
-  // Or a week out if the last date is less than a week away
-  $last_day_of_month = strtotime($last_day_of_month) > $additional_end_time ? $last_day_of_month : date('Y-m-d', $additional_end_time);
-
-  $response = $client->get("https://oregonstate.libcal.com/api/1.1/hours/$location_id?from=$first_day_of_month&to=$last_day_of_month");
+  // Retrieve data for $location_id (LibCal ID for Library), for time period $start_time - $end_time
+  $response = $client->get("https://oregonstate.libcal.com/api/1.1/hours/$location_id?from=$start_time&to=$end_time");
   $result = json_decode((string)$response->getBody(), TRUE);
 
   return $result;
@@ -197,16 +202,74 @@ function fetch_libcal_data($client, $location_id) {
  *
  * @return string New libcal bearer token
  */
-function libcal_bearer_token() {
+function libcal_bearer_token(): string {
   $client = \Drupal::httpClient();
   $response = $client->post("https://oregonstate.libcal.com/api/1.1/oauth/token",[
     'form_params' => [
       'client_id' => getenv('LIBCAL_CLIENT_ID'),
-      'client_secret' => getenv('LIBCAL_CLIENT_SECRET'),// ?? 'daf3455ced9af6b5cc97ca39104d4e53',
+      'client_secret' => getenv('LIBCAL_CLIENT_SECRET'),
       'grant_type' => 'client_credentials',
     ],
   ]);
   $result = json_decode((string) $response->getBody());
 
   return $result->access_token;
+}
+
+
+/**
+ * Narrow libcal data to this week and format data for use in twig
+ *
+ * @param Array JSON of libcal location hours data
+ *
+ * @return Array Well formatted libcal data
+ */
+function format_this_weeks_dates($libcal_dates): array {
+  if (!isset($libcal_dates)) {
+    return [];
+  }
+
+  $dates = [];
+  $today = date('Y-m-d');
+  // End of last week. We'll be adding 1 day to this seven times to get this week's data
+  $start_time = new DateTime('midnight this week - 2 day');
+
+  // Get the date and day of the week for each day of this week
+  for ($i = 0; $i < 7; ++$i) {
+    // Add a day to get to the next day in the week
+    $start_time->modify("+1 days");
+    $date = $start_time->format('Y-m-d');
+
+    if (isset($libcal_dates[$date]['hours'])) {
+      // From and to time for this day
+      $from = $libcal_dates[$date]['hours'][0]['from'];
+      $to = $libcal_dates[$date]['hours'][0]['to'];
+      // Convert that to unix timestamp
+      $from_unix = strtotime($from);
+      $to_unix = strtotime($to);
+      // If the closing hour is less than the opening hour, it actually closes the next day
+      if ($to_unix < $from_unix) $to_unix = strtotime("$to + 1 day");
+      // Structure the open/close hours for <time> datetime attribute
+      $from_structured = date('Y-m-d H:i', $from_unix);
+      $to_structured = date('Y-m-d H:i', $to_unix);
+      // Wrap it all together for a twig variable
+      $dates[$date] = [
+        'from' => $from,
+        'from_structured' => $from_structured,
+        'to' => $to,
+        'to_structured' => $to_structured,
+      ];
+    } else { // If this is an exception just get the message or a default
+      $dates[$date] = [
+        'message' => $libcal_dates[$date]['note'] ?: '',
+      ];
+    }
+    // Add some consistent information
+    $dates[$date]['day'] = $start_time->format('l');
+    $dates[$date]['status'] = $libcal_dates[$date]['status'];
+  }
+  // Add today's info as a unique element
+  array_unshift($dates, $dates[$today]);
+
+  return $dates;
 }
