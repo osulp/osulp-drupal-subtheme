@@ -48,12 +48,14 @@
       <div id="footer-menus" class="col-12 row">
         {{ content }}
       </div>
-      <a href="https://guides.library.oregonstate.edu/subject-guide/286-Government-Information" class="footer-fdlp-link">
-        <img src="/{{ directory }}/assets/fdlp-emblem-color.png" alt="GPO Official Partnership" title="U.S. Government Publishing Office Official Partnership" height="64"/>
-      </a>
+      <div>
+        <a href="https://guides.library.oregonstate.edu/subject-guide/286-Government-Information" class="footer-fdlp-link">
+          <img src="/{{ directory }}/assets/fdlp-emblem-color.png" alt="GPO Official Partnership" title="U.S. Government Publishing Office Official Partnership" height="64"/>
+        </a>
+      </div>
     </div>
-    <div class="col-12 pt-4 osu-link-white fs-7 fw-light">
-      <a href="https://oregonstate.edu/copyright">
+    <div class="col-12 pt-4 fs-7 fw-light">
+      <a href="https://oregonstate.edu/copyright" class="osu-link-white">
         &#169;
         {{ 'now'|date('Y') }}
         Oregon State University
@@ -64,7 +66,7 @@
       <span class="d-sm-none">
         <br/>
       </span>
-      <a href="/sitemap.xml">
+      <a href="/sitemap.xml" class="osu-link-white">
         {{ 'Sitemap'|t }}
       </a>
     </div>
