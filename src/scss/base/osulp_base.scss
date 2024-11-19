@@ -7,52 +7,41 @@
   --bs-border-color: #{$color-coastline-100};
 }
 
-@media (max-width: 575.98px) {
-  // Borderless for small
-  .border-x-sm-0 {
-    border-left: 0 !important;
-    border-right: 0 !important;
-  }
-  .border-y-sm-0 {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-  }
-  .border-end-sm-0 {
-    border-right: 0 !important;
-  }
-  .border-start-sm-0 {
-    border-left: 0 !important;
-  }
-  .border-top-sm-0 {
-    border-top: 0 !important;
-  }
-  .border-bottom-sm-0 {
-    border-bottom: 0 !important;
-  }
-}
-@media (max-width: 767.98px) {
-  // Borderless for med
-  .border-x-md-0 {
-    border-left: 0 !important;
-    border-right: 0 !important;
-  }
-  .border-y-md-0 {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-  }
-  .border-end-md-0 {
-    border-right: 0 !important;
-  }
-  .border-start-md-0 {
-    border-left: 0 !important;
-  }
-  .border-top-md-0 {
-    border-top: 0 !important;
-  }
-  .border-bottom-md-0 {
-    border-bottom: 0 !important;
-  }
-}
+// Make all the border-* variables responsive
+$utilities: map-merge-multiple(
+  $utilities,
+  (
+    "border": map-merge(
+      map-get($utilities, "border"),
+      ( responsive: true ),
+    ),
+  ),
+  (
+    "border-start": map-merge(
+      map-get($utilities, "border-start"),
+      ( responsive: true ),
+    ),
+  ),
+  (
+    "border-end": map-merge(
+      map-get($utilities, "border-end"),
+      ( responsive: true ),
+    ),
+  ),
+  (
+    "border-top": map-merge(
+      map-get($utilities, "border-top"),
+      ( responsive: true ),
+    ),
+  ),
+  (
+    "border-bottom": map-merge(
+      map-get($utilities, "border-bottom"),
+      ( responsive: true ),
+    ),
+  ),
+);
+
 
 .font-open-sans {
   font-family: var(--bs-body-font-family) !important;
