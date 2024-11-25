@@ -192,10 +192,10 @@
       {# Mobile only contact info #}
       <div class="py-4-5 header-overline border-bottom border-top font-open-sans small row mx-0">
         {% apply spaceless %}
-        <span class="pe-md-3 border-end border-dark border-end-md-0 col-12 col-md-auto">
+        <span class="pe-md-3 col-12 col-md-auto">
           <a href="mailto:{{node.field_email.value}}">{{- node.field_email.value -}}</a>
         </span>
-        <span class="px-md-3 py-2-5 py-md-0 border-end border-dark border-end-md-0 col-12 col-md-auto">
+        <span class="px-md-3 py-2-5 py-md-0 col-12 col-md-auto">
           <a href="tel:{{node.field_phone_number.value}}">
             {{- node.field_phone_number.value -}}</a>
         </span>

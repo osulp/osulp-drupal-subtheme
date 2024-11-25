@@ -48,6 +48,7 @@ $osulp-all-colors: (
   }
   .border-#{$name} {
     border-color: $color !important;
+    --bs-border-color: #{$color} !important;
   }
   .border-#{$name}-left {
     border-left-color: $color !important;
