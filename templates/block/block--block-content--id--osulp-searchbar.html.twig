@@ -30,7 +30,8 @@
   'block-' ~ configuration.provider|clean_class,
   'block-' ~ plugin_id|clean_class,
   'col-12',
-  'd-flex',
+  'd-none',
+  'd-md-flex',
   'justify-content-end',
   'align-items-center',
   'border-beaver-dark',
@@ -42,6 +43,7 @@
 ] %}
 {% set search_form_classes = [
   'd-flex',
+  'flex-wrap',
   'gap-3',
   'h-100',
   'w-100',
@@ -63,7 +65,7 @@
 
       <form class="{{search_form_classes|join(' ')}}" action="/search" method="get" accept-charset="UTF-8">
         <div class="flex-shrink-0">{{'Search the'|t}}</div>
-        <select onchange="handleSearchLocChange(this)" name="loc" id="osulp-search-loc" class="form-select w-auto py-2 px-5 ps-4-5">
+        <select onchange="handleSearchLocChange(this)" name="loc" id="osulp-search-loc" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
           <option value="cat">Catalog</option>
           <option value="web">Website</option>
           <option value="jour">Journals</option>
@@ -74,22 +76,18 @@
         </select>
         <div id="osulp-search-method" class="d-flex gap-3">
           <div class="">{{'by'|t}}</div>
-          <select name="method" id="" class="form-select w-auto py-2 px-5 ps-4-5">
+          <select name="method" id="" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
             <option value="">Keyword</option>
             <option value="">Exact Phrase</option>
           </select>
         </div>
-        <input type="text" class="form-search form-control px-3 h-100 bg-white" type="search" name="search_api_fulltext">
+        <input type="text" class="form-search form-control w-25 px-3 h-100 bg-white border-black border-end-0" type="search" name="search_api_fulltext">
+        <button type="submit" value="Submit" class="btn osu-btn-primary p-2 px-4 ms-n3 rounded-0 border-black">
+          <i class="fa fs-4 color-white fa-search osu-text-icon" aria-hidden="true"></i>
+        </button>
         <input type="hidden" name="op" value="Search">
-        <input type="submit" value="Submit" class="btn osu-btn-primary p-2 ms-n3 rounded-0">
         <input type="hidden" name="form_id" value="search_api_page_block_form_basic_search">
       </form>
-    </div>
-    <div class="d-flex d-lg-none align-items-center h-100 p-4 col-12">
-      <a href="{{ path('search.view') }}">
-        <span class="sr-only">Open Search Page</span>
-        <i class="fa fa-2x fa-search osu-text-icon" aria-hidden="true"></i>
-      </a>
     </div>
   {% endblock %}
 </div>
