@@ -38,8 +38,6 @@
   'border-4',
   'border-top',
   groups ? 'bg-' ~ groups[0].label.value|lower : 'bg-black',
-  'py-5',
-  'px-4-5',
 ] %}
 {% set search_form_classes = [
   'd-flex',
@@ -61,31 +59,33 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <div class="col-12">
+    <div class="collapse-wrapper collapse w-100" id="osulp-search-collapse">
+      <div class="col-12 py-5 px-4-5">
 
-      <form onsubmit="handleSearchSubmit(this)" class="{{search_form_classes|join(' ')}}" action="" method="get" accept-charset="UTF-8">
-        <div class="flex-shrink-0">{{'Search the'|t}}</div>
-        <select onchange="handleSearchLocChange(this)" name="" id="osulp-search-loc" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
-          <option value="cat">Catalog</option>
-          <option value="web">Website</option>
-          <option value="jour">Journals</option>
-          <option value="tad">Thesis and Dissertations</option>
-          <option value="cr">Course Reserves</option>
-          <option value="rg">Research Guides</option>
-          <option value="arc">Archival Collections</option>
-        </select>
-        <div id="osulp-search-method-wrapper" class="d-flex gap-3">
-          <div class="">{{'by'|t}}</div>
-          <select name="" id="osulp-search-method" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
-            <option value="contains">Keyword</option>
-            <option value="exact">Exact Phrase</option>
+        <form onsubmit="handleSearchSubmit(this)" class="{{search_form_classes|join(' ')}}" action="" method="get" accept-charset="UTF-8">
+          <div class="flex-shrink-0">{{'Search the'|t}}</div>
+          <select onchange="handleSearchLocChange(this)" name="" id="osulp-search-loc" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
+            <option value="cat">Catalog</option>
+            <option value="web">Website</option>
+            <option value="jour">Journals</option>
+            <option value="tad">Thesis and Dissertations</option>
+            <option value="cr">Course Reserves</option>
+            <option value="rg">Research Guides</option>
+            <option value="arc">Archival Collections</option>
           </select>
-        </div>
-        <input id="osulp-search-query" type="text" class="form-search form-control w-25 px-3 h-100 bg-white border-black border-end-0" type="search" name="">
-        <button type="submit" value="Submit" class="btn osu-btn-primary p-2 px-4 ms-n3 rounded-0 border-black">
-          <i class="fa fs-4 color-white fa-search osu-text-icon" aria-hidden="true"></i>
-        </button>
-      </form>
+          <div id="osulp-search-method-wrapper" class="d-flex gap-3">
+            <div class="">{{'by'|t}}</div>
+            <select name="" id="osulp-search-method" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
+              <option value="contains">Keyword</option>
+              <option value="exact">Exact Phrase</option>
+            </select>
+          </div>
+          <input id="osulp-search-query" type="text" class="form-search form-control w-25 px-3 h-100 bg-white border-black border-end-0" type="search" name="">
+          <button type="submit" value="Submit" class="btn osu-btn-primary p-2 px-4 ms-n3 rounded-0 border-black">
+            <i class="fa fs-4 color-white fa-search osu-text-icon" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
     </div>
   {% endblock %}
 </div>
