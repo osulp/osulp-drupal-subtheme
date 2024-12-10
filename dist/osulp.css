@@ -1262,6 +1262,9 @@ h6 a, .h6 a {
   --bs-nav-link-padding-y: 0.75rem;
   --bs-nav-link-color: #221F1E;
 }
+#madrone-full-top-container #menu-osulp-full-top-menu {
+  width: fit-content;
+}
 
 #block-osulp-headermenus .nav li.nav-item.cascades.cascades-active a, #block-osulp-headermenus .nav li.nav-item.cascades a:hover, #block-osulp-headermenus .nav li.nav-item.cascades a:focus, #madrone-full-top-container .nav li.nav-item.cascades.cascades-active a, #madrone-full-top-container .nav li.nav-item.cascades a:hover, #madrone-full-top-container .nav li.nav-item.cascades a:focus {
   --bs-nav-tabs-link-hover-border-color: #0D5257;
