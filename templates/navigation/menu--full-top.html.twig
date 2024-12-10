@@ -26,6 +26,7 @@ We call a macro which calls itself to render the full tree.
 {{ menus.menu_links(items, attributes.removeAttribute('region'), 0, menu_name, groups[0].label.value|lower) }}
 
 {% macro menu_links(items, attributes, menu_level, menu_name, group) %}
+  {% do attributes.setAttribute('id', 'menu-osulp-full-top-menu') %}
   {% import _self as menus %}
   {% set menu_classes = [
     'menu',
@@ -34,6 +35,7 @@ We call a macro which calls itself to render the full tree.
     'nav-pills',
     'osu-nav-link-hover--dark',
     'bg-transparent',
+    'm-auto',
   ] %}
   {% set submenu_classes = [
     'menu--' ~ menu_name|clean_class ~ '__submenu'
