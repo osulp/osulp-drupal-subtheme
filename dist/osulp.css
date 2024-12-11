@@ -1251,7 +1251,10 @@ h6 a, .h6 a {
 #osulp-title-block-container {
   background-repeat: no-repeat;
   background-position: right;
-  background-size: 25% 100%;
+  background-size: 25%;
+}
+#osulp-title-block-container.group {
+  background-size: 50%;
 }
 
 #block-osulp-sitebranding > div {

@@ -5,7 +5,11 @@
   // Set title block image as a background
   background-repeat: no-repeat;
   background-position: right;
-  background-size: 25% 100%;
+  background-size: 25%;
+
+  &.group {
+    background-size: 50%;
+  }
 }
 #block-osulp-sitebranding {
   > div {
