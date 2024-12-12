@@ -17,12 +17,14 @@
   'madrone-' ~ region|clean_class,
   'container',
 ] %}
+{% set group_page = (groups and not page_node) %}
+{% set col_width = group_page ? 6 : 9 %}
 {% set background_image_style = image_uri ? 'background-image: url(' ~ image_uri ~ ');' : '' %}
 {% if content %}
-  <div id="osulp-title-block-container" class="container-fluid bg-coastline-20 g-0 pb-4" style="{{background_image_style}}">
+  <div id="osulp-title-block-container" class="{{ group_page ? 'group' : '' }} container-fluid bg-coastline-20 g-0 pb-4" style="{{background_image_style}}">
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
       <div class="row">
-        <div class="col-9">
+        <div class="col-12 col-md-{{col_width}}">
           {{ content }}
         </div>
       </div>

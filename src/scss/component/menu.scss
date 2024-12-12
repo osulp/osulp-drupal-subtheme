@@ -1,0 +1,45 @@
+#madrone-full-top-container {
+  .menu {
+    .nav-item {
+      .nav-link {
+        --bs-nav-link-padding-y: 0.75rem;
+        --bs-nav-link-color: #{$color-grey-900};
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+  #menu-osulp-full-top-menu,
+  #menu-osulp-full-top-menu-mobile-0 {
+    width: fit-content;
+  }
+  #menu-osulp-full-top-menu-mobile-0 {
+    height: 3em;
+  }
+  .block-group-content-menu .group-mobile-menu li {
+    background: unset !important;
+  }
+
+  .accordion-header.font-open-sans .accordion-button {
+    &::before {
+      font-family: FontAwesome;
+      content: "\f068";
+      font-size: 1em;
+      position: absolute;
+      left: -1.25em;
+    }
+
+    &.collapsed::before {
+      content: "\f0fe";
+    }
+  }
+
+  .group-mobile-menu {
+    .is-active {
+      color: $color-grey-600;
+      margin-left: 0.5em;
+    }
+  }
+}

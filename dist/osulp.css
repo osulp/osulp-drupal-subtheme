@@ -1251,7 +1251,15 @@ h6 a, .h6 a {
 #osulp-title-block-container {
   background-repeat: no-repeat;
   background-position: right;
-  background-size: 25% 100%;
+  background-size: 25%;
+}
+@media (max-width: 767.98px) {
+  #osulp-title-block-container {
+    background-image: none !important;
+  }
+}
+#osulp-title-block-container.group {
+  background-size: 50%;
 }
 
 #block-osulp-sitebranding > div {
@@ -1262,8 +1270,32 @@ h6 a, .h6 a {
   --bs-nav-link-padding-y: 0.75rem;
   --bs-nav-link-color: #221F1E;
 }
-#madrone-full-top-container #menu-osulp-full-top-menu {
+#madrone-full-top-container .menu .nav-item .nav-link::after {
+  content: none;
+}
+#madrone-full-top-container #menu-osulp-full-top-menu,
+#madrone-full-top-container #menu-osulp-full-top-menu-mobile-0 {
   width: fit-content;
+}
+#madrone-full-top-container #menu-osulp-full-top-menu-mobile-0 {
+  height: 3em;
+}
+#madrone-full-top-container .block-group-content-menu .group-mobile-menu li {
+  background: unset !important;
+}
+#madrone-full-top-container .accordion-header.font-open-sans .accordion-button::before {
+  font-family: FontAwesome;
+  content: "\f068";
+  font-size: 1em;
+  position: absolute;
+  left: -1.25em;
+}
+#madrone-full-top-container .accordion-header.font-open-sans .accordion-button.collapsed::before {
+  content: "\f0fe";
+}
+#madrone-full-top-container .group-mobile-menu .is-active {
+  color: #646362;
+  margin-left: 0.5em;
 }
 
 #block-osulp-headermenus .nav li.nav-item.cascades.cascades-active a, #block-osulp-headermenus .nav li.nav-item.cascades a:hover, #block-osulp-headermenus .nav li.nav-item.cascades a:focus, #madrone-full-top-container .nav li.nav-item.cascades.cascades-active a, #madrone-full-top-container .nav li.nav-item.cascades a:hover, #madrone-full-top-container .nav li.nav-item.cascades a:focus {

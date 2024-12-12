@@ -24,6 +24,71 @@ We call a macro which calls itself to render the full tree.
 @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
 {{ menus.menu_links(items, attributes.removeAttribute('region'), 0, menu_name, groups[0].label.value|lower) }}
+{{ menus.mobile_menu_wrapper(items, attributes.removeAttribute('region'), 0, menu_name, groups[0].label.value|lower) }}
+
+{% macro mobile_menu_wrapper(items, attributes, menu_level, menu_name, group) %}
+  <div class="accordion-flush d-md-none d-block m-auto color-grey-900 fw-semibold" id="menu-osulp-full-top-menu-mobile-{{menu_level}}">
+    <div class="accordion-item border border-2 border-{{group}} shadow bg-white">
+      <span class="accordion-header">
+        <button class="d-md-none d-block m-auto btn btn-secondary rounded-0 border-0 form-select collapsed me-4 color-grey-900" type="button" data-bs-toggle="collapse" data-bs-target="#group-menu-mobile-{{menu_level}}" aria-expanded="false" aria-controls="group-menu-mobile-{{menu_level}}">
+          {{ "Explore the "~ group|capitalize ~" Library"|t }}
+        </button>
+      </span>
+      <div id="group-menu-mobile-{{menu_level}}" class="accordion-collapse collapse">
+        <div class="accordion-body p-0">
+          <ul class="group-mobile-menu bg-white border-{{group}} border-2 border-top-0 rounded-0 list-unstyled my-1 mx-4-5">
+            {% for item in items %}
+              {% set li_classes = [
+                  group,
+                  item.in_active_trail ? 'nav-item active ' ~ group ~ '-active' : 'nav-item',
+                  'my-2',
+                ] %}
+              <li class="{{li_classes|join(' ')}}">
+                {% if item.below %}
+                  {{ menus.mobile_menu_inner(item.below, attributes, menu_level + 1, item.title, group) }}
+                {% else %}
+                  {{ link(item.title, item.url) }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro mobile_menu_inner(items, attributes, menu_level, menu_title, group) %}
+  <div class="accordion-flush d-md-none d-block m-auto" id="menu-osulp-full-top-menu-mobile-{{menu_level}}-{{menu_title|lower|replace({' ':''})}}">
+    <div class="accordion-item bg-transparent">
+      <span class="accordion-header font-open-sans">
+        <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#group-menu-mobile-{{menu_level}}-{{menu_title|clean_id}}" aria-expanded="false" aria-controls="group-menu-mobile-{{menu_level}}-{{menu_title|clean_id}}">
+          {{ menu_title|t }}
+        </button>
+      </span>
+      <div id="group-menu-mobile-{{menu_level}}-{{menu_title|clean_id}}" class="accordion-collapse collapse">
+        <div class="accordion-body p-0">
+          <ul class="group-mobile-menu list-unstyled border-start border-1 border-coastline-100 px-2">
+            {% for item in items %}
+              {% set li_classes = [
+                  group,
+                  item.in_active_trail ? 'nav-item active ' ~ group ~ '-active' : 'nav-item',
+                  'my-2',
+                ] %}
+              <li class="{{li_classes|join(' ')}}">
+                {% if item.below %}
+                  {{ menus.mobile_menu_inner(item.below, attributes, menu_level + 1, item.title, group) }}
+                {% else %}
+                  {{ link(item.title, item.url) }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
 
 {% macro menu_links(items, attributes, menu_level, menu_name, group) %}
   {% do attributes.setAttribute('id', 'menu-osulp-full-top-menu') %}

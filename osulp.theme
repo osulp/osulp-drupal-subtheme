@@ -85,6 +85,8 @@ function osulp_preprocess_region(array &$variables): void {
   // check for title block image and set uri as twig variable if it exists
   if (isset($variables['page_node']) && $variables['page_node']->field_page_image[0] ) {
     $variables['image_uri'] = $variables['page_node']->field_page_image[0]->entity->field_media_image->entity->createFileUrl();
+  } else if ($variables['groups'][0] && $variables['groups'][0]->field_hero_image[0]) {
+    $variables['image_uri'] = $variables['groups'][0]->field_hero_image[0]->entity->field_media_image->entity->createFileUrl();
   }
 }
 
