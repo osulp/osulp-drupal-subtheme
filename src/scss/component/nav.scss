@@ -1,17 +1,3 @@
-
-#madrone-full-top-container {
-  .menu {
-    .nav-item {
-      .nav-link {
-        --bs-nav-link-padding-y: 0.75rem;
-        --bs-nav-link-color: #{$color-grey-900};
-      }
-    }
-  }
-  #menu-osulp-full-top-menu {
-    width: fit-content;
-  }
-}
 #block-osulp-headermenus, #madrone-full-top-container {
   .nav {
     li.nav-item.cascades {

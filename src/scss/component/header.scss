@@ -7,6 +7,10 @@
   background-position: right;
   background-size: 25%;
 
+  @include media-breakpoint-down(md) {
+    background-image: none !important;
+  }
+
   &.group {
     background-size: 50%;
   }
