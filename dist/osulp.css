@@ -1270,6 +1270,9 @@ h6 a, .h6 a {
   --bs-nav-link-padding-y: 0.75rem;
   --bs-nav-link-color: #221F1E;
 }
+#madrone-full-top-container .menu .nav-item .nav-link::after {
+  content: none;
+}
 #madrone-full-top-container #menu-osulp-full-top-menu,
 #madrone-full-top-container #menu-osulp-full-top-menu-mobile-0 {
   width: fit-content;

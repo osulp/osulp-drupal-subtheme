@@ -4,6 +4,10 @@
       .nav-link {
         --bs-nav-link-padding-y: 0.75rem;
         --bs-nav-link-color: #{$color-grey-900};
+
+        &::after {
+          content: none;
+        }
       }
     }
   }
