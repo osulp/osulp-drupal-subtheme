@@ -30,7 +30,8 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'col-7',
+    'col-4',
+    'col-lg-7',
     'd-flex',
     'justify-content-end',
     'align-items-center',
@@ -80,6 +81,16 @@
           </div>
         </div>
         {{ content }}
+      </div>
+      <div{{content_attributes.removeClass('h-100','d-none','d-lg-block','container','me-5').addClass('d-lg-none','container')}}>
+        <div class="float-end">
+          <button class="btn btn-link nav-link p-2 rounded-0 d-inline-block" data-bs-toggle="collapse" data-bs-target="#osulp-search-collapse" aria-expanded="false" aria-controls="osulp-search-collapse">
+            <i class="fa fs-4 fa-search" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-link nav-link p-2 rounded-0 d-inline-block">
+            <i class="fa fs-4 fa-bars"></i>
+          </button>
+        </div>
       </div>
     {% endblock %}
   </div>
