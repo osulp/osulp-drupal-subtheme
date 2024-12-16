@@ -35,3 +35,12 @@
     --bs-nav-link-padding-y: 0.25rem;
   }
 }
+
+#osulp-menu-mobile-header {
+  .mobile-menu-vert .nav {
+    flex-direction: column;
+    .nav-link {
+      --bs-nav-link-color: #{$color-white};
+    }
+  }
+}

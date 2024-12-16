@@ -87,11 +87,50 @@
           <button class="btn btn-link nav-link p-2 rounded-0 d-inline-block" data-bs-toggle="collapse" data-bs-target="#osulp-search-collapse" aria-expanded="false" aria-controls="osulp-search-collapse">
             <i class="fa fs-4 fa-search" aria-hidden="true"></i>
           </button>
-          <button class="btn btn-link nav-link p-2 rounded-0 d-inline-block">
+          <button class="btn btn-link nav-link p-2 rounded-0 d-inline-block" data-bs-toggle="collapse" data-bs-target="#osulp-menu-mobile-header" aria-expanded="false" aria-controls="osulp-menu-mobile-header">
             <i class="fa fs-4 fa-bars"></i>
           </button>
         </div>
       </div>
     {% endblock %}
+  </div>
+  <div class="accordion-flush d-lg-none d-block m-auto color-grey-900 fw-semibold" id="menu-osulp-full-top-menu-mobile-{{menu_level}}">
+    <div class="accordion-item">
+      <span class="accordion-header"></span>
+      <div id="osulp-menu-mobile-header" class="position-absolute z-2 vw-100 bg-grey-900 border-beaver-orange border-4 border-top color-white text-align-right accordion-collapse collapse" style="right:0;">
+        <div class="accordion-body p-0 mx-4">
+          <div class="mobile-menu-vert border-bottom border-1 pb-2 mb-2 border-coastline-100 fs-2">
+            {{ drupal_menu('header-menu-2') }}
+          </div>
+          <div class="mobile-menu-vert border-bottom border-1 pb-2 mb-2 border-coastline-100">
+            {{ drupal_menu('header-menu-1') }}
+          </div>
+          <div class="me-5">
+            <div class="w-fit-content fw-lighter fs-7 m-auto">
+              Visit the Library in
+            </div>
+            <div class="w-fit-content fw-semibold m-auto">
+              <ul class="gap-4 nav nav-tabs justify-content-end border-bottom-0">
+                <li class="nav-item me-1 cascades {{active_class}}">
+                  <a class="nav-link border border-bottom-0 rounded-top-1 bg-beaver-orange color-white mb-0 p-2-5 py-2 fs-7" href="/cascades">
+                    Bend
+                  </a>
+                </li>
+                <li class="nav-item me-1 valley {{active_class}}">
+                  <a class="nav-link border border-bottom-0 rounded-top-1 bg-beaver-orange color-white mb-0 p-2-5 py-2 fs-7" href="/valley">
+                    Corvallis
+                  </a>
+                </li>
+                <li class="nav-item guin {{active_class}}">
+                  <a class="nav-link border border-bottom-0 rounded-top-1 bg-beaver-orange color-white mb-0 p-2-5 py-2 fs-7" href="/guin">
+                    Newport
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock %}

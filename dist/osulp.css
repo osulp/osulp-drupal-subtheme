@@ -559,6 +559,10 @@
   --bs-border-color: #A7ACA2;
 }
 
+.w-fit-content {
+  width: fit-content !important;
+}
+
 .font-open-sans {
   font-family: var(--bs-body-font-family) !important;
 }
@@ -1320,6 +1324,13 @@ h6 a, .h6 a {
 #madrone-left-sidebar-container .nav-link {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.25rem;
+}
+
+#osulp-menu-mobile-header .mobile-menu-vert .nav {
+  flex-direction: column;
+}
+#osulp-menu-mobile-header .mobile-menu-vert .nav .nav-link {
+  --bs-nav-link-color: #FFFFFF;
 }
 
 /* News views page */
