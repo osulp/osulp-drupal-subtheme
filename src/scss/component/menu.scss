@@ -22,7 +22,7 @@
     background: unset !important;
   }
 
-  .accordion-header.font-open-sans .accordion-button {
+  .accordion-header.font-open-sans button {
     &::before {
       font-family: FontAwesome;
       content: "\f068";
@@ -40,6 +40,34 @@
     .is-active {
       color: $color-grey-600;
       margin-left: 0.5em;
+    }
+  }
+}
+
+#osulp-menu-mobile-header {
+  .header-1-mobile-menu,
+  .header-2-mobile-menu {
+    button {
+      &::after {
+        font-family: FontAwesome;
+        content: "\f068";
+        font-size: 1em;
+        position: absolute;
+        right: 1.25em;
+      }
+
+      &.collapsed::after {
+        content: "\f0fe";
+      }
+    }
+  }
+  .mobile-menu-vert ul {
+    --bs-nav-link-color: #{$color-white};
+    --bs-link-color: #{$color-white};
+    --bs-link-color-rgb: #{$color-white};
+
+    .is-active {
+      color: $color-coastline-100
     }
   }
 }

@@ -42,6 +42,9 @@ $utilities: map-merge-multiple(
   ),
 );
 
+.w-fit-content {
+  width: fit-content !important;
+}
 
 .font-open-sans {
   font-family: var(--bs-body-font-family) !important;
