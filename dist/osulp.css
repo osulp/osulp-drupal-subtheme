@@ -1287,19 +1287,40 @@ h6 a, .h6 a {
 #madrone-full-top-container .block-group-content-menu .group-mobile-menu li {
   background: unset !important;
 }
-#madrone-full-top-container .accordion-header.font-open-sans .accordion-button::before {
+#madrone-full-top-container .accordion-header.font-open-sans button::before {
   font-family: FontAwesome;
   content: "\f068";
   font-size: 1em;
   position: absolute;
   left: -1.25em;
 }
-#madrone-full-top-container .accordion-header.font-open-sans .accordion-button.collapsed::before {
+#madrone-full-top-container .accordion-header.font-open-sans button.collapsed::before {
   content: "\f0fe";
 }
 #madrone-full-top-container .group-mobile-menu .is-active {
   color: #646362;
   margin-left: 0.5em;
+}
+
+#osulp-menu-mobile-header .header-1-mobile-menu button::after,
+#osulp-menu-mobile-header .header-2-mobile-menu button::after {
+  font-family: FontAwesome;
+  content: "\f068";
+  font-size: 1em;
+  position: absolute;
+  right: 1.25em;
+}
+#osulp-menu-mobile-header .header-1-mobile-menu button.collapsed::after,
+#osulp-menu-mobile-header .header-2-mobile-menu button.collapsed::after {
+  content: "\f0fe";
+}
+#osulp-menu-mobile-header .mobile-menu-vert ul {
+  --bs-nav-link-color: #FFFFFF;
+  --bs-link-color: #FFFFFF;
+  --bs-link-color-rgb: #FFFFFF;
+}
+#osulp-menu-mobile-header .mobile-menu-vert ul .is-active {
+  color: #A7ACA2;
 }
 
 #block-osulp-headermenus .nav li.nav-item.cascades.cascades-active a, #block-osulp-headermenus .nav li.nav-item.cascades a:hover, #block-osulp-headermenus .nav li.nav-item.cascades a:focus, #madrone-full-top-container .nav li.nav-item.cascades.cascades-active a, #madrone-full-top-container .nav li.nav-item.cascades a:hover, #madrone-full-top-container .nav li.nav-item.cascades a:focus {
@@ -1324,13 +1345,6 @@ h6 a, .h6 a {
 #madrone-left-sidebar-container .nav-link {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.25rem;
-}
-
-#osulp-menu-mobile-header .mobile-menu-vert .nav {
-  flex-direction: column;
-}
-#osulp-menu-mobile-header .mobile-menu-vert .nav .nav-link {
-  --bs-nav-link-color: #FFFFFF;
 }
 
 /* News views page */

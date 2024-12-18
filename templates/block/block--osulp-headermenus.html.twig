@@ -96,14 +96,13 @@
   </div>
   <div class="accordion-flush d-lg-none d-block m-auto color-grey-900 fw-semibold">
     <div class="accordion-item">
-      <span class="accordion-header"></span>
       <div id="osulp-menu-mobile-header" class="position-absolute z-2 vw-100 bg-grey-900 border-beaver-orange border-4 border-top color-white text-align-right accordion-collapse collapse" style="right:0;">
         <div class="accordion-body p-0 mx-4">
-          <div class="mobile-menu-vert border-bottom border-1 pb-2 mb-2 border-coastline-100 fs-2">
-            {{ drupal_menu('header-menu-2') }}
+          <div class="mobile-menu-vert border-bottom border-1 pb-2 mb-2 border-coastline-100">
+            {{ drupal_menu('header-menu-2', 1, 0, true) }}
           </div>
           <div class="mobile-menu-vert border-bottom border-1 pb-2 mb-2 border-coastline-100">
-            {{ drupal_menu('header-menu-1') }}
+            {{ drupal_menu('header-menu-1', 1, 0, true) }}
           </div>
           <div>
             <div class="w-fit-content fw-lighter fs-7 py-2 m-auto">
