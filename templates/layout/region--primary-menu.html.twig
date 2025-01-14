@@ -12,16 +12,29 @@
  * @see template_preprocess_region()
  */
 #}
+{# Set variable for pages with white header #}
+{% set white_top_page = [
+  'directory_profile',
+  'news',
+  'events',
+] %}
+{% set white_top = (page_node and page_node.type.entity.id in white_top_page) %}
+
+{# Set region id and classes #}
 {% set region_id = 'madrone-' ~ region|clean_class ~ '-container' %}
 {% set region_class = [
   'madrone-' ~ region|clean_class,
   'container',
 ] %}
+{# {{ dump(page_node.type.entity.id) }}  #}
 {% set group_page = (groups and not page_node) %}
 {% set col_width = group_page ? 6 : 9 %}
+
+{# actual layout #}
 {% set background_image_style = image_uri ? 'background-image: url(' ~ image_uri ~ ');' : '' %}
 {% if content %}
-  <div id="osulp-title-block-container" class="{{ group_page ? 'group' : '' }} container-fluid bg-coastline-20 g-0 pb-4" style="{{background_image_style}}">
+{# If the page is a group page, add the group class. If the page is a white top page (from the variable) it won't show up #}
+  <div id="osulp-title-block-container" class="{{ group_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4" style="{{background_image_style}}">
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
       <div class="row">
         <div class="col-12 col-md-{{col_width}}">

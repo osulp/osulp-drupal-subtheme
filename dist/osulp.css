@@ -115,6 +115,35 @@
   color: #D6B25C !important;
 }
 
+.bg-stratosphere {
+  background-color: #006A8E !important;
+}
+
+.border-stratosphere {
+  border-color: #006A8E !important;
+  --bs-border-color: #006A8E !important;
+}
+
+.border-stratosphere-left {
+  border-left-color: #006A8E !important;
+}
+
+.border-stratosphere-top {
+  border-top-color: #006A8E !important;
+}
+
+.border-stratosphere-right {
+  border-right-color: #006A8E !important;
+}
+
+.border-stratosphere-bottom {
+  border-bottom-color: #006A8E !important;
+}
+
+.color-stratosphere {
+  color: #006A8E !important;
+}
+
 .bg-coastline-100 {
   background-color: #A7ACA2 !important;
 }
@@ -717,6 +746,35 @@ a.arrow-link::before {
 
 .color-candela-dark {
   color: #D6B25C !important;
+}
+
+.bg-stratosphere {
+  background-color: #006A8E !important;
+}
+
+.border-stratosphere {
+  border-color: #006A8E !important;
+  --bs-border-color: #006A8E !important;
+}
+
+.border-stratosphere-left {
+  border-left-color: #006A8E !important;
+}
+
+.border-stratosphere-top {
+  border-top-color: #006A8E !important;
+}
+
+.border-stratosphere-right {
+  border-right-color: #006A8E !important;
+}
+
+.border-stratosphere-bottom {
+  border-bottom-color: #006A8E !important;
+}
+
+.color-stratosphere {
+  color: #006A8E !important;
 }
 
 .bg-coastline-100 {
