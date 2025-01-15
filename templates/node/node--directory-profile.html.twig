@@ -105,7 +105,6 @@
           {% endif %}
           {% if content.field_consult_link.0 %}
             <a href="{{ node.field_consult_link.value.0.uri }}" class="fs-6">Schedule a Research Consultation</a>
-            {# {{ dump(content.field_consult_link.0) }} #}
           {% endif %}
         </div>
       {% endif %}
@@ -220,13 +219,15 @@
             {{ content.field_subjects }}
           </span>
         {% endif %}
-        <a href="#">Schedule a Research Consultation</a>
+        <div class="py-4 mb-0">
+        <a href="{{ node.field_consult_link.value.0.uri }}">Schedule a Research Consultation</a>
+        </div>
       </div>
       {% endif %}
       {# End mobile contact link #}
 
       {# Mobile only websites #}
-      {% if content.field_websites %}
+      {% if content.field_websites.0 %}
         <div class="border-bottom py-4">
           {{ content.field_websites }}
         </div>
@@ -234,6 +235,19 @@
       {# end mobile websites #}
 
       {# Mobile only CV #}
+
+            <div class="pt-5">
+        <h2 class="visually-hidden">Duties and C.V.</h2>
+      </div>
+      {% if content.field_primary_duties.0 %}
+        <div class="pt-5">
+        <h3 class="color-grey-900">{{ node.field_primary_duties.fieldDefinition.label }}</h3>
+          {# {{ dump(node.field_primary_duties.fieldDefinition.label) }} #}
+          {{ content.field_primary_duties }}
+        </div>
+      {% endif %}
+
+
       <div class="pt-5">
         <h2 class="visually-hidden">C.V.</h2>
         {{ content.field_brief_cv }}
