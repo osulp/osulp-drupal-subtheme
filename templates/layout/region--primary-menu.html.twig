@@ -18,7 +18,7 @@
   'news',
   'events',
 ] %}
-{% set white_top = (page_node and page_node.type.entity.id in white_top_page) %}
+{% set white_top = (page_node and page_node.type.entity.id in white_top_page) or (is_front) %}
 
 {# Set region id and classes #}
 {% set region_id = 'madrone-' ~ region|clean_class ~ '-container' %}
@@ -27,6 +27,7 @@
   'container',
 ] %}
 {# {{ dump(page_node.type.entity.id) }}  #}
+{# check for group pages that are not page nodes. This should leave us with home pages group page #}
 {% set group_page = (groups and not page_node) %}
 {% set col_width = group_page ? 6 : 9 %}
 

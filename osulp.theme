@@ -88,6 +88,12 @@ function osulp_preprocess_region(array &$variables): void {
   } else if ($variables['groups'][0] && $variables['groups'][0]->field_hero_image[0]) {
     $variables['image_uri'] = $variables['groups'][0]->field_hero_image[0]->entity->field_media_image->entity->createFileUrl();
   }
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    $variables['is_front'] = FALSE;
+  }
 }
 
 /**
