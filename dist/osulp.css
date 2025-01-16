@@ -588,6 +588,11 @@
   --bs-border-color: #A7ACA2;
 }
 
+.lib-py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .w-fit-content {
   width: fit-content !important;
 }
