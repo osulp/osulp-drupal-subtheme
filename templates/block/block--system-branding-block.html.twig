@@ -25,6 +25,8 @@
  * @see template_preprocess_block()
  */
 #}
+
+{# default 'everybody' page look for site_name. (Libraries)#}
 {% macro site_link(is_front, site_name) %}
   <a class="site-name__site-link text-decoration-none color-paddletailblack fs-1 fw-light border-start border-2 border-grey-700 ps-4 ps-3 ms-4 {% if is_front %}site-name__site-front{% endif %}" href="{{ path('<front>') }}" rel="home">
     {% if is_front %}
@@ -66,6 +68,7 @@
             </a>
           </div>
         </div>
+        {# Bonus crest for osu groups that want to re-create a companion logo. This is hidden by default for the library. Remove d-lg-none to show. #}
         <div class="d-flex d-lg-none osu-logo--crest">
           <div class="py-2 px-2">
             <a id="osu-logo-crest" class="text-decoration-none" href="{{ companion_logo_link }}">
@@ -74,11 +77,13 @@
           </div>
         </div>
       {% endif %}
+
+      {# logic for groups names. since all pages have a 'site name' this div may render twice. #}
       {% if site_name %}
-        <div class="block__content__site-name d-flex flex-column py-2-5 lh-sm border-start border-2 border-grey-700 ps-4 ps-3 ms-4">
+        <div class="block__content__site-name d-flex flex-column py-2-5 lh-sm {% if content.group_name_link %} border-start border-2 border-grey-700 ps-4 ps-3 ms-4 {% endif %}">
           {% if content.group_name_link %}
             <div class="site-name__site-link--wrapper">
-              <a class="site-name__site-link--with-group fs-6" href="{{ path('<front>') }}" rel="home">
+              <a class="site-name__site-link--with-group fs-2 fw-light" href="{{ path('<front>') }}" rel="home">
                 {{ site_name }}
               </a>
             </div>
