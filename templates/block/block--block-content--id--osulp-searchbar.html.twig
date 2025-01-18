@@ -51,6 +51,7 @@
   'fw-semibold',
   'color-white',
 ] %}
+
 <div{{attributes.addClass(classes)}}>
   {{ title_prefix }}
   {% if label %}
@@ -58,7 +59,8 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <div class="collapse-wrapper collapse w-100 show" id="osulp-search-collapse">
+  {# This div is hard coded to add the boostrap class 'show' on the front page and the group pages. This may stop working depending on caching on the block. #}
+    <div class="collapse-wrapper collapse w-100 {% if is_front or path('<current>') in ['/cascades', '/guin', '/valley'] %} show {% endif %}" id="osulp-search-collapse">
       <div class="col-12 py-5 px-4-5">
 
         <form onsubmit="handleSearchSubmit(this)" class="{{search_form_classes|join(' ')}}" action="" method="get" accept-charset="UTF-8">
