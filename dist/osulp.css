@@ -1256,6 +1256,10 @@ h6 a, .h6 a {
   text-decoration: none;
 }
 
+h2, .h2 {
+  font-weight: 400;
+}
+
 .block-system-main-block ul:not(.nav,
 .navbar,
 .list-unstyled,
@@ -1279,6 +1283,10 @@ h6 a, .h6 a {
   font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
   font-weight: 900;
   letter-spacing: normal;
+}
+
+.homepagelink > a {
+  color: #D73F09;
 }
 
 .block-inline-blockosulp-card {
