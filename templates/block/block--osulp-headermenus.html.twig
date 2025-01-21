@@ -36,7 +36,8 @@
     'justify-content-end',
     'align-items-center',
   ] %}
-  {% set active_class = groups ? groups[0].label.value|lower ~ '-active' : '' %}
+  {# set active_class to the name of the group-active (guin-active, etc) or all-active #}
+  {% set active_class = groups ? groups[0].label.value|lower ~ '-active' : 'all-active' %}
   <div{{attributes.addClass(classes)}}>
     {{ title_prefix }}
     {% if label %}
@@ -50,6 +51,7 @@
         <div class="d-flex justify-content-end align-items-center">
           {{ drupal_menu('header-menu-1') }}
         </div>
+        {# dropdown menu #}
         <div class="d-flex justify-content-end align-items-center py-4">
           {# {{ drupal_menu('header-menu-2') }} #}
           {{ drupal_block('superfish:header-menu-2') }}

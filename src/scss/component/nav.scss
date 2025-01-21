@@ -1,7 +1,16 @@
+// logic for the tab navigation. By default, twig sets the variable for the page. Group page has has 'name-active' or 'all-active'. "guin-active' means only guin will show. 'all' is the fallback -- all will show.
+
 #block-osulp-headermenus, #madrone-full-top-container, #osulp-menu-mobile-header {
   .nav {
     li.nav-item.cascades {
       &.cascades-active a, a:hover, a:focus {
+        --bs-nav-tabs-link-hover-border-color: #{$color-cascades};
+        --bs-border-color: #{$color-cascades};
+
+        background-color: $color-cascades !important;
+        color: $white;
+      }
+      &.all-active a, a:hover, a:focus {
         --bs-nav-tabs-link-hover-border-color: #{$color-cascades};
         --bs-border-color: #{$color-cascades};
 
@@ -17,6 +26,13 @@
         background-color: $color-guin !important;
         color: $white;
       }
+      &.all-active a, a:hover, a:focus {
+        --bs-nav-tabs-link-hover-border-color: #{$color-guin};
+        --bs-border-color: #{$color-guin};
+
+        background-color: $color-guin !important;
+        color: $white;
+      }
     }
     li.nav-item.valley {
       &.valley-active a, a:hover, a:focus {
@@ -26,9 +42,22 @@
         background-color: $color-valley !important;
         color: $white;
       }
+      &.all-active
+        a, a:hover, a:focus {
+          --bs-nav-tabs-link-hover-border-color: #{$color-valley};
+          --bs-border-color: #{$color-valley};
+  
+          background-color: $color-valley !important;
+          color: $white;
+      }
     }
   }
 }
+
+// .nav-link:hover, .nav-link:focus{
+// color: 
+// }
+
 #madrone-left-sidebar-container {
   .nav-link {
     --bs-nav-link-padding-x: 1rem;
