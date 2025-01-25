@@ -52,9 +52,10 @@
           {{ drupal_menu('header-menu-1') }}
         </div>
         {# dropdown menu #}
-        <div class="d-flex justify-content-end align-items-center py-4">
-          {{ drupal_menu('header-menu-2') }}
-          {# {{ drupal_block('superfish:header-menu-2') }} #}
+        {# menu needs a 'madrone-primary-menu' class on the wrapper div to pick up any default madrone styles #}
+        <div class="d-flex justify-content-end align-items-center py-4 madrone-primary-menu">
+          {# add osu classes here to get additional styles #}
+          {{ drupal_block('superfish:header-menu-2', {label: 'Madrone Main Menu'|t, label_display: 0 }) }}
           {# desktop search button. search starts in 'show' position on all pages #}
           <button class="btn btn-link nav-link px-4 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#osulp-search-collapse" aria-expanded="false" aria-controls="osulp-search-collapse">
             <i class="fa fs-4 fa-search" aria-hidden="true"></i>

@@ -18,6 +18,11 @@
   #menu-osulp-full-top-menu-mobile-0 {
     height: 3em;
   }
+  // superfish specific overrides
+  #superfish-header-menu-2 > li.nav-item > a.nav-link{
+    background: blue;
+  }
+
   .block-group-content-menu .group-mobile-menu li {
     background: unset !important;
   }
