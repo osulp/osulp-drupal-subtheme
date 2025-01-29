@@ -1363,9 +1363,6 @@ h2, .h2 {
 #madrone-full-top-container #menu-osulp-full-top-menu-mobile-0 {
   height: 3em;
 }
-#madrone-full-top-container #superfish-header-menu-2 > li.nav-item > a.nav-link {
-  background: blue;
-}
 #madrone-full-top-container .block-group-content-menu .group-mobile-menu li {
   background: unset !important;
 }
@@ -1403,6 +1400,13 @@ h2, .h2 {
 }
 #osulp-menu-mobile-header .mobile-menu-vert ul .is-active {
   color: #A7ACA2;
+}
+
+.madrone-primary-menu > .block-superfish ul.sf-menu li a:hover,
+.madrone-primary-menu > .block-superfish ul.sf-menu li a:focus,
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a {
+  background-color: #221F1E;
+  color: #FDFCFC;
 }
 
 #block-osulp-headermenus .nav li.nav-item.cascades.cascades-active a, #block-osulp-headermenus .nav li.nav-item.cascades a:hover, #block-osulp-headermenus .nav li.nav-item.cascades a:focus, #madrone-full-top-container .nav li.nav-item.cascades.cascades-active a, #madrone-full-top-container .nav li.nav-item.cascades a:hover, #madrone-full-top-container .nav li.nav-item.cascades a:focus, #osulp-menu-mobile-header .nav li.nav-item.cascades.cascades-active a, #osulp-menu-mobile-header .nav li.nav-item.cascades a:hover, #osulp-menu-mobile-header .nav li.nav-item.cascades a:focus {

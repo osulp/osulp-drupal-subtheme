@@ -1,3 +1,4 @@
+// mobile?
 #madrone-full-top-container {
   .menu {
     .nav-item {
@@ -17,10 +18,6 @@
   }
   #menu-osulp-full-top-menu-mobile-0 {
     height: 3em;
-  }
-  // superfish specific overrides
-  #superfish-header-menu-2 > li.nav-item > a.nav-link{
-    background: blue;
   }
 
   .block-group-content-menu .group-mobile-menu li {
@@ -75,4 +72,12 @@
       color: $color-coastline-100
     }
   }
+}
+
+// desktop superfish menu overrides
+.madrone-primary-menu > .block-superfish ul.sf-menu li a:hover, 
+.madrone-primary-menu > .block-superfish ul.sf-menu li a:focus, 
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a {
+  background-color: $color-grey-900;
+  color: $color-neutral;
 }
