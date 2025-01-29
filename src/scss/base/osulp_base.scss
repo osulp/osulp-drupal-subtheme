@@ -80,11 +80,21 @@ $utilities: map-merge-multiple(
 .image-w-100 img {
   width: 100%;
 }
-a.arrow-link::before {
+
+a.arrow-link::before
+ {
   content : "";
   position: absolute;
   bottom  : 0;
   height  : 1px;
   background: $color-coastline-100 !important;
   width: 50%;
+}
+
+div.more-link::before{
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: $color-beaver-dark;
+  content: "\f0a9";
+  padding-right: .5rem;
 }

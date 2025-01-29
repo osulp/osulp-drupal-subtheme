@@ -69,7 +69,7 @@
  */
 #}
 
-{# {{ dump(node.field_short_description.value) }} #}
+{# this is used in the home page news view #}
 {% set classes = [
   'node',
   'node--type-' ~ node.bundle|clean_class,
@@ -80,7 +80,7 @@
 ] %}
 
 <hr class="my-4 w-75"/>
-<span class="header-overline">{{ content.field_branch }}</span>
+<span class="header-overline text-uppercase">{{ content.field_branch.0 }}</span>
         <h4{{title_attributes}} class="h4">
           <a href="{{ url }}" class="color-beaver-dark" rel="bookmark">{{ label }}</a>
         </h4>

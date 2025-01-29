@@ -637,6 +637,14 @@ a.arrow-link::before {
   width: 50%;
 }
 
+div.more-link::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: #AC3207;
+  content: "\f0a9";
+  padding-right: 0.5rem;
+}
+
 .bg-beaver-orange {
   background-color: #D73F09 !important;
 }
