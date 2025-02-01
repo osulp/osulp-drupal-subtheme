@@ -27,7 +27,7 @@
   'madrone-' ~ region|clean_class,
   'container',
 ] %}
-{# {{ dump(is_front) }}  #}
+
 {# check for group pages that are not page nodes. This should leave us with home pages group page #}
 {% set group_page = (groups and not page_node) %}
 {% set col_width = group_page ? 6 : 9 %}
@@ -38,7 +38,7 @@
 {% if content %} 
 {% if not is_front %}
 {# If the page is a group page, add the group class. If the page is a white top page (from the variable) it won't show up #}
-  <div id="osulp-title-block-container" class="{{ group_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4" style="{{background_image_style}}">
+  <div id="osulp-title-block-container" class="{{ group_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4 border-bottom" style="{{background_image_style}}">
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
       <div class="row">
         <div class="col-12 col-md-{{col_width}}">
