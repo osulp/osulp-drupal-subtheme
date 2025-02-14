@@ -74,7 +74,7 @@ function handleSearchSubmit(formElem) {
       };
 
       break;
-    case "tad": // Thesis and Dissertations search
+    case "tad": // Theses and Dissertations search
       // We need to add two elements of the same name so lets hack one in before we add the second
       inputs = {
         "f_inclusive[resource_type_sim][]": "Masters Thesis",
@@ -101,7 +101,7 @@ function handleSearchSubmit(formElem) {
         q: queryElem.value,
       };
       break;
-    case "arc": // SCARC search
+    case "arc": // SCARC search "Archival Guides"
       formAction = "https://scarc.library.oregonstate.edu/findingaids/index.php";
       inputs = {
         q: queryElem.value,
