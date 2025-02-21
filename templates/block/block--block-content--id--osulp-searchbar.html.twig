@@ -68,7 +68,7 @@
           <select onchange="handleSearchLocChange(this)" name="" id="osulp-search-loc" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
             <option value="cat">Catalog</option>
             <option value="cr">Course Reserves</option>
-            <option value="jour">Journals</option>
+            <option value="jour">Journal Titles</option>
             <option value="web">Library Website</option>
             <option value="rg">Research Guides</option>
             <option value="tad">Theses and Dissertations</option>
@@ -76,10 +76,10 @@
           </select>
           <div id="osulp-search-method-wrapper" class="d-flex gap-3">
             <div class="">{{'by'|t}}</div>
-            <select name="" id="osulp-search-method" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
+            <select onchange="handleSearchLocChange(this)" name="" id="osulp-search-method" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
               <option value="contains">Keyword</option>
               <option value="exact">Exact Phrase</option>
-              <option value="course_code">Course Code</option>
+              <option value="course_number">Course Number</option>
             </select>
           </div>
           <input id="osulp-search-query" type="text" class="form-search form-control w-25 px-3 bg-white border-black border-end-0" type="search" name="">

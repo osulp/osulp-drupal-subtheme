@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // When the location changes, we might need to hide/show the search method (keyword/exact)
+// When the location changes, we need to update the placeholder text in the input
 function handleSearchLocChange(locElem) {
+  // Hide and show first
   // Elem to hide/show
   const methodElem = document.getElementById("osulp-search-method-wrapper");
   // Value to determine hide/show
@@ -34,10 +36,44 @@ function handleSearchLocChange(locElem) {
   const showValues = ["cat", "cr"];
   // Hide if location isn't one to show search method
   const hide = !showValues.includes(locValue);
-
   // Hide/show
   methodElem.classList.toggle("d-none", hide);
+
+ // Placeholder text logic
+ let osulpSearchInputPlaceholder = "what would you like to search" //default, just in case
+ // Get the location
+  switch (locValue) {
+    case "cat":
+      osulpSearchInputPlaceholder = "explore 1Search for books, articles, and more";
+    break;
+    case "cr":
+      osulpSearchInputPlaceholder = "marshmallow";
+    break;
+    case "jour":
+      osulpSearchInputPlaceholder = "ice cream cake";
+    break;
+    case "web":
+      osulpSearchInputPlaceholder = "tiramisu";
+    break;
+    case "rg":
+      osulpSearchInputPlaceholder = "gingerbread";
+    break;
+    case "tad":
+      osulpSearchInputPlaceholder = "marzipan powder";
+    break;
+    case "arc":
+      osulpSearchInputPlaceholder = "lemon drops";
+    break;
+  }
+
+
+  document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
 }
+
+// function handleSearchScope(scopeElem){
+
+// }
+
 
 // Builds the url that each case submits to
 
@@ -95,7 +131,7 @@ function handleSearchSubmit(formElem) {
     case "cr": // Course Reserves search
       formAction = "https://search.library.oregonstate.edu/discovery/search";
       // extra logic for 'course code', since it doesn't follow the same url pattern
-      if (methodElem.value === "course_code"){
+      if (methodElem.value === "course_number"){
         inputs = {
           vid: "01ALLIANCE_OSU:OSU",
           tab: "CourseReserves",
@@ -124,6 +160,7 @@ function handleSearchSubmit(formElem) {
     case "arc": // SCARC search "Archival Guides"
       formAction = "https://scarc.library.oregonstate.edu/findingaids/index.php";
       inputs = {
+        p: "core/search",
         q: queryElem.value,
         content: 1,
       };
