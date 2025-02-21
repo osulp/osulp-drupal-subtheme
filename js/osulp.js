@@ -40,11 +40,11 @@ function handleSearchLocChange(locElem) {
   methodElem.classList.toggle("d-none", hide);
 
  // Placeholder text logic
- let osulpSearchInputPlaceholder = "what would you like to search" //default, just in case
+ let osulpSearchInputPlaceholder = "type here" //default, just in case
  // Get the location
   switch (locValue) {
     case "cat":
-      osulpSearchInputPlaceholder = "explore 1Search for books, articles, and more";
+      osulpSearchInputPlaceholder = "explore 1Search for books & articles";
     break;
     case "cr":
       osulpSearchInputPlaceholder = "";
