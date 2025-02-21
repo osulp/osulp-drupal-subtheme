@@ -47,22 +47,22 @@ function handleSearchLocChange(locElem) {
       osulpSearchInputPlaceholder = "explore 1Search for books, articles, and more";
     break;
     case "cr":
-      osulpSearchInputPlaceholder = "marshmallow";
+      osulpSearchInputPlaceholder = "";
     break;
     case "jour":
-      osulpSearchInputPlaceholder = "ice cream cake";
+      osulpSearchInputPlaceholder = "";
     break;
     case "web":
-      osulpSearchInputPlaceholder = "tiramisu";
+      osulpSearchInputPlaceholder = "";
     break;
     case "rg":
-      osulpSearchInputPlaceholder = "gingerbread";
+      osulpSearchInputPlaceholder = "";
     break;
     case "tad":
-      osulpSearchInputPlaceholder = "marzipan powder";
+      osulpSearchInputPlaceholder = "";
     break;
     case "arc":
-      osulpSearchInputPlaceholder = "lemon drops";
+      osulpSearchInputPlaceholder = "";
     break;
   }
 
