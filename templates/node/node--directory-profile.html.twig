@@ -80,9 +80,9 @@
 
   <div class="row">
 
-    {# Desktop only left image #}
-    <div class="d-none d-md-block col-md-4">
-
+    {# left column classes #}
+    <div class="d-none d-md-block col-md-4 pe-5">
+{# Desktop only left image #}
       <div class="pb-4-5">
         {{ content.field_image }}
       </div>
@@ -165,7 +165,7 @@
       {# End contact for desktop #}
 
       {# CV for desktop only #}
-      <div class="d-none d-md-block pt-5">
+      <div class="d-none d-md-block">
         <h2 class="visually-hidden">Duties and C.V.</h2>
       </div>
       {% if content.field_primary_duties.0 %}
