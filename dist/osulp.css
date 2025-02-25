@@ -1404,8 +1404,13 @@ h2, .h2 {
 
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:hover,
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:focus,
-.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a {
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a,
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > span.nolink {
   background-color: #221F1E;
+  color: #FDFCFC;
+}
+
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > span::after {
   color: #FDFCFC;
 }
 
