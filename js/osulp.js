@@ -24,12 +24,18 @@ document.addEventListener("DOMContentLoaded", function () {
   handleSearchLocChange(document.getElementById("osulp-search-loc"));
 });
 
-// When the location changes, we might need to hide/show the search method (keyword/exact)
-// When the location changes, we need to update the placeholder text in the input
-function handleSearchLocChange(locElem) {
+// functions for when user clicks on first select list (searches)
+function handleSearchLocChange(locElem){
+  handleSearchFacet();
+  tooMuchLogic(locElem);
+  inputPlaceholder();
+}
+
+// When the location changes, we need to hide/show the search method (keyword/exact)
+function tooMuchLogic(locElem) {
   // Hide and show first
   // Elem to hide/show
-  const methodElem = document.getElementById("osulp-search-method-wrapper");
+  const methodElem = document.getElementById("osulp-search-facet-wrapper");
   // Value to determine hide/show
   const locValue = locElem.value;
   // Values to show on
@@ -38,16 +44,34 @@ function handleSearchLocChange(locElem) {
   const hide = !showValues.includes(locValue);
   // Hide/show
   methodElem.classList.toggle("d-none", hide);
+}
 
- // Placeholder text logic
- let osulpSearchInputPlaceholder = "type here" //default, just in case
- // Get the location
-  switch (locValue) {
-    case "cat":
+// When the location changes or the facet changes, we need different placeholder text
+function inputPlaceholder(){
+  // get the search location element
+  const $searchLocation = document.getElementById("osulp-search-loc");
+  // get the value from the search location
+  const searchVal = $searchLocation.value;
+  // get the facet element
+  const $searchFacet = document.getElementById("osulp-search-facet");
+  // get the value from the facet
+  const searchFaceValue = $searchFacet.value;
+
+  // Placeholder text logic
+  let osulpSearchInputPlaceholder = "type here"; //default, just in case
+  // Get the location
+  switch (searchVal) {
+    case "cat":{
       osulpSearchInputPlaceholder = "explore 1Search for books & articles";
+    }
     break;
-    case "cr":
-      osulpSearchInputPlaceholder = "";
+    case "cr":{
+      if (searchFaceValue == "course_code"){
+        osulpSearchInputPlaceholder = "KIN 481";
+      }else{
+        osulpSearchInputPlaceholder = "";
+      }
+    }
     break;
     case "jour":
       osulpSearchInputPlaceholder = "";
@@ -65,21 +89,41 @@ function handleSearchLocChange(locElem) {
       osulpSearchInputPlaceholder = "";
     break;
   }
-
-
-  document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
+  //document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
+  document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder); 
 }
 
-// function handleSearchScope(scopeElem){
+// when the location is catalog, then hide 'course' number option
+function handleSearchFacet(){
 
-// }
+  // get element that we're messing with
+  const $searchLocation = document.getElementById("osulp-search-loc");
+  // get the value from the element
+  const searchVal = $searchLocation.value;
+  //debugger;
+
+  // get element we're messing with
+  const $courseNumber = document.getElementById("course-code");
+  
+
+  // if the serach location is cat then course number scope is hidden 
+  if (searchVal == "cat"){
+  //$courseNumber.setAttribute("disabled","");
+  $courseNumber.classList.add("d-none");
+  };
+
+  if (searchVal == "cr"){
+    //$courseNumber.removeAttribute("disabled","");
+    $courseNumber.classList.remove("d-none");
+  }
+}
 
 
 // Builds the url that each case submits to
 
 function handleSearchSubmit(formElem) {
   const locElem = formElem.querySelector("#osulp-search-loc");
-  const methodElem = formElem.querySelector("#osulp-search-method");
+  const methodElem = formElem.querySelector("#osulp-search-facet");
   const queryElem = formElem.querySelector("#osulp-search-query");
   // Blank values to set at end of method
   let formAction = ""; // Where the search will send us
@@ -131,7 +175,7 @@ function handleSearchSubmit(formElem) {
     case "cr": // Course Reserves search
       formAction = "https://search.library.oregonstate.edu/discovery/search";
       // extra logic for 'course code', since it doesn't follow the same url pattern
-      if (methodElem.value === "course_number"){
+      if (methodElem.value === "course_code"){
         inputs = {
           vid: "01ALLIANCE_OSU:OSU",
           tab: "CourseReserves",
@@ -166,6 +210,8 @@ function handleSearchSubmit(formElem) {
       };
       break;
   }
+  console.log(inputs);
+  debugger
   // Set the search location
   formElem.action = formAction;
   // Add the search params
