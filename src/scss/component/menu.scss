@@ -75,6 +75,7 @@
 }
 
 // desktop superfish menu overrides
+// color overrides
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:hover, 
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:focus, 
 .madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a, 
@@ -86,3 +87,9 @@
 .madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > span::after {
   color: $color-neutral;
 }
+
+// scoot it over to the right
+ul#superfish-header-menu-2 {
+  float: right;
+}
+
