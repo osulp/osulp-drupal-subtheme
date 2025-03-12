@@ -36,6 +36,7 @@ function tooMuchLogic(locElem) {
   // Hide and show first
   // Elem to hide/show
   const methodElem = document.getElementById("osulp-search-facet-wrapper");
+  const advancedElem = document.getElementById("osulp-advanced-search");
   // Value to determine hide/show
   const locValue = locElem.value;
   // Values to show on
@@ -44,6 +45,7 @@ function tooMuchLogic(locElem) {
   const hide = !showValues.includes(locValue);
   // Hide/show
   methodElem.classList.toggle("d-none", hide);
+  advancedElem.classList.toggle("d-none", hide);
 }
 
 // When the location changes or the facet changes, we need different placeholder text
