@@ -645,6 +645,10 @@ div.more-link::before {
   padding-right: 0.5rem;
 }
 
+#advanced-search-link .link-purpose-icon {
+  color: gray;
+}
+
 .bg-beaver-orange {
   background-color: #D73F09 !important;
 }

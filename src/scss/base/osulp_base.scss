@@ -98,3 +98,9 @@ div.more-link::before{
   content: "\f0a9";
   padding-right: .5rem;
 }
+
+//search bar advanced search link style
+// might be something to carry over to other home page links
+#advanced-search-link .link-purpose-icon{
+  color: gray;
+}
