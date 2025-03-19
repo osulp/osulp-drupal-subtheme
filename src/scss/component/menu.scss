@@ -74,6 +74,13 @@
   }
 }
 
+// desktop tb megamenu
+#tbm-header-menu-1{
+  z-index: 1000;
+}
+
+
+
 // desktop superfish menu overrides
 // color overrides
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:hover, 
@@ -88,7 +95,7 @@
   color: $color-neutral;
 }
 
-// scoot it over to the right
+// scoot menu 2 over to the right
 ul#superfish-header-menu-2 {
   float: right;
 }

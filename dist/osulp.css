@@ -1406,6 +1406,10 @@ h2, .h2 {
   color: #A7ACA2;
 }
 
+#tbm-header-menu-1 {
+  z-index: 1000;
+}
+
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:hover,
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:focus,
 .madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a,

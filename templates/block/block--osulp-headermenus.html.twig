@@ -48,8 +48,8 @@
     {{ title_suffix }}
     {% block content %}
       <div{{content_attributes.addClass('block__content','h-100','d-none','d-lg-block','container')}}>
-        <div class="d-flex justify-content-end align-items-center">
-          {{ drupal_menu('header-menu-1') }}
+        <div class="d-flex justify-content-end align-items-center" id="top-header-menu">
+          {{ drupal_block('tb_megamenu_menu_block:header-menu-1') }}
         </div>
         {# dropdown menu #}
         {# menu needs a 'madrone-primary-menu' class on the wrapper div to pick up any default madrone styles #}
