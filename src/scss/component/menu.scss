@@ -69,14 +69,46 @@
     --bs-link-color-rgb: #{$color-white};
 
     .is-active {
-      color: $color-coastline-100
+      color: $color-coastline-100;
     }
   }
 }
 
 // desktop tb megamenu
 #tbm-header-menu-1{
-  z-index: 1000;
+  font-size: .85em;
+  font-weight: lighter;
+  z-index: 500;
+  background-color: $color-white;
+}
+
+#tbm-header-menu-1 .tbm-item.level-1 {
+  border-right: none;
+}
+
+#tbm-header-menu-1 .tbm-link.level-1 {
+  padding: 1rem 1rem;
+}
+
+#tbm-header-menu-1 .tbm-link.level-1:hover, #tbm-header-menu-1 .tbm-link.level-1[aria-expanded="true"] {
+  background-color: $color-grey-900;
+  color: $color-neutral;
+}
+
+#tbm-header-menu-1 .tbm-submenu {
+  background-color: $color-grey-900;
+}
+
+#tbm-header-menu-1 a.tbm-link.level-1{
+  text-decoration: none;
+}
+
+#tbm-header-menu-1 .tbm-submenu a {
+  color: $color-neutral;
+}
+
+#tbm-header-menu-1 span.link-purpose-external-icon {
+  opacity: 40%
 }
 
 
