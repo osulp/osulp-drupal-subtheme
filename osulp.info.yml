@@ -23,5 +23,6 @@ regions:
   page_bottom: Page Bottom
   pre_footer: Full width above the Footer
   footer: Footer
+  tb_megamenu: blocks for megamenu (Hidden)
 ckeditor_stylesheets:
   - dist/osulp.css

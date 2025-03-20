@@ -47,7 +47,7 @@
     {% endif %}
     {{ title_suffix }}
     {% block content %}
-      <div{{content_attributes.addClass('block__content','h-100','d-none','d-lg-block','container')}}>
+      <div{{content_attributes.addClass('block__content','h-100','d-none','d-lg-block','container', 'pe-5')}}>
         <div class="d-flex justify-content-end align-items-center" id="header-menu-1">
           {{ drupal_block('tb_megamenu_menu_block:header-menu-1') }}
         </div>
