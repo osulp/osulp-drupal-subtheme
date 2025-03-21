@@ -347,6 +347,64 @@
   color: #646362 !important;
 }
 
+.bg-grey-500 {
+  background-color: #797877 !important;
+}
+
+.border-grey-500 {
+  border-color: #797877 !important;
+  --bs-border-color: #797877 !important;
+}
+
+.border-grey-500-left {
+  border-left-color: #797877 !important;
+}
+
+.border-grey-500-top {
+  border-top-color: #797877 !important;
+}
+
+.border-grey-500-right {
+  border-right-color: #797877 !important;
+}
+
+.border-grey-500-bottom {
+  border-bottom-color: #797877 !important;
+}
+
+.color-grey-500 {
+  color: #797877 !important;
+}
+
+.bg-grey-400 {
+  background-color: #979695 !important;
+}
+
+.border-grey-400 {
+  border-color: #979695 !important;
+  --bs-border-color: #979695 !important;
+}
+
+.border-grey-400-left {
+  border-left-color: #979695 !important;
+}
+
+.border-grey-400-top {
+  border-top-color: #979695 !important;
+}
+
+.border-grey-400-right {
+  border-right-color: #979695 !important;
+}
+
+.border-grey-400-bottom {
+  border-bottom-color: #979695 !important;
+}
+
+.color-grey-400 {
+  color: #979695 !important;
+}
+
 .bg-paddletailblack {
   background-color: #212529 !important;
 }
@@ -997,6 +1055,64 @@ div.more-link::before {
   color: #646362 !important;
 }
 
+.bg-grey-500 {
+  background-color: #797877 !important;
+}
+
+.border-grey-500 {
+  border-color: #797877 !important;
+  --bs-border-color: #797877 !important;
+}
+
+.border-grey-500-left {
+  border-left-color: #797877 !important;
+}
+
+.border-grey-500-top {
+  border-top-color: #797877 !important;
+}
+
+.border-grey-500-right {
+  border-right-color: #797877 !important;
+}
+
+.border-grey-500-bottom {
+  border-bottom-color: #797877 !important;
+}
+
+.color-grey-500 {
+  color: #797877 !important;
+}
+
+.bg-grey-400 {
+  background-color: #979695 !important;
+}
+
+.border-grey-400 {
+  border-color: #979695 !important;
+  --bs-border-color: #979695 !important;
+}
+
+.border-grey-400-left {
+  border-left-color: #979695 !important;
+}
+
+.border-grey-400-top {
+  border-top-color: #979695 !important;
+}
+
+.border-grey-400-right {
+  border-right-color: #979695 !important;
+}
+
+.border-grey-400-bottom {
+  border-bottom-color: #979695 !important;
+}
+
+.color-grey-400 {
+  color: #979695 !important;
+}
+
 .bg-paddletailblack {
   background-color: #212529 !important;
 }
@@ -1407,8 +1523,7 @@ h2, .h2 {
 }
 
 #tbm-header-menu-1 {
-  font-size: 0.85em;
-  font-weight: lighter;
+  font-size: 0.9em;
   z-index: 500;
   background-color: #FFFFFF;
 }
