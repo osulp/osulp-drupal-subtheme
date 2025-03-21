@@ -88,8 +88,9 @@
 
 #tbm-header-menu-1 .tbm-link.level-1 {
   padding: 1rem 1rem;
-}
+} 
 
+//make the top level menu items black with white text, even when expanded
 #tbm-header-menu-1 .tbm-link.level-1:hover, 
 #tbm-header-menu-1 .tbm-item.level-1:hover, 
 #tbm-header-menu-1 .tbm-link.level-1[aria-expanded="true"] {
@@ -97,6 +98,7 @@
   color: $color-neutral;
 }
 
+//make the background of the megamenu the same gray
 #tbm-header-menu-1 .tbm-submenu {
   background-color: $color-grey-900;
 }
