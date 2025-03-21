@@ -1421,7 +1421,9 @@ h2, .h2 {
   padding: 1rem 1rem;
 }
 
-#tbm-header-menu-1 .tbm-link.level-1:hover, #tbm-header-menu-1 .tbm-link.level-1[aria-expanded=true] {
+#tbm-header-menu-1 .tbm-link.level-1:hover,
+#tbm-header-menu-1 .tbm-item.level-1:hover,
+#tbm-header-menu-1 .tbm-link.level-1[aria-expanded=true] {
   background-color: #221F1E;
   color: #FDFCFC;
 }
