@@ -90,7 +90,7 @@
   padding: 1rem 1rem;
 } 
 
-//make the top level menu items black with white text, even when expanded
+//make the top level megamenu items black with white text, even when expanded
 #tbm-header-menu-1 .tbm-link.level-1:hover, 
 #tbm-header-menu-1 .tbm-item.level-1:hover, 
 #tbm-header-menu-1 .tbm-link.level-1[aria-expanded="true"] {
@@ -115,7 +115,13 @@
   opacity: 40%
 }
 
+//tb mega menu dropdown styles
+.osulp-tb-about .osulp-tb-submenu {
+  left: -250px;
+}
 
+
+//end tb mega menu
 
 // desktop superfish menu overrides
 // color overrides

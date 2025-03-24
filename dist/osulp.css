@@ -1559,6 +1559,10 @@ h2, .h2 {
   opacity: 40%;
 }
 
+.osulp-tb-about .osulp-tb-submenu {
+  left: -250px;
+}
+
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:hover,
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:focus,
 .madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a,
