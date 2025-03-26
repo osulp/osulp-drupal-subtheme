@@ -1523,7 +1523,8 @@ h2, .h2 {
 }
 
 #tbm-header-menu-1 {
-  font-size: 0.9em;
+  font-size: 0.8em;
+  font-weight: 100;
   z-index: 500;
   background-color: #FFFFFF;
 }
@@ -1580,7 +1581,7 @@ ul#superfish-header-menu-2 {
 }
 
 .lcs_slide_out.lcs_slide_out-r {
-  top: 40% !important;
+  top: 225px !important;
 }
 
 #block-osulp-headermenus .nav li.nav-item.cascades.cascades-active a, #block-osulp-headermenus .nav li.nav-item.cascades a:hover, #block-osulp-headermenus .nav li.nav-item.cascades a:focus, #madrone-full-top-container .nav li.nav-item.cascades.cascades-active a, #madrone-full-top-container .nav li.nav-item.cascades a:hover, #madrone-full-top-container .nav li.nav-item.cascades a:focus, #osulp-menu-mobile-header .nav li.nav-item.cascades.cascades-active a, #osulp-menu-mobile-header .nav li.nav-item.cascades a:hover, #osulp-menu-mobile-header .nav li.nav-item.cascades a:focus {
