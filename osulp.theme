@@ -267,9 +267,9 @@ function format_this_weeks_dates($libcal_dates): array {
         'to' => $to,
         'to_structured' => $to_structured,
       ];
-    } else { // If this is an exception just get the message or a default
+    } else { // If the hours is an exception, just get the 'note' from the exception, or default to 'Closed'
       $dates[$date] = [
-        'message' => $libcal_dates[$date]['note'] ?: '',
+        'message' => $libcal_dates[$date]['note'] ?: 'Closed',
       ];
     }
     // Add some consistent information
