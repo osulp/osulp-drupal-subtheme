@@ -1584,6 +1584,10 @@ ul#superfish-header-menu-2 {
   top: 225px !important;
 }
 
+.lcs_slide_out.lcs_slide_out-r .lcs_header a:hover {
+  background-color: #212529 !important;
+}
+
 #block-osulp-headermenus .nav li.nav-item.cascades.cascades-active a, #block-osulp-headermenus .nav li.nav-item.cascades a:hover, #block-osulp-headermenus .nav li.nav-item.cascades a:focus, #madrone-full-top-container .nav li.nav-item.cascades.cascades-active a, #madrone-full-top-container .nav li.nav-item.cascades a:hover, #madrone-full-top-container .nav li.nav-item.cascades a:focus, #osulp-menu-mobile-header .nav li.nav-item.cascades.cascades-active a, #osulp-menu-mobile-header .nav li.nav-item.cascades a:hover, #osulp-menu-mobile-header .nav li.nav-item.cascades a:focus {
   --bs-nav-tabs-link-hover-border-color: #0D5257;
   --bs-border-color: #0D5257;
