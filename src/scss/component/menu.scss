@@ -121,6 +121,11 @@
   left: -250px;
 }
 
+.osulp-menu-spacers {
+  border-right: 1px solid $color-candela-dark;
+  border-left: 1px solid $color-candela-dark;
+}
+
 
 //end tb mega menu
 
@@ -142,4 +147,6 @@
 ul#superfish-header-menu-2 {
   float: right;
 }
+
+// end superfish
 

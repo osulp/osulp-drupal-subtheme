@@ -1,0 +1,26 @@
+// Styles for localist widgets 
+//  a div with the class localist-widget is the outermost wrapper, followed by a div with the id lw, and then a div with class lw inside that. Each individual event is inside a ul with the id lwe and a li with the class lwe, then a div with class lwn. 
+
+// style for the title of the event
+.localist-widget .lwn a {
+    font-weight: bold;
+    font-size: 1.625rem;
+    font-family: 'Stratum2web', serif;
+    color: $color-beaver-dark;
+} 
+.localist-widget .lwn a span.link-purpose-nobreak {
+    padding-left: 90px; 
+}
+
+// style for the decorative line over the event
+.localist-widget .lwn {
+    border-top: 2px solid $color-coastline-100;
+}
+.localist-widget .lwn .lwn0 {
+    border-top: 4px solid $color-coastline-100;
+}
+
+//temporary hide of description
+.localist-widget .lwe .lwd {
+    display:none;
+}

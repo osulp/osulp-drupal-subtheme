@@ -580,32 +580,32 @@
 }
 
 .bg-guin {
-  background-color: #00859B !important;
+  background-color: #006A8E !important;
 }
 
 .border-guin {
-  border-color: #00859B !important;
-  --bs-border-color: #00859B !important;
+  border-color: #006A8E !important;
+  --bs-border-color: #006A8E !important;
 }
 
 .border-guin-left {
-  border-left-color: #00859B !important;
+  border-left-color: #006A8E !important;
 }
 
 .border-guin-top {
-  border-top-color: #00859B !important;
+  border-top-color: #006A8E !important;
 }
 
 .border-guin-right {
-  border-right-color: #00859B !important;
+  border-right-color: #006A8E !important;
 }
 
 .border-guin-bottom {
-  border-bottom-color: #00859B !important;
+  border-bottom-color: #006A8E !important;
 }
 
 .color-guin {
-  color: #00859B !important;
+  color: #006A8E !important;
 }
 
 .bg-cascades {
@@ -1288,32 +1288,32 @@ div.more-link::before {
 }
 
 .bg-guin {
-  background-color: #00859B !important;
+  background-color: #006A8E !important;
 }
 
 .border-guin {
-  border-color: #00859B !important;
-  --bs-border-color: #00859B !important;
+  border-color: #006A8E !important;
+  --bs-border-color: #006A8E !important;
 }
 
 .border-guin-left {
-  border-left-color: #00859B !important;
+  border-left-color: #006A8E !important;
 }
 
 .border-guin-top {
-  border-top-color: #00859B !important;
+  border-top-color: #006A8E !important;
 }
 
 .border-guin-right {
-  border-right-color: #00859B !important;
+  border-right-color: #006A8E !important;
 }
 
 .border-guin-bottom {
-  border-bottom-color: #00859B !important;
+  border-bottom-color: #006A8E !important;
 }
 
 .color-guin {
-  color: #00859B !important;
+  color: #006A8E !important;
 }
 
 .bg-cascades {
@@ -1564,6 +1564,11 @@ h2, .h2 {
   left: -250px;
 }
 
+.osulp-menu-spacers {
+  border-right: 1px solid #D6B25C;
+  border-left: 1px solid #D6B25C;
+}
+
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:hover,
 .madrone-primary-menu > .block-superfish ul.sf-menu li a:focus,
 .madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a,
@@ -1601,15 +1606,15 @@ ul#superfish-header-menu-2 {
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.guin.guin-active a, #block-osulp-headermenus .nav li.nav-item.guin a:hover, #block-osulp-headermenus .nav li.nav-item.guin a:focus, #madrone-full-top-container .nav li.nav-item.guin.guin-active a, #madrone-full-top-container .nav li.nav-item.guin a:hover, #madrone-full-top-container .nav li.nav-item.guin a:focus, #osulp-menu-mobile-header .nav li.nav-item.guin.guin-active a, #osulp-menu-mobile-header .nav li.nav-item.guin a:hover, #osulp-menu-mobile-header .nav li.nav-item.guin a:focus {
-  --bs-nav-tabs-link-hover-border-color: #00859B;
-  --bs-border-color: #00859B;
-  background-color: #00859B !important;
+  --bs-nav-tabs-link-hover-border-color: #006A8E;
+  --bs-border-color: #006A8E;
+  background-color: #006A8E !important;
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.guin.all-active a, #block-osulp-headermenus .nav li.nav-item.guin a:hover, #block-osulp-headermenus .nav li.nav-item.guin a:focus, #madrone-full-top-container .nav li.nav-item.guin.all-active a, #madrone-full-top-container .nav li.nav-item.guin a:hover, #madrone-full-top-container .nav li.nav-item.guin a:focus, #osulp-menu-mobile-header .nav li.nav-item.guin.all-active a, #osulp-menu-mobile-header .nav li.nav-item.guin a:hover, #osulp-menu-mobile-header .nav li.nav-item.guin a:focus {
-  --bs-nav-tabs-link-hover-border-color: #00859B;
-  --bs-border-color: #00859B;
-  background-color: #00859B !important;
+  --bs-nav-tabs-link-hover-border-color: #006A8E;
+  --bs-border-color: #006A8E;
+  background-color: #006A8E !important;
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.valley.valley-active a, #block-osulp-headermenus .nav li.nav-item.valley a:hover, #block-osulp-headermenus .nav li.nav-item.valley a:focus, #madrone-full-top-container .nav li.nav-item.valley.valley-active a, #madrone-full-top-container .nav li.nav-item.valley a:hover, #madrone-full-top-container .nav li.nav-item.valley a:focus, #osulp-menu-mobile-header .nav li.nav-item.valley.valley-active a, #osulp-menu-mobile-header .nav li.nav-item.valley a:hover, #osulp-menu-mobile-header .nav li.nav-item.valley a:focus {
@@ -1662,6 +1667,29 @@ ul#superfish-header-menu-2 {
 .directory-image img {
   max-height: 6em;
   max-width: 6em;
+}
+
+.localist-widget .lwn a {
+  font-weight: bold;
+  font-size: 1.625rem;
+  font-family: "Stratum2web", serif;
+  color: #AC3207;
+}
+
+.localist-widget .lwn a span.link-purpose-nobreak {
+  padding-left: 90px;
+}
+
+.localist-widget .lwn {
+  border-top: 2px solid #A7ACA2;
+}
+
+.localist-widget .lwn .lwn0 {
+  border-top: 4px solid #A7ACA2;
+}
+
+.localist-widget .lwe .lwd {
+  display: none;
 }
 
 .align-baseline {
