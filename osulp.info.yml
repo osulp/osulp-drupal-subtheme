@@ -26,3 +26,5 @@ regions:
   tb_megamenu: Blocks for megamenu (Hidden)
 ckeditor_stylesheets:
   - dist/osulp.css
+ckeditor5-stylesheets:
+  - dist/osulp.css
