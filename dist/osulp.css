@@ -1418,7 +1418,7 @@ h2, .h2 {
 }
 
 .block-inline-blockosulp-card {
-  height: calc(100% - 4rem);
+  height: calc(100% - 2rem);
 }
 
 .d-inline-block div.field {
