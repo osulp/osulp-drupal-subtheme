@@ -85,15 +85,17 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
 function osulp_preprocess_views_style_views_organization_chart(&$variables): void {
   $view = $variables['view'];
   $chartId = $variables['chart_id'];
+  $amd_id = 31;
+  $kerri_id = 53;
 
   # Find if Kerri or AMD is in the result set. If so, we need to skip removing them from the render set
-  $kerri = array_search(53, array_column($variables['view']->element['#attached']['drupalSettings'][$chartId]['nodes'], 'id'));
-  $amd = array_search(31, array_column($variables['view']->element['#attached']['drupalSettings'][$chartId]['nodes'], 'id'));
+  $amd = array_search($amd_id, array_column($variables['view']->element['#attached']['drupalSettings'][$chartId]['nodes'], 'id'));
+  $kerri = array_search($kerri_id, array_column($variables['view']->element['#attached']['drupalSettings'][$chartId]['nodes'], 'id'));
   # Loop through render data and remove Kerri/AMD if necessary
   foreach($variables['view']->element['#attached']['drupalSettings'][$chartId]['data'] as $key => $user_pair) {
     # Remove Kerri/AMD unless they were in the result set
-    if (($user_pair[0] == 53 && !$kerri)
-        || ($user_pair[0] == 31 && !$amd)) {
+    if (($user_pair[0] == $amd_id && !$amd)
+         || ($user_pair[0] == $kerri_id && !$kerri)) {
       unset($variables['view']->element['#attached']['drupalSettings'][$chartId]['data'][$key]);
     }
   }
