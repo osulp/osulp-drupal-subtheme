@@ -79,6 +79,30 @@ function osulp_preprocess_form__views_exposed_form(array &$variables): void {
 }
 
 /**
+ * Prepares variables views-style-views-organization-chart.html.twig template.
+ * This is to remove people from the org chart. Specifically Kerri & AMD since they're final parents to all departments
+ */
+function osulp_preprocess_views_style_views_organization_chart(&$variables): void {
+  $view = $variables['view'];
+  $chartId = $variables['chart_id'];
+
+  # Find if Kerri or AMD is in the result set. If so, we need to skip removing them from the render set
+  $kerri = array_search(53, array_column($variables['view']->element['#attached']['drupalSettings'][$chartId]['nodes'], 'id'));
+  $amd = array_search(31, array_column($variables['view']->element['#attached']['drupalSettings'][$chartId]['nodes'], 'id'));
+  # Loop through render data and remove Kerri/AMD if necessary
+  foreach($variables['view']->element['#attached']['drupalSettings'][$chartId]['data'] as $key => $user_pair) {
+    # Remove Kerri/AMD unless they were in the result set
+    if (($user_pair[0] == 53 && !$kerri)
+        || ($user_pair[0] == 31 && !$amd)) {
+      unset($variables['view']->element['#attached']['drupalSettings'][$chartId]['data'][$key]);
+    }
+  }
+
+  # Reset the key ordering of the render set
+  $variables['view']->element['#attached']['drupalSettings'][$chartId]['data'] = array_values($variables['view']->element['#attached']['drupalSettings'][$chartId]['data']);
+}
+
+/**
  * Implements hook_preprocess_HOOK() for regions.
  */
 function osulp_preprocess_region(array &$variables): void {
