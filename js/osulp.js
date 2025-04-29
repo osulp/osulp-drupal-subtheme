@@ -31,7 +31,8 @@ function handleSearchLocChange(locElem){
   inputPlaceholder();
 }
 
-// When the location changes, we need to hide/show the search method (keyword/exact)
+// When the location changes, we need to hide/show the search facet (keyword/exact)
+// CURRENTLY DISABLED
 function tooMuchLogic(locElem) {
   // Hide and show first
   // Elem to hide/show
@@ -40,7 +41,8 @@ function tooMuchLogic(locElem) {
   // Value to determine hide/show
   const locValue = locElem.value;
   // Values to show on
-  const showValues = ["cat", "cr"];
+  // ADD VALUES HERE IF A SEARCH FACET DROPDOWN IS REQUIRED. 
+  const showValues = ["", ""];
   // Hide if location isn't one to show search method
   const hide = !showValues.includes(locValue);
   // Hide/show
@@ -56,7 +58,8 @@ function inputPlaceholder(){
   const searchVal = $searchLocation.value;
   // get the facet element
   const $searchFacet = document.getElementById("osulp-search-facet");
-  // get the value from the facet
+  // get the value from the facet.
+  // CURRENTLY UNUSED. this is for if searchFaceValue equals course_code then display different prompt text
   const searchFaceValue = $searchFacet.value;
 
   // Placeholder text logic
@@ -64,37 +67,35 @@ function inputPlaceholder(){
   // Get the location
   switch (searchVal) {
     case "cat":{
-      osulpSearchInputPlaceholder = "explore 1Search for books & articles";
+      osulpSearchInputPlaceholder = "books, articles, and more";
     }
     break;
     case "cr":{
-      if (searchFaceValue == "course_code"){
-        osulpSearchInputPlaceholder = "KIN 481";
-      }else{
-        osulpSearchInputPlaceholder = "";
-      }
+      osulpSearchInputPlaceholder = "keyword, title, or course number";
     }
     break;
     case "jour":
-      osulpSearchInputPlaceholder = "";
+      osulpSearchInputPlaceholder = "cats";
     break;
     case "web":
-      osulpSearchInputPlaceholder = "";
+      osulpSearchInputPlaceholder = "cats";
     break;
     case "rg":
-      osulpSearchInputPlaceholder = "";
+      osulpSearchInputPlaceholder = "cats";
     break;
     case "tad":
-      osulpSearchInputPlaceholder = "";
+      osulpSearchInputPlaceholder = "cats";
     break;
     case "arc":
-      osulpSearchInputPlaceholder = "";
+      osulpSearchInputPlaceholder = "cats";
     break;
   }
   //document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
   document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder); 
 }
 
+
+// CURRENTLY NOT USED. 
 // when the location is catalog, then hide 'course' number option
 function handleSearchFacet(){
 
