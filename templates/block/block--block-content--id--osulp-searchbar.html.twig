@@ -61,7 +61,7 @@
   {% block content %}
   {# This div is hard coded to add the boostrap class 'show' on the front page and the group pages. This may stop working depending on caching on the block. #}
     <div class="collapse-wrapper collapse w-100 {% if is_front or path('<current>') in ['/cascades', '/guin', '/valley'] %} show {% endif %}" id="osulp-search-collapse">
-      <div class="col-12 py-5 px-4-5">
+      <div class="col-12 py-5 my-3 px-4-5">
 
         <form onsubmit="handleSearchSubmit(this)" class="{{search_form_classes|join(' ')}}" action="" method="get" accept-charset="UTF-8">
           <div class="flex-shrink-0">{{'Search'|t}}</div>
