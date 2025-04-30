@@ -75,15 +75,15 @@
             <option value="arc">Archival Collections</option>
           </select>
           {# facet dropdown. currently hidden by default. kept just in case we need a facet search in the future #}
-          <div id="osulp-search-facet-wrapper" class="d-flex gap-3">
-            {# <div class="">{{'by'|t}}</div>
+          {# <div id="osulp-search-facet-wrapper" class="d-flex gap-3">
+            <div class="">{{'by'|t}}</div>
             <select onchange="inputPlaceholder()" name="" id="osulp-search-facet" class="form-select fw-bold w-auto py-2 px-5 ps-4-5 border-black">
               <option value="contains">Keyword</option>
               <option value="exact">Exact Phrase</option>
               // note the id here. This allows for a show and hide of this specific element of the dropdown based on context
               <option value="course_code" id="course-code" class="">Course Number</option>
-            </select> #}
-          </div>
+            </select>
+          </div> #}
           {# if the faceted search is required again, change the w-50 to w-25 #}
           <input id="osulp-search-query" type="text" class="form-search form-control w-50 px-3 bg-white border-black border-end-0" type="search" name="">
           <button type="submit" value="Submit" class="btn osu-btn-primary p-2 px-4 ms-n3 rounded-0 border-black">

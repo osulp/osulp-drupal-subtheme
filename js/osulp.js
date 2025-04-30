@@ -33,22 +33,22 @@ function handleSearchLocChange(locElem){
 
 // When the location changes, we need to hide/show the search facet (keyword/exact)
 // CURRENTLY DISABLED
-function tooMuchLogic(locElem) {
+//function tooMuchLogic(locElem) {
   // Hide and show first
   // Elem to hide/show
-  const methodElem = document.getElementById("osulp-search-facet-wrapper");
-  const advancedElem = document.getElementById("osulp-advanced-search");
+    //const methodElem = document.getElementById("osulp-search-facet-wrapper");
+    //const advancedElem = document.getElementById("osulp-advanced-search");
   // Value to determine hide/show
-  const locValue = locElem.value;
+    //const locValue = locElem.value;
   // Values to show on
   // ADD VALUES HERE IF A SEARCH FACET DROPDOWN IS REQUIRED. 
-  const showValues = ["", ""];
+    //const showValues = ["", ""];
   // Hide if location isn't one to show search method
-  const hide = !showValues.includes(locValue);
+    //const hide = !showValues.includes(locValue);
   // Hide/show
-  methodElem.classList.toggle("d-none", hide);
-  advancedElem.classList.toggle("d-none", hide);
-}
+    //methodElem.classList.toggle("d-none", hide);
+    //advancedElem.classList.toggle("d-none", hide);
+//}
 
 // When the location changes or the facet changes, we need different placeholder text
 function inputPlaceholder(){
@@ -56,23 +56,21 @@ function inputPlaceholder(){
   const $searchLocation = document.getElementById("osulp-search-loc");
   // get the value from the search location
   const searchVal = $searchLocation.value;
-  // get the facet element
-  const $searchFacet = document.getElementById("osulp-search-facet");
+  // CURRENTLY UNUSED. get the facet element
+    //const $searchFacet = document.getElementById("osulp-search-facet");
   // get the value from the facet.
   // CURRENTLY UNUSED. this is for if searchFaceValue equals course_code then display different prompt text
-  const searchFaceValue = $searchFacet.value;
+    // const searchFaceValue = $searchFacet.value;
 
   // Placeholder text logic
   let osulpSearchInputPlaceholder = "type here"; //default, just in case
   // Get the location
   switch (searchVal) {
-    case "cat":{
+    case "cat":
       osulpSearchInputPlaceholder = "books, articles, and more";
-    }
     break;
-    case "cr":{
+    case "cr":
       osulpSearchInputPlaceholder = "keyword, title, or course number";
-    }
     break;
     case "jour":
       osulpSearchInputPlaceholder = "cats";
@@ -90,36 +88,38 @@ function inputPlaceholder(){
       osulpSearchInputPlaceholder = "cats";
     break;
   }
-  //document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
-  document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder); 
+  console.log(osulpSearchInputPlaceholder);
+  document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
+  // document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder); 
 }
 
 
 // CURRENTLY NOT USED. 
 // when the location is catalog, then hide 'course' number option
-function handleSearchFacet(){
+  //function handleSearchFacet(){
 
   // get element that we're messing with
-  const $searchLocation = document.getElementById("osulp-search-loc");
+    //const $searchLocation = document.getElementById("osulp-search-loc");
   // get the value from the element
-  const searchVal = $searchLocation.value;
+    //const searchVal = $searchLocation.value;
   //debugger;
 
   // get element we're messing with
-  const $courseNumber = document.getElementById("course-code");
+    //const $courseNumber = document.getElementById("course-code");
   
 
   // if the serach location is cat then course number scope is hidden 
-  if (searchVal == "cat"){
-  //$courseNumber.setAttribute("disabled","");
-  $courseNumber.classList.add("d-none");
-  };
+    //if (searchVal == "cat"){
+    //$courseNumber.setAttribute("disabled","");
+  // OR USE THIS. NOT BOTH.
+    //$courseNumber.classList.add("d-none");
+    //};
 
-  if (searchVal == "cr"){
-    //$courseNumber.removeAttribute("disabled","");
-    $courseNumber.classList.remove("d-none");
-  }
-}
+    //if (searchVal == "cr"){
+      //$courseNumber.removeAttribute("disabled","");
+      //$courseNumber.classList.remove("d-none");
+    //}
+//}
 
 
 // Builds the url that each case submits to
