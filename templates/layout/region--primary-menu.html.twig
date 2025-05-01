@@ -29,16 +29,24 @@
 ] %}
 
 {# check for group pages that are not page nodes. This should leave us with home pages group page #}
-{% set group_page = (groups and not page_node) %}
-{% set col_width = group_page ? 6 : 9 %}
+{% set group_home_page = (groups and not page_node) %}
+{# check for group pages that are ONLY page nodes. This should leave us with the non home group pages, but not other group content #}
+{% set group_page = (groups and page_node) %}
+
+{# set the width of the page name/content in the header depending on if it's a group home page (group page) or not #}
+{% set col_width = group_home_page ? 6 : 12 %}
 
 {# actual layout #}
+{% if not group_page %}
 {% set background_image_style = image_uri ? 'background-image: url(' ~ image_uri ~ ');' : '' %}
+{% endif %}
 {# check to see if content exists then check to see if the page is not the front page #}
 {% if content %} 
 {% if not is_front %}
 {# If the page is a group page, add the group class. If the page is a white top page (from the variable) it won't show up #}
-  <div id="osulp-title-block-container" class="{{ group_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4 border-bottom" style="{{background_image_style}}">
+  <div id="osulp-title-block-container" class="{{ group_home_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4 border-bottom" style="{{ background_image_style}}">
+
+ {# {{ group_page ? '' : background_image_style }} #}
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
       <div class="row">
         <div class="col-12 col-md-{{col_width}}">
