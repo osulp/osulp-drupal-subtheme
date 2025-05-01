@@ -5,7 +5,7 @@
   // Set title block image as a background
   background-repeat: no-repeat;
   background-position: right;
-  background-size: 25%;
+  background-size: 40%;
 
   @include media-breakpoint-down(md) {
     background-image: none !important;
