@@ -34,7 +34,7 @@
 {% set group_page = (groups and page_node) %}
 
 {# set the width of the page name/content in the header depending on if it's a group home page (group page) or not #}
-{% set col_width = group_home_page ? 6 : 12 %}
+{% set col_width = group_page ? 12 : 6 %}
 
 {# actual layout #}
 {% if not group_page %}
