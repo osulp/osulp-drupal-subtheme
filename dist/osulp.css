@@ -1564,6 +1564,11 @@ h2, .h2 {
   left: -250px;
 }
 
+.osulp-tb-hours .osulp-tb-submenu {
+  width: 600px;
+  left: -150px;
+}
+
 .osulp-menu-spacers {
   border-right: 1px solid #D6B25C;
   border-left: 1px solid #D6B25C;
