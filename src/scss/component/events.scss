@@ -8,9 +8,9 @@
     font-family: 'Stratum2web', serif;
     color: $color-beaver-dark;
 } 
-.localist-widget .lwn a span.link-purpose-nobreak {
-    padding-left: 90px; 
-}
+// .localist-widget .lwn a span.link-purpose-nobreak {
+//     padding-left: 90px; 
+// }
 
 // style for the decorative line over the event
 .localist-widget .lwn {
@@ -29,8 +29,8 @@
 .osulp-lmw {
     .localist-widget .lwn .lwn0 {
         font-family: $font-stratum;
-        font-size: 1rem;
-        line-height: 125%;
+        font-size: 1.2rem;
+        line-height: 100%;
         text-transform: uppercase;
         color: $color-grey-400;
         // color: #979695;
@@ -45,11 +45,29 @@
         font-family: $font-stratum;
         color: $color-grey-900;
         font-size: 1rem;
+        line-height: 100%;
+        text-decoration: none;
         // color: #221F1E;
         // font-family: "Stratum2Web", serif;
     }
-    
+    .lwl a {
+        text-decoration: none;
+        color: $color-grey-600 !important;
+    }
+    ///removes the word "location"
     .lwl0 {
         display:none;
+    }
+    //removes the marker and padding for this element
+    ul {
+        padding: 0;
+        list-style:none;
+    }
+
+    .localist-widget .lwn {
+        border-top: none;
+    }
+    .localist-widget .lwn .lwn0 {
+        border-top: none;
     }
 }

@@ -1565,7 +1565,7 @@ h2, .h2 {
   left: -250px;
 }
 
-.osulp-tb-hours .osulp-tb-submenu {
+.osulp-tb-hours .osulp-tb-submenu, .osulp-tb-happening .osulp-tb-submenu {
   width: 600px;
   left: -150px;
 }
@@ -1682,10 +1682,6 @@ ul#superfish-header-menu-2 {
   color: #AC3207;
 }
 
-.localist-widget .lwn a span.link-purpose-nobreak {
-  padding-left: 90px;
-}
-
 .localist-widget .lwn {
   border-top: 2px solid #A7ACA2;
 }
@@ -1700,8 +1696,8 @@ ul#superfish-header-menu-2 {
 
 .osulp-lmw .localist-widget .lwn .lwn0 {
   font-family: "Stratum2Web", serif;
-  font-size: 1rem;
-  line-height: 125%;
+  font-size: 1.2rem;
+  line-height: 100%;
   text-transform: uppercase;
   color: #979695;
 }
@@ -1713,9 +1709,25 @@ ul#superfish-header-menu-2 {
   font-family: "Stratum2Web", serif;
   color: #221F1E;
   font-size: 1rem;
+  line-height: 100%;
+  text-decoration: none;
+}
+.osulp-lmw .lwl a {
+  text-decoration: none;
+  color: #646362 !important;
 }
 .osulp-lmw .lwl0 {
   display: none;
+}
+.osulp-lmw ul {
+  padding: 0;
+  list-style: none;
+}
+.osulp-lmw .localist-widget .lwn {
+  border-top: none;
+}
+.osulp-lmw .localist-widget .lwn .lwn0 {
+  border-top: none;
 }
 
 .align-baseline {
