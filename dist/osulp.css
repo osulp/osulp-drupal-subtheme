@@ -1647,7 +1647,6 @@ ul#superfish-header-menu-2 {
 /* News views page */
 .node--type-news.node--view-mode-teaser {
   box-sizing: content-box;
-  max-height: 10rem;
   object-fit: cover;
 }
 .node--type-news.node--view-mode-teaser::after {
@@ -1656,7 +1655,7 @@ ul#superfish-header-menu-2 {
   bottom: 0;
   height: 1px;
   background: #A7ACA2 !important;
-  width: 50%;
+  width: 75%;
 }
 .node--type-news.node--view-mode-teaser img {
   max-height: 10rem;
