@@ -1560,7 +1560,7 @@ h2, .h2 {
   opacity: 40%;
 }
 
-.osulp-tb-about .osulp-tb-submenu, .osulp-tb-about.tbm-submenu {
+.osulp-tb-about .osulp-tb-submenu {
   width: 700px;
   left: -250px;
 }
@@ -1695,6 +1695,26 @@ ul#superfish-header-menu-2 {
 }
 
 .localist-widget .lwe .lwd {
+  display: none;
+}
+
+.osulp-lmw .localist-widget .lwn .lwn0 {
+  font-family: "Stratum2Web", serif;
+  font-size: 1rem;
+  line-height: 125%;
+  text-transform: uppercase;
+  color: #979695;
+}
+.osulp-lmw .localist-widget .lwn .lwn0::after {
+  content: "\a";
+  white-space: pre;
+}
+.osulp-lmw .localist-widget .lwn a {
+  font-family: "Stratum2Web", serif;
+  color: #221F1E;
+  font-size: 1rem;
+}
+.osulp-lmw .lwl0 {
   display: none;
 }
 

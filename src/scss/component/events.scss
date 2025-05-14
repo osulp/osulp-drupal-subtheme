@@ -24,3 +24,32 @@
 .localist-widget .lwe .lwd {
     display:none;
 }
+
+//events in localist megamenu flyout
+.osulp-lmw {
+    .localist-widget .lwn .lwn0 {
+        font-family: $font-stratum;
+        font-size: 1rem;
+        line-height: 125%;
+        text-transform: uppercase;
+        color: $color-grey-400;
+        // color: #979695;
+    }
+    //magic new line using ::after element and white-space
+    .localist-widget .lwn .lwn0::after{
+        content: "\a";
+        white-space: pre;
+    }
+    
+    .localist-widget .lwn a {
+        font-family: $font-stratum;
+        color: $color-grey-900;
+        font-size: 1rem;
+        // color: #221F1E;
+        // font-family: "Stratum2Web", serif;
+    }
+    
+    .lwl0 {
+        display:none;
+    }
+}
