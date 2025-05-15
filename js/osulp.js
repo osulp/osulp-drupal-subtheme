@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // functions for when user clicks on first select list (searches)
 function handleSearchLocChange(locElem){
   //debugger;
+  //CURRENTLY DISABLED
   //handleSearchFacet();
   //tooMuchLogic(locElem);
   inputPlaceholder();
@@ -130,8 +131,9 @@ function inputPlaceholder(){
 
 function handleSearchSubmit(formElem) {
   const locElem = formElem.querySelector("#osulp-search-loc");
-  // currently unused. uncomment if secondary dropdown 'facet' is needed again.
-  //const methodElem = formElem.querySelector("#osulp-search-facet");
+  // CURRENTLY DISABLED 
+  // uncomment if secondary dropdown 'facet' is needed again.
+  // const methodElem = formElem.querySelector("#osulp-search-facet");
   const queryElem = formElem.querySelector("#osulp-search-query");
   // Blank values to set at end of method
   let formAction = ""; // Where the search will send us
@@ -145,7 +147,8 @@ function handleSearchSubmit(formElem) {
           vid: "01ALLIANCE_OSU:OSU",
           tab: "Everything",
           search_scope: "OSU_Everything_Profile",
-          // currently unused. uncomment one of these lines if secondary dropdown 'method' is needed again.
+          // CURRENTLY UNUSED 
+          // uncomment one of these lines if secondary dropdown 'method' is needed again.
           // query: "any," + methodElem.value + "," + queryElem.value,
           // query: `any,${methodElem.value},${queryElem.value}`
           query: `any,contains,${queryElem.value}`
@@ -163,7 +166,8 @@ function handleSearchSubmit(formElem) {
       inputs = {
         vid: "01ALLIANCE_OSU:OSU",
         tab: "jsearch_slot",
-        // currently unused. uncomment one of these lines if secondary dropdown 'method' is needed again
+        // CURRENTLY UNUSED 
+        // uncomment one of these lines if secondary dropdown 'method' is needed again
         // query: "any," + methodElem.value + "," + queryElem.value,
         // query: `any,${methodElem.value},${queryElem.value}`
         query: `any,contains,${queryElem.value}`
@@ -186,13 +190,14 @@ function handleSearchSubmit(formElem) {
 
     case "cr": // Course Reserves search
       formAction = "https://search.library.oregonstate.edu/discovery/search";
-      // extra logic for 'course code', since it doesn't follow the same url pattern currently unused
+      // extra logic for 'course code', since it doesn't follow the same url pattern 
+      // CURRENTLY UNUSED
       // if (methodElem.value === "course_code"){
       //   inputs = {
       //     vid: "01ALLIANCE_OSU:OSU",
       //     tab: "CourseReserves",
       //     search_scope: "CourseReserves",
-      //     //currently unused. uncomment one of these lines if secondary dropdown 'method' is needed again
+      //     //CURENTLY UNUSED. uncomment one of these lines if secondary dropdown 'method' is needed again
       //     //query: methodElem.value + ",contains," + queryElem.value,
       //     //query: `${methodElem.value},contains,${queryElem.value}`
       //     query: `any,contains,${queryElem.value}`
@@ -202,6 +207,7 @@ function handleSearchSubmit(formElem) {
         vid: "01ALLIANCE_OSU:OSU",
         tab: "CourseReserves",
         search_scope: "CourseReserves",
+        //CURENTLY UNUSED fallback
         //query: "any," + methodElem.value + "," + queryElem.value,
         //query: `any,${methodElem.value},${queryElem.value}`
         query: `any,contains,${queryElem.value}`
