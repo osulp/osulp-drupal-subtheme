@@ -21,13 +21,16 @@
 
 // When the DOM is accessible, we need to update the search bar for consistent display
 document.addEventListener("DOMContentLoaded", function () {
-  handleSearchLocChange(document.getElementById("osulp-search-loc"));
+  // handleSearchLocChange(document.getElementById("osulp-search-loc"));
+  const e = new Event("change");
+  document.getElementById("osulp-search-loc").dispatchEvent(e);
 });
 
 // functions for when user clicks on first select list (searches)
 function handleSearchLocChange(locElem){
-  handleSearchFacet();
-  tooMuchLogic(locElem);
+  //debugger;
+  //handleSearchFacet();
+  //tooMuchLogic(locElem);
   inputPlaceholder();
 }
 
@@ -52,6 +55,7 @@ function handleSearchLocChange(locElem){
 
 // When the location changes or the facet changes, we need different placeholder text
 function inputPlaceholder(){
+  
   // get the search location element
   const $searchLocation = document.getElementById("osulp-search-loc");
   // get the value from the search location
@@ -126,7 +130,8 @@ function inputPlaceholder(){
 
 function handleSearchSubmit(formElem) {
   const locElem = formElem.querySelector("#osulp-search-loc");
-  const methodElem = formElem.querySelector("#osulp-search-facet");
+  // currently unused. uncomment if secondary dropdown 'facet' is needed again.
+  //const methodElem = formElem.querySelector("#osulp-search-facet");
   const queryElem = formElem.querySelector("#osulp-search-query");
   // Blank values to set at end of method
   let formAction = ""; // Where the search will send us
@@ -140,8 +145,10 @@ function handleSearchSubmit(formElem) {
           vid: "01ALLIANCE_OSU:OSU",
           tab: "Everything",
           search_scope: "OSU_Everything_Profile",
+          // currently unused. uncomment one of these lines if secondary dropdown 'method' is needed again.
           // query: "any," + methodElem.value + "," + queryElem.value,
-          query: `any,${methodElem.value},${queryElem.value}`
+          // query: `any,${methodElem.value},${queryElem.value}`
+          query: `any,contains,${queryElem.value}`
         };
       break;
 
@@ -156,8 +163,10 @@ function handleSearchSubmit(formElem) {
       inputs = {
         vid: "01ALLIANCE_OSU:OSU",
         tab: "jsearch_slot",
+        // currently unused. uncomment one of these lines if secondary dropdown 'method' is needed again
         // query: "any," + methodElem.value + "," + queryElem.value,
-        query: `any,${methodElem.value},${queryElem.value}`
+        // query: `any,${methodElem.value},${queryElem.value}`
+        query: `any,contains,${queryElem.value}`
       };
       break;
 
@@ -177,24 +186,27 @@ function handleSearchSubmit(formElem) {
 
     case "cr": // Course Reserves search
       formAction = "https://search.library.oregonstate.edu/discovery/search";
-      // extra logic for 'course code', since it doesn't follow the same url pattern
-      if (methodElem.value === "course_code"){
-        inputs = {
-          vid: "01ALLIANCE_OSU:OSU",
-          tab: "CourseReserves",
-          search_scope: "CourseReserves",
-          //query: methodElem.value + ",contains," + queryElem.value,
-          query: `${methodElem.value},contains,${queryElem.value}`
-        };
-      } else {
+      // extra logic for 'course code', since it doesn't follow the same url pattern currently unused
+      // if (methodElem.value === "course_code"){
+      //   inputs = {
+      //     vid: "01ALLIANCE_OSU:OSU",
+      //     tab: "CourseReserves",
+      //     search_scope: "CourseReserves",
+      //     //currently unused. uncomment one of these lines if secondary dropdown 'method' is needed again
+      //     //query: methodElem.value + ",contains," + queryElem.value,
+      //     //query: `${methodElem.value},contains,${queryElem.value}`
+      //     query: `any,contains,${queryElem.value}`
+      //   };
+      // } else {
       inputs = {
         vid: "01ALLIANCE_OSU:OSU",
         tab: "CourseReserves",
         search_scope: "CourseReserves",
         //query: "any," + methodElem.value + "," + queryElem.value,
-        query: `any,${methodElem.value},${queryElem.value}`
+        //query: `any,${methodElem.value},${queryElem.value}`
+        query: `any,contains,${queryElem.value}`
       };
-    };
+    //};
       break;
 
 
@@ -238,6 +250,7 @@ function hashToHiddenInputs(hash, formElem) {
     console.log(input);
     // Append the input to the form
     formElem.appendChild(input);
+    debugger;
   }
 }
 /* End Search Bar */
