@@ -51,13 +51,18 @@
       </div>
     {% endblock %}
 
+
+    
+
     {% if hours %}
       <div class="fs-7 font-stratum2web fw-normal">
         {{ content['field_library'][0]['#entity'].field_city_name.0.value|upper }}
       </div>
+      <a href="{{content['field_hours_link'][0]['#title']}}">
       <div class="h5 color-coastline-20">
         {{ content['field_library'][0]['#title'] ~ ' Library'|t }}
       </div>
+      </a>
       <div class="fs-7">
         {% if hours[0]['from_structured'] %}
           <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
