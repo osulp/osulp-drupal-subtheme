@@ -33,6 +33,7 @@ function handleSearchLocChange(locElem){
   //handleSearchFacet();
   //tooMuchLogic(locElem);
   inputPlaceholder();
+  document.querySelectorAll(".search-temp-hidden").forEach((e) => e.remove());
 }
 
 // When the location changes, we need to hide/show the search facet (keyword/exact)
@@ -93,7 +94,7 @@ function inputPlaceholder(){
       osulpSearchInputPlaceholder = "cats";
     break;
   }
-  console.log(osulpSearchInputPlaceholder);
+  
   document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
   // document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder); 
 }
@@ -183,7 +184,7 @@ function handleSearchSubmit(formElem) {
 
       formAction = "https://ir.library.oregonstate.edu/catalog";
       inputs = {
-        "f_inclusive[resource_type_sim][]": "Dissertation",
+        "f_inclusive[resource_type_sim][]":"Dissertation",
         q: queryElem.value,
       };
       break;
@@ -231,7 +232,7 @@ function handleSearchSubmit(formElem) {
       };
       break;
   }
-  console.log(inputs);
+  //console.log(inputs);
   debugger
   // Set the search location
   formElem.action = formAction;
@@ -243,7 +244,7 @@ function handleSearchSubmit(formElem) {
  * Convert a hash to hidden form elements for submission of hidden values
  */
 function hashToHiddenInputs(hash, formElem) {
-  document.querySelectorAll(".search-temp-hidden").forEach((e) => e.remove());
+
 
   for ([key, value] of Object.entries(hash)) {
     const input = document.createElement("input");
@@ -256,7 +257,7 @@ function hashToHiddenInputs(hash, formElem) {
     console.log(input);
     // Append the input to the form
     formElem.appendChild(input);
-    debugger;
+    
   }
 }
 /* End Search Bar */
