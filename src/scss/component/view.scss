@@ -1,7 +1,6 @@
 /* News views page */
 .node--type-news.node--view-mode-teaser {
   box-sizing: content-box;
-  max-height: 10rem;
   object-fit: cover;
 
   &::after {
@@ -10,7 +9,7 @@
     bottom  : 0;
     height  : 1px;
     background: $color-coastline-100 !important;
-    width: 50%;
+    width: 75%;
   }
   img {
     max-height: 10rem;
