@@ -13,17 +13,51 @@
 // }
 
 // style for the decorative line over the event
-.localist-widget .lwn {
-    border-top: 2px solid $color-coastline-100;
+.localist-widget li.lwe {
+    border-top: 1px solid $color-coastline-100;
+    padding-bottom: 1.5rem;
 }
 .localist-widget .lwn .lwn0 {
     border-top: 4px solid $color-coastline-100;
+    font-size: 1.3rem;
+     line-height: 125%;
+    color: $color-grey-800;
+    font-family: 'Stratum2web', serif;
+    //font-weight: bold;
+    //color: #272726;
 }
 
-//temporary hide of description
+//magic new line using ::after element and white-space
+.localist-widget .lwn .lwn0::after{
+    content: "\a";
+    white-space: pre;
+}
+
+/* location link */
+.localist-widget .lwl a{
+    text-transform: uppercase;
+    color: #6d6d6d;
+    text-decoration: none;
+}
+.localist-widget .lwl a:hover{
+    text-decoration: underline;
+}
+
+// hide word "location"
+.localist-widget span.lwl0 {
+    display:none;
+}
+
+// hide event description
 .localist-widget .lwe .lwd {
     display:none;
 }
+
+.localist-widget ul {
+    list-style:none;
+    padding: 0;
+}
+
 
 //event in localist megamenu flyout
 .osulp-lmw {

@@ -1682,16 +1682,46 @@ ul#superfish-header-menu-2 {
   color: #AC3207;
 }
 
-.localist-widget .lwn {
-  border-top: 2px solid #A7ACA2;
+.localist-widget li.lwe {
+  border-top: 1px solid #A7ACA2;
+  padding-bottom: 1.5rem;
 }
 
 .localist-widget .lwn .lwn0 {
   border-top: 4px solid #A7ACA2;
+  font-size: 1.3rem;
+  line-height: 125%;
+  color: #423E3C;
+  font-family: "Stratum2web", serif;
+}
+
+.localist-widget .lwn .lwn0::after {
+  content: "\a";
+  white-space: pre;
+}
+
+/* location link */
+.localist-widget .lwl a {
+  text-transform: uppercase;
+  color: #6d6d6d;
+  text-decoration: none;
+}
+
+.localist-widget .lwl a:hover {
+  text-decoration: underline;
+}
+
+.localist-widget span.lwl0 {
+  display: none;
 }
 
 .localist-widget .lwe .lwd {
   display: none;
+}
+
+.localist-widget ul {
+  list-style: none;
+  padding: 0;
 }
 
 .osulp-lmw .localist-widget .lwn .lwn0 {
