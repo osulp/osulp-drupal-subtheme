@@ -1718,9 +1718,13 @@ ul#superfish-header-menu-2 {
   display: none;
 }
 
-.localist-widget ul, .localist-widget li {
+.localist-widget ul {
   list-style: none;
   padding: 0;
+}
+
+.block-system-main-block .localist-widget ul:not(.nav, .navbar, .list-unstyled, .contextual-links, .vertical-tabs__menu, .pager__items, .select2-selection__rendered) > li:not([style*="list-style: none"])::marker {
+  content: "";
 }
 
 .osulp-lmw .localist-widget .lwn .lwn0 {
