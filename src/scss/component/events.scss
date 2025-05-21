@@ -53,7 +53,7 @@
     display:none;
 }
 
-.localist-widget ul {
+.localist-widget ul, .localist-widget li {
     list-style:none;
     padding: 0;
 }
@@ -103,6 +103,10 @@
         border-top: none;
     }
     .localist-widget .lwn .lwn0 {
+        border-top: none;
+    }
+
+    .localist-widget li.lwe {
         border-top: none;
     }
 }

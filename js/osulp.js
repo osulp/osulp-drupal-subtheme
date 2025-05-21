@@ -79,19 +79,19 @@ function inputPlaceholder(){
       osulpSearchInputPlaceholder = "keyword, title, or course number";
     break;
     case "jour":
-      osulpSearchInputPlaceholder = "cats";
+      osulpSearchInputPlaceholder = "";
     break;
     case "web":
-      osulpSearchInputPlaceholder = "cats";
+      osulpSearchInputPlaceholder = "";
     break;
     case "rg":
-      osulpSearchInputPlaceholder = "cats";
+      osulpSearchInputPlaceholder = "";
     break;
     case "tad":
-      osulpSearchInputPlaceholder = "cats";
+      osulpSearchInputPlaceholder = "";
     break;
     case "arc":
-      osulpSearchInputPlaceholder = "cats";
+      osulpSearchInputPlaceholder = "";
     break;
   }
   
