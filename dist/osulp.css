@@ -1729,10 +1729,14 @@ ul#superfish-header-menu-2 {
 
 .osulp-lmw .localist-widget .lwn .lwn0 {
   font-family: "Stratum2Web", serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 100%;
   text-transform: uppercase;
   color: #979695;
+  font-weight: bolder;
+}
+.osulp-lmw .localist-widget .lwn .lwn0::before {
+  content: "EVENT:";
 }
 .osulp-lmw .localist-widget .lwn .lwn0::after {
   content: "\a";
@@ -1747,7 +1751,7 @@ ul#superfish-header-menu-2 {
 }
 .osulp-lmw .lwl a {
   text-decoration: none;
-  color: #555453 !important;
+  color: #423E3C !important;
 }
 .osulp-lmw .lwl0 {
   display: none;
