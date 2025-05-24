@@ -65,7 +65,7 @@
 
 
 
-//event in localist megamenu flyout
+//event in localist megamenu flyout. the class osulp-lmw should be placed in the tb-megamenu flyout
 .osulp-lmw {
     // event date/time
     .localist-widget .lwn .lwn0 {
@@ -88,17 +88,15 @@
     
     .localist-widget .lwn a {
         font-family: $font-stratum;
-        color: $color-grey-900;
         font-size: 1rem;
         line-height: 100%;
         text-decoration: none;
-        // color: #221F1E;
         // font-family: "Stratum2Web", serif;
     }
     //style for the location link
     .lwl a {
         text-decoration: none;
-        color: $color-grey-800 !important;
+        color: $color-grey-400 !important;
     }
     ///removes the word "location"
     .lwl0 {

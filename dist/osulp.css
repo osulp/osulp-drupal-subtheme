@@ -1744,14 +1744,13 @@ ul#superfish-header-menu-2 {
 }
 .osulp-lmw .localist-widget .lwn a {
   font-family: "Stratum2Web", serif;
-  color: #221F1E;
   font-size: 1rem;
   line-height: 100%;
   text-decoration: none;
 }
 .osulp-lmw .lwl a {
   text-decoration: none;
-  color: #423E3C !important;
+  color: #979695 !important;
 }
 .osulp-lmw .lwl0 {
   display: none;
