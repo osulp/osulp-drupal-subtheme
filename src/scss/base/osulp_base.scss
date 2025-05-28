@@ -70,6 +70,13 @@ $utilities: map-merge-multiple(
   font-size: 1rem;
   line-height: 125%;
 }
+
+.header-overline-sans {
+  font-family: $font-sans;
+  font-size: 1rem;
+  line-height: 125%;
+}
+
 .smaller {
   font-size: 0.75em;
   line-height: 1.4em;

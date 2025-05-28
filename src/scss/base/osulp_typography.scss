@@ -74,3 +74,9 @@ h2, .h2{
   color: $color-beaver-dark;
   }
 //list-style-type: square; \f0a9
+
+
+// group home page specific overrides
+.osu-text-osuorange > h1 {
+  color: $color-beaver-orange;
+}

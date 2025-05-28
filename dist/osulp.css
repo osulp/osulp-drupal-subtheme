@@ -673,6 +673,12 @@
   line-height: 125%;
 }
 
+.header-overline-sans {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 125%;
+}
+
 .smaller {
   font-size: 0.75em;
   line-height: 1.4em;
@@ -1415,6 +1421,10 @@ h2, .h2 {
 
 .homepagelink > a {
   color: #AC3207;
+}
+
+.osu-text-osuorange > h1 {
+  color: #D73F09;
 }
 
 .block-inline-blockosulp-card {
