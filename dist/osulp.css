@@ -1469,6 +1469,7 @@ h2, .h2 {
 @media (max-width: 767.98px) {
   #osulp-title-block-container {
     background-image: none !important;
+    min-height: 0 !important;
   }
 }
 #osulp-title-block-container.group {
