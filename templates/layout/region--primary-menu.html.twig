@@ -38,13 +38,13 @@
 
 {# actual layout #}
 {% if not group_page %}
-{% set background_image_style = image_uri ? 'background-image: url(' ~ image_uri ~ ');' : '' %}
+{% set background_image_style = image_uri ? 'background-image: url(' ~ image_uri ~ ');min-height:300px' : '' %}
 {% endif %}
 {# check to see if content exists then check to see if the page is not the front page #}
-{% if content %} 
+{% if content %}
 {% if not is_front %}
 {# If the page is a group page, add the group class. If the page is a white top page (from the variable) it won't show up #}
-  <div id="osulp-title-block-container" class="{{ group_home_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4 border-bottom" style="{{ background_image_style}}">
+  <div id="osulp-title-block-container" class="{{ group_home_page ? 'group' : '' }} container-fluid {{ white_top ? 'bg-neutral' : 'bg-coastline-20'}} g-0 pb-4 border-bottom" style="{{ background_image_style }}">
 
  {# {{ group_page ? '' : background_image_style }} #}
     <div{{attributes.setAttribute('id',region_id).addClass(region_class)}}>
