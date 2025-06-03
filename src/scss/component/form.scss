@@ -1,3 +1,14 @@
 .form-select {
   background-position: left 1rem center;
 }
+
+.fieldset-legend {
+  text-decoration: underline;
+  text-decoration-color: $color-beaver-orange;
+  text-decoration-thickness: 10%;
+  text-underline-offset: 2px;
+}
+
+div:not(.js-form-type-radio):not(.js-form-type-checkbox).js-form-item.form-item {
+  padding-bottom: 2em;
+}

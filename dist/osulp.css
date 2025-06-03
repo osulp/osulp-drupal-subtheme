@@ -1439,6 +1439,17 @@ h2, .h2 {
   background-position: left 1rem center;
 }
 
+.fieldset-legend {
+  text-decoration: underline;
+  text-decoration-color: #D73F09;
+  text-decoration-thickness: 10%;
+  text-underline-offset: 2px;
+}
+
+div:not(.js-form-type-radio):not(.js-form-type-checkbox).js-form-item.form-item {
+  padding-bottom: 2em;
+}
+
 #footer-menus h2 {
   font-size: 1rem;
   text-transform: uppercase;
