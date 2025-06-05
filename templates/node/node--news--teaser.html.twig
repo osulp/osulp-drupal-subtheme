@@ -79,7 +79,7 @@
   'py-3',
 ] %}
 {% set has_image = node.field_news_image is not empty %}
-{% set col_class = has_image ? 'col-md-9 col-lg-6' : 'col-md-9 offset-md-1' %}
+{% set col_class = has_image ? 'col-md-9' : 'col-md-9 offset-md-3' %}
 
 <article{{attributes.addClass(classes)}}>
   <div class="row">
