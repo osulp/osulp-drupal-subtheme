@@ -1451,6 +1451,12 @@ h2, .h2 {
 }
 #footer-menus li a {
   padding: 0;
+  text-decoration: underline;
+}
+#footer-menus li a:hover, #footer-menus li a:active, #footer-menus li a:focus {
+  background: none;
+  text-decoration: none;
+  color: #fff;
 }
 
 #osu-logo-crest img {
