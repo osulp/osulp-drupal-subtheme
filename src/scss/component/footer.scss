@@ -11,6 +11,13 @@
   }
   li a {
     padding: 0;
+    text-decoration: underline;
+
+    &:hover, &:active, &:focus {
+      background: none;
+      text-decoration: none;
+      color: $white;
+    }
   }
 }
 #osu-logo-crest {
