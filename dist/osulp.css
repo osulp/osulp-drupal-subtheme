@@ -1462,6 +1462,12 @@ div:not(.js-form-type-radio):not(.js-form-type-checkbox).js-form-item.form-item 
 }
 #footer-menus li a {
   padding: 0;
+  text-decoration: underline;
+}
+#footer-menus li a:hover, #footer-menus li a:active, #footer-menus li a:focus {
+  background: none;
+  text-decoration: none;
+  color: #fff;
 }
 
 #osu-logo-crest img {
@@ -1480,6 +1486,7 @@ div:not(.js-form-type-radio):not(.js-form-type-checkbox).js-form-item.form-item 
 @media (max-width: 767.98px) {
   #osulp-title-block-container {
     background-image: none !important;
+    min-height: 0 !important;
   }
 }
 #osulp-title-block-container.group {
