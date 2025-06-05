@@ -9,6 +9,7 @@
 
   @include media-breakpoint-down(md) {
     background-image: none !important;
+    min-height: 0 !important;
   }
 
   &.group {
