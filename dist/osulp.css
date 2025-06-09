@@ -1365,13 +1365,6 @@ a.h4 {
   font-weight: bold;
 }
 
-a.h4:hover,
-a.h4:focus,
-.h4 a:hover,
-.h4 a:focus {
-  color: #423e3c;
-}
-
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -1388,6 +1381,20 @@ h4 a, .h4 a,
 h5 a, .h5 a,
 h6 a, .h6 a {
   text-decoration: none;
+}
+h1 a:hover, h1 a:focus, .h1 a:hover, .h1 a:focus,
+h2 a:hover,
+h2 a:focus, .h2 a:hover, .h2 a:focus,
+h3 a:hover,
+h3 a:focus, .h3 a:hover, .h3 a:focus,
+h4 a:hover,
+h4 a:focus, .h4 a:hover, .h4 a:focus,
+h5 a:hover,
+h5 a:focus, .h5 a:hover, .h5 a:focus,
+h6 a:hover,
+h6 a:focus, .h6 a:hover, .h6 a:focus {
+  color: #423e3c !important;
+  text-decoration: underline;
 }
 
 h2, .h2 {
