@@ -75,7 +75,6 @@
   node.isSticky() ? 'node--sticky',
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-  'row',
 ] %}
 {% set has_image = node.field_image is not empty %}
 {% set col_class = "py-4 " ~ (has_image ? 'col-md-8' : 'col-md-7') %}
@@ -83,45 +82,47 @@
 <article {{ attributes.addClass(classes,'container') }}>
   {{ title_prefix }}
   <h2 {{ title_attributes }}>
-    <a href="{{ url }}" rel="bookmark">
+    <a href="{{ url }}" rel="bookmark" class="color-beaver-dark">
       {{ node.field_last_name.value }},
       {{ node.field_first_name.value }}
     </a>
   </h2>
   {{ title_suffix }}
 
-  {% if node.field_image is not empty %}
-    <div class="col-12 col-md-2">
-      {{ content.field_image }}
+  <div class="row">
+    {% if node.field_image is not empty %}
+      <div class="col-12 col-md-2">
+        {{ content.field_image }}
+      </div>
+    {% endif %}
+
+    <div class="col-12 col-md-8 d-inline-block align-top">
+      {% if node.field_job_title is not empty %}
+        <div class="color-grey-700">
+          {{ content.field_job_title }}
+        </div>
+      {% endif %}
+      {% if node.field_email is not empty or node.field_phone_number is not empty %}
+        <div class="color-grey-700 d-inline-block">
+          <span class="me-5">{{ content.field_phone_number }}</span>
+          <span>{{ content.field_email }}</span>
+        </div>
+      {% endif %}
+      {# Colleges hidden if no college is set #}
+      {% if node.field_colleges.0 %}
+        <div class="small">
+          <span class="d-inline-bl small">
+            {{node.field_colleges.fieldDefinition.label}}:
+          </span>
+
+          {% for college in node.field_colleges %}
+            <span class="fw-light small">{{- college.entity.label -}}</span>
+            {% if not loop.last %}<br/>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {# End name, title, college mobile/desktop #}
     </div>
-  {% endif %}
-
-  <div class="col-12 col-md-8 d-inline-block align-top">
-    {% if node.field_job_title is not empty %}
-      <div class="color-grey-700">
-        {{ content.field_job_title }}
-      </div>
-    {% endif %}
-    {% if node.field_email is not empty or node.field_phone_number is not empty %}
-      <div class="color-grey-700 d-inline-block">
-        <span class="me-5">{{ content.field_phone_number }}</span>
-        <span>{{ content.field_email }}</span>
-      </div>
-    {% endif %}
-    {# Colleges hidden if no college is set #}
-    {% if node.field_colleges.0 %}
-      <div class="small">
-        <span class="d-inline-bl small">
-          {{node.field_colleges.fieldDefinition.label}}:
-        </span>
-
-        {% for college in node.field_colleges %}
-          <span class="fw-light small">{{- college.entity.label -}}</span>
-          {% if not loop.last %}<br/>
-          {% endif %}
-        {% endfor %}
-      </div>
-    {% endif %}
-    {# End name, title, college mobile/desktop #}
   </div>
 </article>
