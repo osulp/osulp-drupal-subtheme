@@ -45,7 +45,10 @@ $utilities: map-merge-multiple(
 //replace bootstrap classes so it can be overwritten by user preferences
 .lib-py-5 {
   padding-top: 3rem;
-  padding-bottom: 3rem; 
+  padding-bottom: 3rem;
+}
+#block-osulp-content .lib-py-5:first-child {
+  padding-bottom: 0;
 }
 
 .w-fit-content {
