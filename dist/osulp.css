@@ -1536,6 +1536,9 @@ div:not(.js-form-type-radio):not(.js-form-type-checkbox).js-form-item.form-item 
   margin-left: 0.5em;
 }
 
+#osulp-menu-mobile-header {
+  z-index: 1001;
+}
 #osulp-menu-mobile-header .header-1-mobile-menu button::after,
 #osulp-menu-mobile-header .header-2-mobile-menu button::after {
   font-family: FontAwesome;
