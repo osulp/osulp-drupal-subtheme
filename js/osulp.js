@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // functions for when user clicks on first select list (searches)
-function handleSearchLocChange(locElem){
+function handleSearchLocChange(locElem) {
   //debugger;
   //CURRENTLY DISABLED
   //handleSearchFacet();
@@ -39,34 +39,37 @@ function handleSearchLocChange(locElem){
 // When the location changes, we need to hide/show the search facet (keyword/exact)
 // CURRENTLY DISABLED
 //function tooMuchLogic(locElem) {
-  // Hide and show first
-  // Elem to hide/show
-    //const methodElem = document.getElementById("osulp-search-facet-wrapper");
-    //const advancedElem = document.getElementById("osulp-advanced-search");
-  // Value to determine hide/show
-    //const locValue = locElem.value;
-  // Values to show on
-  // ADD VALUES HERE IF A SEARCH FACET DROPDOWN IS REQUIRED. 
-    //const showValues = ["", ""];
-  // Hide if location isn't one to show search method
-    //const hide = !showValues.includes(locValue);
-  // Hide/show
-    //methodElem.classList.toggle("d-none", hide);
-    //advancedElem.classList.toggle("d-none", hide);
+// Hide and show first
+// Elem to hide/show
+//const methodElem = document.getElementById("osulp-search-facet-wrapper");
+//const advancedElem = document.getElementById("osulp-advanced-search");
+// Value to determine hide/show
+//const locValue = locElem.value;
+// Values to show on
+// ADD VALUES HERE IF A SEARCH FACET DROPDOWN IS REQUIRED.
+//const showValues = ["", ""];
+// Hide if location isn't one to show search method
+//const hide = !showValues.includes(locValue);
+// Hide/show
+//methodElem.classList.toggle("d-none", hide);
+//advancedElem.classList.toggle("d-none", hide);
 //}
 
 // When the location changes or the facet changes, we need different placeholder text
-function inputPlaceholder(){
-  
+function inputPlaceholder() {
   // get the search location element
   const $searchLocation = document.getElementById("osulp-search-loc");
   // get the value from the search location
   const searchVal = $searchLocation.value;
   // CURRENTLY UNUSED. get the facet element
-    //const $searchFacet = document.getElementById("osulp-search-facet");
+  //const $searchFacet = document.getElementById("osulp-search-facet");
   // get the value from the facet.
   // CURRENTLY UNUSED. this is for if searchFaceValue equals course_code then display different prompt text
-    // const searchFaceValue = $searchFacet.value;
+  // const searchFaceValue = $searchFacet.value;
+
+  // Hide advanced search button for all cases except catalog search
+  const advSearch = document.getElementById("osulp-advanced-search");
+  advSearch.classList.toggle("hidden", true);
 
   // Placeholder text logic
   let osulpSearchInputPlaceholder = "type here"; //default, just in case
@@ -74,65 +77,65 @@ function inputPlaceholder(){
   switch (searchVal) {
     case "cat":
       osulpSearchInputPlaceholder = "books, articles, and more";
-    break;
+
+      // Show advanced search button for catalog search
+      advSearch.classList.toggle("hidden", false);
+      break;
     case "cr":
       osulpSearchInputPlaceholder = "keyword, title, or course number";
-    break;
+      break;
     case "jour":
       osulpSearchInputPlaceholder = "";
-    break;
+      break;
     case "web":
       osulpSearchInputPlaceholder = "";
-    break;
+      break;
     case "rg":
       osulpSearchInputPlaceholder = "";
-    break;
+      break;
     case "tad":
       osulpSearchInputPlaceholder = "";
-    break;
+      break;
     case "arc":
       osulpSearchInputPlaceholder = "";
-    break;
+      break;
   }
-  
-  document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder; 
-  // document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder); 
+
+  document.getElementById("osulp-search-query").placeholder = osulpSearchInputPlaceholder;
+  // document.getElementById("osulp-search-query").setAttribute("placeholder", osulpSearchInputPlaceholder);
 }
 
-
-// CURRENTLY NOT USED. 
+// CURRENTLY NOT USED.
 // when the location is catalog, then hide 'course' number option
-  //function handleSearchFacet(){
+//function handleSearchFacet(){
 
-  // get element that we're messing with
-    //const $searchLocation = document.getElementById("osulp-search-loc");
-  // get the value from the element
-    //const searchVal = $searchLocation.value;
-  //debugger;
+// get element that we're messing with
+//const $searchLocation = document.getElementById("osulp-search-loc");
+// get the value from the element
+//const searchVal = $searchLocation.value;
+//debugger;
 
-  // get element we're messing with
-    //const $courseNumber = document.getElementById("course-code");
-  
+// get element we're messing with
+//const $courseNumber = document.getElementById("course-code");
 
-  // if the serach location is cat then course number scope is hidden 
-    //if (searchVal == "cat"){
-    //$courseNumber.setAttribute("disabled","");
-  // OR USE THIS. NOT BOTH.
-    //$courseNumber.classList.add("d-none");
-    //};
+// if the serach location is cat then course number scope is hidden
+//if (searchVal == "cat"){
+//$courseNumber.setAttribute("disabled","");
+// OR USE THIS. NOT BOTH.
+//$courseNumber.classList.add("d-none");
+//};
 
-    //if (searchVal == "cr"){
-      //$courseNumber.removeAttribute("disabled","");
-      //$courseNumber.classList.remove("d-none");
-    //}
+//if (searchVal == "cr"){
+//$courseNumber.removeAttribute("disabled","");
+//$courseNumber.classList.remove("d-none");
 //}
-
+//}
 
 // Builds the url that each case submits to
 
 function handleSearchSubmit(formElem) {
   const locElem = formElem.querySelector("#osulp-search-loc");
-  // CURRENTLY DISABLED 
+  // CURRENTLY DISABLED
   // uncomment if secondary dropdown 'facet' is needed again.
   // const methodElem = formElem.querySelector("#osulp-search-facet");
   const queryElem = formElem.querySelector("#osulp-search-query");
@@ -145,15 +148,15 @@ function handleSearchSubmit(formElem) {
     case "cat": // Catalog search
       formAction = "https://search.library.oregonstate.edu/discovery/search";
       inputs = {
-          vid: "01ALLIANCE_OSU:OSU",
-          tab: "Everything",
-          search_scope: "OSU_Everything_Profile",
-          // CURRENTLY UNUSED 
-          // uncomment one of these lines if secondary dropdown 'method' is needed again.
-          // query: "any," + methodElem.value + "," + queryElem.value,
-          // query: `any,${methodElem.value},${queryElem.value}`
-          query: `any,contains,${queryElem.value}`
-        };
+        vid: "01ALLIANCE_OSU:OSU",
+        tab: "Everything",
+        search_scope: "OSU_Everything_Profile",
+        // CURRENTLY UNUSED
+        // uncomment one of these lines if secondary dropdown 'method' is needed again.
+        // query: "any," + methodElem.value + "," + queryElem.value,
+        // query: `any,${methodElem.value},${queryElem.value}`
+        query: `any,contains,${queryElem.value}`,
+      };
       break;
 
     case "web": // Website search
@@ -167,11 +170,11 @@ function handleSearchSubmit(formElem) {
       inputs = {
         vid: "01ALLIANCE_OSU:OSU",
         tab: "jsearch_slot",
-        // CURRENTLY UNUSED 
+        // CURRENTLY UNUSED
         // uncomment one of these lines if secondary dropdown 'method' is needed again
         // query: "any," + methodElem.value + "," + queryElem.value,
         // query: `any,${methodElem.value},${queryElem.value}`
-        query: `any,contains,${queryElem.value}`
+        query: `any,contains,${queryElem.value}`,
       };
       break;
 
@@ -184,14 +187,14 @@ function handleSearchSubmit(formElem) {
 
       formAction = "https://ir.library.oregonstate.edu/catalog";
       inputs = {
-        "f_inclusive[resource_type_sim][]":"Dissertation",
+        "f_inclusive[resource_type_sim][]": "Dissertation",
         q: queryElem.value,
       };
       break;
 
     case "cr": // Course Reserves search
       formAction = "https://search.library.oregonstate.edu/discovery/search";
-      // extra logic for 'course code', since it doesn't follow the same url pattern 
+      // extra logic for 'course code', since it doesn't follow the same url pattern
       // CURRENTLY UNUSED
       // if (methodElem.value === "course_code"){
       //   inputs = {
@@ -211,11 +214,10 @@ function handleSearchSubmit(formElem) {
         //CURENTLY UNUSED fallback
         //query: "any," + methodElem.value + "," + queryElem.value,
         //query: `any,${methodElem.value},${queryElem.value}`
-        query: `any,contains,${queryElem.value}`
+        query: `any,contains,${queryElem.value}`,
       };
-    //};
+      //};
       break;
-
 
     case "rg": // Research Guides search
       formAction = "https://guides.library.oregonstate.edu/srch.php";
@@ -232,8 +234,6 @@ function handleSearchSubmit(formElem) {
       };
       break;
   }
-  //console.log(inputs);
-  debugger
   // Set the search location
   formElem.action = formAction;
   // Add the search params
@@ -244,8 +244,6 @@ function handleSearchSubmit(formElem) {
  * Convert a hash to hidden form elements for submission of hidden values
  */
 function hashToHiddenInputs(hash, formElem) {
-
-
   for ([key, value] of Object.entries(hash)) {
     const input = document.createElement("input");
     input.type = "hidden";
@@ -257,7 +255,6 @@ function hashToHiddenInputs(hash, formElem) {
     console.log(input);
     // Append the input to the form
     formElem.appendChild(input);
-    
   }
 }
 /* End Search Bar */
