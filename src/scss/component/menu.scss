@@ -47,6 +47,8 @@
 }
 
 #osulp-menu-mobile-header {
+  z-index: 1001;
+
   .header-1-mobile-menu,
   .header-2-mobile-menu {
     button {
@@ -89,11 +91,11 @@
 
 #tbm-header-menu-1 .tbm-link.level-1 {
   padding: 1rem 1rem;
-} 
+}
 
 //make the top level megamenu items black with white text, even when expanded
-#tbm-header-menu-1 .tbm-link.level-1:hover, 
-#tbm-header-menu-1 .tbm-item.level-1:hover, 
+#tbm-header-menu-1 .tbm-link.level-1:hover,
+#tbm-header-menu-1 .tbm-item.level-1:hover,
 #tbm-header-menu-1 .tbm-link.level-1[aria-expanded="true"] {
   background-color: $color-grey-900;
   color: $color-neutral;
@@ -140,10 +142,10 @@
 
 // desktop superfish menu overrides
 // color overrides
-.madrone-primary-menu > .block-superfish ul.sf-menu li a:hover, 
-.madrone-primary-menu > .block-superfish ul.sf-menu li a:focus, 
-.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a, 
-.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > span.nolink 
+.madrone-primary-menu > .block-superfish ul.sf-menu li a:hover,
+.madrone-primary-menu > .block-superfish ul.sf-menu li a:focus,
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > a,
+.madrone-primary-menu > .block-superfish ul.sf-menu li.sf-depth-1.menuparent:hover > span.nolink
  {
   background-color: $color-grey-900;
   color: $color-neutral;

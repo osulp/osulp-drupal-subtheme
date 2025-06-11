@@ -47,13 +47,14 @@
     {% endif %}
     {{ title_suffix }}
     {% block content %}
-      <div{{content_attributes.addClass('block__content','h-100','d-none','d-lg-block','container', 'pe-2')}}>
+      <div{{content_attributes.addClass('block__content','h-100','d-none','d-lg-block','container','pe-2')}}>
         <div class="d-flex justify-content-end align-items-center" id="header-menu-1">
           {{ drupal_block('tb_megamenu_menu_block:header-menu-1') }}
         </div>
         {# dropdown menu #}
         {# menu needs a 'madrone-primary-menu' class on the wrapper div to pick up any default madrone styles #}
-        <div class="d-flex justify-content-end align-items-center py-4 madrone-primary-menu">
+        <div
+          class="d-flex justify-content-end align-items-center py-4 madrone-primary-menu">
           {# add osu classes here to get additional styles #}
           {{ drupal_block('superfish:header-menu-2', {label: 'Madrone Main Menu'|t, label_display: 0 }) }}
           {# desktop search button. search starts in 'show' position on all pages #}
@@ -102,7 +103,7 @@
   </div>
   <div class="accordion-flush d-lg-none d-block m-auto color-grey-900 fw-semibold">
     <div class="accordion-item">
-      <div id="osulp-menu-mobile-header" class="position-absolute z-2 vw-100 bg-grey-900 border-beaver-orange border-4 border-top color-white text-align-right accordion-collapse collapse" style="right:0;">
+      <div id="osulp-menu-mobile-header" class="position-absolute vw-100 bg-grey-900 border-beaver-orange border-4 border-top color-white text-align-right accordion-collapse collapse" style="right:0;">
         <div class="accordion-body p-0 mx-4">
           <div class="mobile-menu-vert border-bottom border-1 pb-2 mb-2 border-coastline-100">
             {{ drupal_menu('header-menu-2', 1, 0, true) }}
