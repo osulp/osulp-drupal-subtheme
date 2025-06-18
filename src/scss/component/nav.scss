@@ -63,4 +63,28 @@
     --bs-nav-link-padding-x: 1rem;
     --bs-nav-link-padding-y: 0.25rem;
   }
+
+  .accordion-body ul {
+    flex-direction: unset;
+    float: unset;
+    min-width: unset;
+    padding-left: 0;
+    position: relative;
+    transform: unset;
+    width: unset;
+    z-index: unset;
+  }
+
+  button.nav-link {
+    &::after {
+      font-family: FontAwesome;
+      content: "\f068";
+      font-size: 1em;
+      position: absolute;
+      right: 0.5em;
+    }
+    &.collapsed::after {
+      content: "\f0fe";
+    }
+  }
 }

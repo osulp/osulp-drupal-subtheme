@@ -1685,6 +1685,26 @@ ul#superfish-header-menu-2 {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.25rem;
 }
+#madrone-left-sidebar-container .accordion-body ul {
+  flex-direction: unset;
+  float: unset;
+  min-width: unset;
+  padding-left: 0;
+  position: relative;
+  transform: unset;
+  width: unset;
+  z-index: unset;
+}
+#madrone-left-sidebar-container button.nav-link::after {
+  font-family: FontAwesome;
+  content: "\f068";
+  font-size: 1em;
+  position: absolute;
+  right: 0.5em;
+}
+#madrone-left-sidebar-container button.nav-link.collapsed::after {
+  content: "\f0fe";
+}
 
 /* News views page */
 .node--type-news.node--view-mode-teaser {
