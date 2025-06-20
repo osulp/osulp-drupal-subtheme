@@ -1461,6 +1461,15 @@ div:not(.js-form-type-radio):not(.js-form-type-checkbox).js-form-item.form-item 
   padding-bottom: 2em;
 }
 
+select#edit-gid {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-item-search-api-fulltext, .form-item-gid, #edit-actions {
+  align-self: center;
+}
+
 #footer-menus h2 {
   font-size: 1rem;
   text-transform: uppercase;
