@@ -32,6 +32,7 @@
     'block-' ~ plugin_id|clean_class,
     bundle ? 'block--type-' ~ bundle|clean_class,
     view_mode ? 'block--view-mode-' ~ view_mode|clean_class,
+    'pb-4-5',
   ] %}
   <div{{attributes.addClass(classes)}}>
     {{ title_prefix }}
@@ -50,7 +51,11 @@
 
     {% if hours %}
       <p class="fs-5">
-        <b>Today:</b>
+        {% if groups[0].label.value|lower != 'guin' %}
+          <b>Today:</b>
+        {% else %}
+          <b>Mon &ndash; Fri:</b>
+        {% endif %}
         {% if hours[0]['from_structured'] %}
           <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
           &ndash;
@@ -60,23 +65,26 @@
       </p>
       <ul class="list-unstyled">
         {% for hour in hours|slice(1) %}
-          <li>
-            <b>
-              {{ hour['day'] }}:
-            </b>
-            {% if hour['from_structured'] %}
-              <time datetime="{{ hour['from_structured'] }}">
-                {{ hour['from'] }}
-              </time>
-              &ndash;
-              <time datetime="{{ hour['to_structured'] }}">
-                {{ hour['to'] }}
-              </time>
+          {% if groups[0].label.value|lower != 'guin' or hour['status']|lower != 'open' %}
+            <li>
+              <b>
+                {{ hour['day'] }}:
+              </b>
+              {% if hour['from_structured'] %}
+                <time datetime="{{ hour['from_structured'] }}">
+                  {{ hour['from'] }}
+                </time>
+                &ndash;
+                <time datetime="{{ hour['to_structured'] }}">
+                  {{ hour['to'] }}
+                </time>
+              {% endif %}
+              {{ hour['message'] }}
             {% endif %}
-            {{ hour['message'] }}
           </li>
         {% endfor %}
       </ul>
+      <a href="/{{groups[0].label.value|lower}}/hours" class="btn btn-primary">More Hours</a>
     {% else %}
       Check the
       <a href="/{{ content['field_library'][0]['#title']|lower }}/hours">hours</a>
