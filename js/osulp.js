@@ -42,7 +42,7 @@ function handleSearchLocChange(locElem) {
 // Hide and show first
 // Elem to hide/show
 //const methodElem = document.getElementById("osulp-search-facet-wrapper");
-//const advancedElem = document.getElementById("osulp-advanced-search");
+//const advancedElem = document.getElementById("advanced-search-link");
 // Value to determine hide/show
 //const locValue = locElem.value;
 // Values to show on
@@ -68,7 +68,7 @@ function inputPlaceholder() {
   // const searchFaceValue = $searchFacet.value;
 
   // Hide advanced search button for all cases except catalog search
-  const advSearch = document.getElementById("osulp-advanced-search");
+  const advSearch = document.getElementById("advanced-search-link");
   advSearch.classList.toggle("hidden", true);
 
   // Placeholder text logic
@@ -80,12 +80,21 @@ function inputPlaceholder() {
 
       // Show advanced search button for catalog search
       advSearch.classList.toggle("hidden", false);
+      advSearch.href = "https://search.library.oregonstate.edu/discovery/search?vid=01ALLIANCE_OSU:OSU&lang=en&mode=advanced"
       break;
     case "cr":
       osulpSearchInputPlaceholder = "keyword, title, or course number";
+
+      // Show advanced search button for course reserves
+      advSearch.classList.toggle("hidden", false);
+      advSearch.href = "https://search.library.oregonstate.edu/discovery/search?vid=01ALLIANCE_OSU:OSU&lang=en&mode=advanced&tab=CourseReserves&search_scope=CourseReserves"
       break;
     case "jour":
       osulpSearchInputPlaceholder = "";
+
+      // Show advanced search button for journals search
+      advSearch.classList.toggle("hidden", false);
+      advSearch.href = "https://search.library.oregonstate.edu/discovery/search?vid=01ALLIANCE_OSU:OSU&lang=en&mode=advanced&pfilter=rtype,exact,journals"
       break;
     case "web":
       osulpSearchInputPlaceholder = "";
