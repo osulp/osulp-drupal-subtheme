@@ -19,6 +19,8 @@ select#edit-gid {
 }
 
 // center form items for search page flexbox
-.form-item-search-api-fulltext, .form-item-gid, #edit-actions {
-  align-self:center;
+.osulp-site-search div {
+    .form-item-search-api-fulltext, .form-item-gid, #edit-actions {
+    align-self:center;
+  }
 }

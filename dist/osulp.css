@@ -1466,7 +1466,7 @@ select#edit-gid {
   margin-bottom: 1rem;
 }
 
-.form-item-search-api-fulltext, .form-item-gid, #edit-actions {
+.osulp-site-search div .form-item-search-api-fulltext, .osulp-site-search div .form-item-gid, .osulp-site-search div #edit-actions {
   align-self: center;
 }
 
