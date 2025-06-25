@@ -62,7 +62,7 @@ We call a macro which calls itself to render the full tree.
       ] %}
       <li{{ item.attributes.addClass(li_classes) }}>
         {% if item.below %}
-          <button class="pe-4-5 w-100 text-align-left {{ link_classes|join(' ') }}" type="button" data-bs-toggle="collapse" data-bs-target="#menu-right-sidebar-{{item.title|clean_id}}" aria-expanded="false" aria-controls="menu-right-sidebar-{{item.title|clean_id}}">
+          <button class="pe-4-5 w-100 text-align-right {{ link_classes|join(' ') }}" type="button" data-bs-toggle="collapse" data-bs-target="#menu-right-sidebar-{{item.title|clean_id}}" aria-expanded="false" aria-controls="menu-right-sidebar-{{item.title|clean_id}}">
             {{ item.title|t }}
           </button>
           <div class="accordion-flush m-auto">
@@ -84,7 +84,7 @@ We call a macro which calls itself to render the full tree.
 {% endmacro %}
 
 {% macro sidebar_menu_inner(items, attributes, menu_level, menu_title) %}
-  <ul class="sidebar-menu list-unstyled border-start border-2 border-candela-dark ms-2 px-2 fw-semibold position-relative" style="transform:none;">
+  <ul class="sidebar-menu list-unstyled border-start border-2 border-candela-dark ms-2 px-2 fs-7 fw-semibold position-relative" style="transform:none;">
     {% for item in items %}
       {% set li_classes = [
         'bg-transparent',
