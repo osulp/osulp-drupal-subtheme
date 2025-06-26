@@ -296,7 +296,7 @@ function format_this_weeks_dates($libcal_dates): array {
     }
     // Add some consistent information
     $dates[$date]['day'] = $start_time->format('l');
-    $dates[$date]['status'] = $libcal_dates[$date]['status'];
+    $dates[$date]['status'] = $libcal_dates[$date]['status'] ?? '';
   }
   // Add today's info as a unique element
   array_unshift($dates, $dates[$today]);
