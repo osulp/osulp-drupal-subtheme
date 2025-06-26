@@ -255,7 +255,7 @@ function libcal_bearer_token(): string {
  * @return Array Well formatted libcal data
  */
 function format_this_weeks_dates($libcal_dates): array {
-  if (!isset($libcal_dates)) {
+  if (empty($libcal_dates)) {
     return [];
   }
 
