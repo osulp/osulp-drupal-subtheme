@@ -99,7 +99,7 @@
     {% endif %}
     {# first 255 characters w/o html tags #}
     <div class="col-12 col-md-8">
-      {{ node.field_page_description.processed|striptags|trim|truncate(255, true, true) }}
+      {{ node.field_page_description.processed|striptags|trim|truncate(255, true, true)|replace({ '&nbsp;' : ' ' }) }}
     </div>
   </div>
 </article>
