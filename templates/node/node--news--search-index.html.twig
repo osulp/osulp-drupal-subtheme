@@ -108,7 +108,7 @@
 
     <div class="{{ col_class }}">
       <span class="color-grey-700 d-none d-md-block">
-        {{ node.body.summary|striptags|trim|truncate(255, true, true) }}
+        {{ node.body.summary|striptags|trim|truncate(255, true, true)|replace({ '&nbsp;' : ' ' }) }}
       </span>
     </div>
   </div>
