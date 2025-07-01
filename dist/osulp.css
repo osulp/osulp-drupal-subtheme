@@ -1450,6 +1450,10 @@ h2, .h2 {
   background-position: left 1rem center;
 }
 
+.form-control {
+  border: var(--bs-border-width) solid #A7ACA2;
+}
+
 .fieldset-legend {
   text-decoration: underline;
   text-decoration-color: #D73F09;
