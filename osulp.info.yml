@@ -9,6 +9,12 @@ libraries:
   - madrone/fonts
   - madrone/bootstrap
   - madrone/global-styling
+
+libraries-override:
+  madrone/global-styling:
+    js:
+      dist/madrone-editoria11y.js: false
+
 regions:
   header: Header
   primary_menu: Primary menu
