@@ -1,6 +1,13 @@
-{% set classes = [
-  'lib-py-5',
-] %}
+{% if groups %}
+    {% set classes = [
+    'lib-py-5',
+    'lib-group-class',
+  ] %}
+{% else %}
+    {% set classes = [
+    'lib-py-5',
+  ] %}
+{% endif %}
 
 <div {{ attributes.addClass(classes) }}>
   {{ children }}
