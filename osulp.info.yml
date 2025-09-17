@@ -11,6 +11,7 @@ libraries:
   - madrone/global-styling
 regions:
   header: Header
+  alerts: Alert Banner
   primary_menu: Primary menu
   full_top: Full width below Primary menu
   breadcrumb: Breadcrumb
