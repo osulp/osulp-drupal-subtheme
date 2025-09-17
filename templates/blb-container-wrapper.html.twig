@@ -1,6 +1,15 @@
-{% set classes = [
-  'lib-py-5',
-] %}
+{# power washes the entire container region with lib-py-5 as well as lib-group-class for group pages #}
+
+{% if groups %}
+    {% set classes = [
+    'lib-py-5',
+    'lib-group-class',
+  ] %}
+{% else %}
+    {% set classes = [
+    'lib-py-5',
+  ] %}
+{% endif %}
 
 <div {{ attributes.addClass(classes) }}>
   {{ children }}

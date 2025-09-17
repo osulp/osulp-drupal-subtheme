@@ -651,8 +651,8 @@
   padding-bottom: 3rem;
 }
 
-#block-osulp-content .lib-py-5:first-child {
-  padding-bottom: 0;
+#block-osulp-content .lib-group-class:first-child {
+  padding-bottom: 0 !important;
 }
 
 .w-fit-content {
