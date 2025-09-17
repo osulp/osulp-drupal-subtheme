@@ -1,0 +1,11 @@
+{% if groups %}
+    {% set classes = [
+    'bg-coastline-20',
+    ] %}
+    <div {{ attributes.addClass(classes) }}> 
+        {{ content }}
+    </div>
+{% else %}
+    {{ content }}
+{% endif %}
+
