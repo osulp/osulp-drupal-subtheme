@@ -262,7 +262,8 @@ function format_this_weeks_dates($libcal_dates): array {
   $dates = [];
   $today = date('Y-m-d');
   // End of last week. We'll be adding 1 day to this seven times to get this week's data
-  $start_time = new DateTime('midnight this week - 2 day');
+  $week = date('w') == 0 ? 'next' : 'this';
+  $start_time = new DateTime("midnight $week week - 2 day");
 
   // Get the date and day of the week for each day of this week
   for ($i = 0; $i < 7; ++$i) {

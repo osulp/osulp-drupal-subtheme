@@ -53,15 +53,17 @@
       <p class="fs-5">
         {% if groups[0].label.value|lower != 'guin' %}
           <b>Today:</b>
+          {% set date = '0' %}
         {% else %}
           <b>Mon &ndash; Fri:</b>
+          {% set date = 'midnight next week'|date('Y-m-d') %}
         {% endif %}
-        {% if hours[0]['from_structured'] %}
-          <time datetime="{{ hours[0]['from_structured'] }}">{{ hours[0]['from'] }}</time>
+        {% if hours[date]['from_structured'] %}
+          <time datetime="{{ hours[date]['from_structured'] }}">{{ hours[date]['from'] }}</time>
           &ndash;
-          <time datetime="{{ hours[0]['to_structured'] }}">{{ hours[0]['to'] }}</time>
+          <time datetime="{{ hours[date]['to_structured'] }}">{{ hours[date]['to'] }}</time>
         {% endif %}
-        {{ hours[0]['message'] }}
+        {{ hours[date]['message'] }}
       </p>
       <ul class="list-unstyled">
         {% for hour in hours|slice(1) %}
