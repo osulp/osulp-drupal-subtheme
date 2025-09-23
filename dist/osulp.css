@@ -651,7 +651,7 @@
   padding-bottom: 3rem;
 }
 
-#block-osulp-content .lib-py-5:first-child {
+#block-osulp-content .lib-py-5:first-child span:has(h1) {
   padding-bottom: 0;
 }
 
