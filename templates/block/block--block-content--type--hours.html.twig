@@ -56,7 +56,8 @@
           {% set date = '0' %}
         {% else %}
           <b>Mon &ndash; Fri:</b>
-          {% set date = 'midnight next week'|date('Y-m-d') %}
+          {% set week = "now"|date("w") == 0 ? 'next' : 'this' %}
+          {% set date = "midnight #{week} week"|date('Y-m-d') %}
         {% endif %}
         {% if hours[date]['from_structured'] %}
           <time datetime="{{ hours[date]['from_structured'] }}">{{ hours[date]['from'] }}</time>
