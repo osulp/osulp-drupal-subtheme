@@ -1,10 +1,11 @@
 .form-select {
   background-position: left 1rem center;
+  border: var(--bs-border-width) solid $color-coastline-100;
 }
 
 // fix the border color
 .form-control {
-  border: var(--bs-border-width) solid #A7ACA2;
+  border: var(--bs-border-width) solid $color-coastline-100;
 }
 
 .fieldset-legend {

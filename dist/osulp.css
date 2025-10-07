@@ -1448,6 +1448,7 @@ h2, .h2 {
 
 .form-select {
   background-position: left 1rem center;
+  border: var(--bs-border-width) solid #A7ACA2;
 }
 
 .form-control {
