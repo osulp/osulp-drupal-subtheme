@@ -52,13 +52,13 @@
     {% if hours %}
       <p class="fs-5">
         {% if groups[0].label.value|lower != 'guin' %}
-        {# libcal treats 0 as 'today' #}
-          <b>{{ hours['0']['day'] }}</b>
-          {% set date = '0' %}
+          {# libcal treats 0 as 'today' #}
+          {% set today = "today"|date('Y-m-d') %}
+          <b>{{ hours[today]['day'] }}</b>
+          {% set date = "tomorrow"|date('Y-m-d') %}
         {% else %}
           <b>Mon &ndash; Fri:</b>
-          {% set week = "now"|date("w") == 0 ? 'next' : 'this' %}
-          {% set date = "midnight #{week} week"|date('Y-m-d') %}
+          {% set date = "0" %}
         {% endif %}
         {% if hours[date]['from_structured'] %}
           <time datetime="{{ hours[date]['from_structured'] }}">{{ hours[date]['from'] }}</time>
@@ -68,7 +68,7 @@
         {{ hours[date]['message'] }}
       </p>
       <ul class="list-unstyled">
-      {# since we have grabbed yesterdays hours forward, we need to slice at position 2 see the theme file #}
+      {# Guin requires a magic #}
         {% for hour in hours|slice(2) %}
           {% if groups[0].label.value|lower != 'guin' or hour['status']|lower != 'open' %}
             <li>

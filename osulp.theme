@@ -265,8 +265,7 @@ function format_this_weeks_dates($libcal_dates): array {
   // if the date (w) is sunday (0) then $week is 'next' else, 'this'
   $week = date('w') == 0 ? 'next' : 'this';
 
-  // grab the date starting with yesterday. We initially had hours display to always start with 'sunday', but now the hours display should start with 'today'. In order to grab today without rewriting the rest of the array, we must start with 'yesterday' instead. 
-
+  // grab the date starting with yesterday. We initially had hours display to always start with 'sunday', but now the hours display should start with 'today'. In order to grab today without rewriting the rest of the array, we must start with 'yesterday' instead.
   $start_time = new DateTime("Yesterday");
 
   // Get the date and day of the week for each day of this week
@@ -277,28 +276,7 @@ function format_this_weeks_dates($libcal_dates): array {
     $date = $start_time->format('Y-m-d');
 
     if (isset($libcal_dates[$date]['hours'])) {
-      // From and to time for this day
-      $from = $libcal_dates[$date]['hours'][0]['from'];
-      $to = $libcal_dates[$date]['hours'][0]['to'];
-
-      // Convert that to unix timestamp
-      $from_unix = strtotime($from);
-      $to_unix = strtotime($to);
-
-      // If the closing hour is less than the opening hour, it actually closes the next day
-      if ($to_unix < $from_unix) $to_unix = strtotime("$to + 1 day");
-
-      // Structure the open/close hours for <time> datetime attribute
-      $from_structured = date('Y-m-d H:i', $from_unix);
-      $to_structured = date('Y-m-d H:i', $to_unix);
-
-      // Wrap it all together for a twig variable
-      $dates[$date] = [
-        'from' => $from,
-        'from_structured' => $from_structured,
-        'to' => $to,
-        'to_structured' => $to_structured,
-      ];
+      $dates[$date] = format_libcal_date($libcal_dates[$date]);
     } else { // If the hours is an exception, just get the 'note' from the exception, or default to 'Closed'
       $dates[$date] = [
         'message' => $libcal_dates[$date]['note'] ?? 'Closed',
@@ -308,8 +286,43 @@ function format_this_weeks_dates($libcal_dates): array {
     $dates[$date]['day'] = $start_time->format('l');
     $dates[$date]['status'] = $libcal_dates[$date]['status'] ?? '';
   }
-  // Add today's info as a unique element
-  array_unshift($dates, $dates[$today]);
+  // Add monday for Guin, as a special date, at the front of the array
+  $monday = new DateTime("midnight $week week");
+  $monday = $monday->format('Y-m-d');
+  $monday = format_libcal_date($libcal_dates[$monday]);
+  array_unshift($dates, $monday);
 
   return $dates;
+}
+
+/**
+ * Turn one days worth of libcal data into a twig-ready formatted Hash
+ *
+ * @param Array JSON of libcal location hours data for one day
+ *
+ * @return Array Twig variable formatted libcal data for one day
+ */
+function format_libcal_date($libcal_day_data) {
+  // From and to time for this day
+  $from = $libcal_day_data['hours'][0]['from'];
+  $to = $libcal_day_data['hours'][0]['to'];
+
+  // Convert that to unix timestamp
+  $from_unix = strtotime($from);
+  $to_unix = strtotime($to);
+
+  // If the closing hour is less than the opening hour, it actually closes the next day
+  if ($to_unix < $from_unix) $to_unix = strtotime("$to + 1 day");
+
+  // Structure the open/close hours for <time> datetime attribute
+  $from_structured = date('Y-m-d H:i', $from_unix);
+  $to_structured = date('Y-m-d H:i', $to_unix);
+
+  // Wrap it all together for a twig variable
+  return [
+    'from' => $from,
+    'from_structured' => $from_structured,
+    'to' => $to,
+    'to_structured' => $to_structured,
+  ];
 }
