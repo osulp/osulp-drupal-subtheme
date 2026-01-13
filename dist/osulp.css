@@ -551,32 +551,32 @@
 }
 
 .bg-valley {
-  background-color: #70637e !important;
+  background-color: #7A6855 !important;
 }
 
 .border-valley {
-  border-color: #70637e !important;
-  --bs-border-color: #70637e !important;
+  border-color: #7A6855 !important;
+  --bs-border-color: #7A6855 !important;
 }
 
 .border-valley-left {
-  border-left-color: #70637e !important;
+  border-left-color: #7A6855 !important;
 }
 
 .border-valley-top {
-  border-top-color: #70637e !important;
+  border-top-color: #7A6855 !important;
 }
 
 .border-valley-right {
-  border-right-color: #70637e !important;
+  border-right-color: #7A6855 !important;
 }
 
 .border-valley-bottom {
-  border-bottom-color: #70637e !important;
+  border-bottom-color: #7A6855 !important;
 }
 
 .color-valley {
-  color: #70637e !important;
+  color: #7A6855 !important;
 }
 
 .bg-guin {
@@ -1269,32 +1269,32 @@ div.more-link::before {
 }
 
 .bg-valley {
-  background-color: #70637e !important;
+  background-color: #7A6855 !important;
 }
 
 .border-valley {
-  border-color: #70637e !important;
-  --bs-border-color: #70637e !important;
+  border-color: #7A6855 !important;
+  --bs-border-color: #7A6855 !important;
 }
 
 .border-valley-left {
-  border-left-color: #70637e !important;
+  border-left-color: #7A6855 !important;
 }
 
 .border-valley-top {
-  border-top-color: #70637e !important;
+  border-top-color: #7A6855 !important;
 }
 
 .border-valley-right {
-  border-right-color: #70637e !important;
+  border-right-color: #7A6855 !important;
 }
 
 .border-valley-bottom {
-  border-bottom-color: #70637e !important;
+  border-bottom-color: #7A6855 !important;
 }
 
 .color-valley {
-  color: #70637e !important;
+  color: #7A6855 !important;
 }
 
 .bg-guin {
@@ -1680,18 +1680,18 @@ ul#superfish-header-menu-2 {
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.valley.valley-active a, #block-osulp-headermenus .nav li.nav-item.valley a:hover, #block-osulp-headermenus .nav li.nav-item.valley a:focus, #madrone-full-top-container .nav li.nav-item.valley.valley-active a, #madrone-full-top-container .nav li.nav-item.valley a:hover, #madrone-full-top-container .nav li.nav-item.valley a:focus, #osulp-menu-mobile-header .nav li.nav-item.valley.valley-active a, #osulp-menu-mobile-header .nav li.nav-item.valley a:hover, #osulp-menu-mobile-header .nav li.nav-item.valley a:focus {
-  --bs-nav-tabs-link-hover-border-color: #70637e;
-  --bs-border-color: #70637e;
-  background-color: #70637e !important;
+  --bs-nav-tabs-link-hover-border-color: #7A6855;
+  --bs-border-color: #7A6855;
+  background-color: #7A6855 !important;
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.valley.all-active a,
 #block-osulp-headermenus .nav li.nav-item.valley a:hover, #block-osulp-headermenus .nav li.nav-item.valley a:focus, #madrone-full-top-container .nav li.nav-item.valley.all-active a,
 #madrone-full-top-container .nav li.nav-item.valley a:hover, #madrone-full-top-container .nav li.nav-item.valley a:focus, #osulp-menu-mobile-header .nav li.nav-item.valley.all-active a,
 #osulp-menu-mobile-header .nav li.nav-item.valley a:hover, #osulp-menu-mobile-header .nav li.nav-item.valley a:focus {
-  --bs-nav-tabs-link-hover-border-color: #70637e;
-  --bs-border-color: #70637e;
-  background-color: #70637e !important;
+  --bs-nav-tabs-link-hover-border-color: #7A6855;
+  --bs-border-color: #7A6855;
+  background-color: #7A6855 !important;
   color: #fff;
 }
 
