@@ -52,7 +52,8 @@
     {% if hours %}
       <p class="fs-5">
         {% if groups[0].label.value|lower != 'guin' %}
-          <b>Today:</b>
+        {# libcal treats 0 as 'today' #}
+          <b>{{ hours['0']['day'] }}</b>
           {% set date = '0' %}
         {% else %}
           <b>Mon &ndash; Fri:</b>
@@ -67,7 +68,8 @@
         {{ hours[date]['message'] }}
       </p>
       <ul class="list-unstyled">
-        {% for hour in hours|slice(1) %}
+      {# since we have grabbed yesterdays hours forward, we need to slice at position 2 see the theme file #}
+        {% for hour in hours|slice(2) %}
           {% if groups[0].label.value|lower != 'guin' or hour['status']|lower != 'open' %}
             <li>
               <b>
