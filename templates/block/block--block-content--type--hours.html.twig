@@ -54,7 +54,7 @@
         {% if groups[0].label.value|lower != 'guin' %}
           {# libcal treats 0 as 'today' #}
           {% set today = "today"|date('Y-m-d') %}
-          <b>{{ hours[today]['day'] }}</b>
+          <b>{{ hours[today]['day'] }}:</b>
           {% set date = "tomorrow"|date('Y-m-d') %}
         {% else %}
           <b>Mon &ndash; Fri:</b>
