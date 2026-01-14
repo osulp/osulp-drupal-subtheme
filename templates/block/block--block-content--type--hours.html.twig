@@ -68,25 +68,29 @@
         {{ hours[date]['message'] }}
       </p>
       <ul class="list-unstyled">
-      {# Guin requires a magic #}
-        {% for hour in hours|slice(2) %}
-          {% if groups[0].label.value|lower != 'guin' or hour['status']|lower != 'open' %}
+        {# Guin requires a magic day at the first position of the array and the second position is today's info, so slice off the first 2 days #}
+        {% for day in hours|slice(2) %}
+          {% if groups[0].label.value|lower != 'guin' or not day['open'] %}
             <li>
               <b>
-                {{ hour['day'] }}:
+                {{ day['day'] }}:
               </b>
-              {% if hour['from_structured'] %}
-                <time datetime="{{ hour['from_structured'] }}">
-                  {{ hour['from'] }}
+              {% if day['open'] %}
+                <time datetime="{{ day['from_structured'] }}">
+                  {{ day['from'] }}
                 </time>
                 &ndash;
-                <time datetime="{{ hour['to_structured'] }}">
-                  {{ hour['to'] }}
+                <time datetime="{{ day['to_structured'] }}">
+                  {{ day['to'] }}
                 </time>
+              {% else %}
+                <b>Closed</b>
               {% endif %}
-              {{ hour['message'] }}
-            {% endif %}
-          </li>
+              {% if day['message'] %}
+                ({{ day['message'] }})
+              {% endif %}
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
       <a href="/{{groups[0].label.value|lower}}/hours" class="btn btn-primary">More Hours</a>
