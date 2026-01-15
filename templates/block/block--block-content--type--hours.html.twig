@@ -52,13 +52,13 @@
     {% if hours %}
       <p class="fs-5">
         {% if groups[0].label.value|lower != 'guin' %}
-        {# libcal treats 0 as 'today' #}
-          <b>{{ hours['0']['day'] }}</b>
-          {% set date = '0' %}
+          {# libcal treats 0 as 'today' #}
+          {% set today = "today"|date('Y-m-d') %}
+          <b>{{ hours[today]['day'] }}:</b>
+          {% set date = "tomorrow"|date('Y-m-d') %}
         {% else %}
           <b>Mon &ndash; Fri:</b>
-          {% set week = "now"|date("w") == 0 ? 'next' : 'this' %}
-          {% set date = "midnight #{week} week"|date('Y-m-d') %}
+          {% set date = "0" %}
         {% endif %}
         {% if hours[date]['from_structured'] %}
           <time datetime="{{ hours[date]['from_structured'] }}">{{ hours[date]['from'] }}</time>
@@ -68,25 +68,29 @@
         {{ hours[date]['message'] }}
       </p>
       <ul class="list-unstyled">
-      {# since we have grabbed yesterdays hours forward, we need to slice at position 2 see the theme file #}
-        {% for hour in hours|slice(2) %}
-          {% if groups[0].label.value|lower != 'guin' or hour['status']|lower != 'open' %}
+        {# Guin requires a magic day at the first position of the array and the second position is today's info, so slice off the first 2 days #}
+        {% for day in hours|slice(2) %}
+          {% if groups[0].label.value|lower != 'guin' or not day['open'] %}
             <li>
               <b>
-                {{ hour['day'] }}:
+                {{ day['day'] }}:
               </b>
-              {% if hour['from_structured'] %}
-                <time datetime="{{ hour['from_structured'] }}">
-                  {{ hour['from'] }}
+              {% if day['open'] %}
+                <time datetime="{{ day['from_structured'] }}">
+                  {{ day['from'] }}
                 </time>
                 &ndash;
-                <time datetime="{{ hour['to_structured'] }}">
-                  {{ hour['to'] }}
+                <time datetime="{{ day['to_structured'] }}">
+                  {{ day['to'] }}
                 </time>
+              {% else %}
+                <b>Closed</b>
               {% endif %}
-              {{ hour['message'] }}
-            {% endif %}
-          </li>
+              {% if day['message'] %}
+                ({{ day['message'] }})
+              {% endif %}
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
       <a href="/{{groups[0].label.value|lower}}/hours" class="btn btn-primary">More Hours</a>
