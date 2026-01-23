@@ -270,28 +270,17 @@ function format_this_weeks_dates($libcal_dates): array {
     $start_day = new DateTime('Today');
     $start_day->modify("+$i days");
     $date = $start_day->format('Y-m-d');
+    // If we don't have data for every single day, the data in LibCal is incomplete and we can't properly display the hours
+    if ($libcal_dates[$date] == null) return [];
 
     // Add the libcal data for the day to $dates
-    if (isset($libcal_dates[$date]['hours'])) {
-      $dates[$date] = format_libcal_date($libcal_dates[$date]);
-    } else { // If the day is a closure exception, just get the 'note' from the exception
-      $dates[$date] = [
-        'message' => $libcal_dates[$date]['note'],
-      ];
-    }
+    $dates[$date] = format_libcal_date($libcal_dates[$date]);
+
     // Add the human readable name of day, eg: "Monday"
     $dates[$date]['day'] = $start_day->format('l');
     // Add whether today is open or closed
-    $dates[$date]['open'] = strtolower($libcal_dates[$date]['status']) == 'open';
+    $dates[$date]['open'] = strtolower($libcal_dates[$date]['status'] ?? '') == 'open';
   }
-  // Add monday for Guin, as a special date, at the front of the array, $dates[0]
-  // We will use this to display the Mon-Fri Guin hours
-  // When we go to loop over these dates for display, we'll need to slice of this exception and the first day of array (Today)
-  $monday = new DateTime("Monday this week");
-  $monday = $monday->format('Y-m-d');
-  $libcal_monday = format_libcal_date($libcal_dates[$monday]);
-  // Add $libcal_monday to the head $dates ($dates[0])
-  array_unshift($dates, $libcal_monday);
 
   return $dates;
 }
@@ -304,6 +293,10 @@ function format_this_weeks_dates($libcal_dates): array {
  * @return Array Twig variable formatted libcal data for one day
  */
 function format_libcal_date($libcal_day_data) {
+  if (!isset($libcal_day_data['hours'])) {
+    // If the day is a closure exception, just get the 'note' from the exception
+    return ['message' => $libcal_day_data['note'] ?? ''];
+  }
   // From and to time for this day
   $from = $libcal_day_data['hours'][0]['from'];
   $to = $libcal_day_data['hours'][0]['to'];

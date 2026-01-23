@@ -52,24 +52,21 @@
     {% if hours %}
       <p class="fs-5">
         {% if groups[0].label.value|lower != 'guin' %}
-          {# libcal treats 0 as 'today' #}
-          {% set today = "today"|date('Y-m-d') %}
-          <b>{{ hours[today]['day'] }}:</b>
-          {% set date = "tomorrow"|date('Y-m-d') %}
-        {% else %}
-          <b>Mon &ndash; Fri:</b>
-          {% set date = "0" %}
-        {% endif %}
-        {% if hours[date]['from_structured'] %}
+          {% set date = "today"|date('Y-m-d') %}
+          <b>{{ hours[date]['day'] }}:</b>
           <time datetime="{{ hours[date]['from_structured'] }}">{{ hours[date]['from'] }}</time>
           &ndash;
           <time datetime="{{ hours[date]['to_structured'] }}">{{ hours[date]['to'] }}</time>
+        {% else %}
+          <b>Mon &ndash; Fri:</b>
+          <span>8:00am</span> &ndash; <span>5:00pm</span>
+          {% set date = "0" %}
         {% endif %}
         {{ hours[date]['message'] }}
       </p>
       <ul class="list-unstyled">
         {# Guin requires a magic day at the first position of the array and the second position is today's info, so slice off the first 2 days #}
-        {% for day in hours|slice(2) %}
+        {% for day in hours|slice(1) %}
           {% if groups[0].label.value|lower != 'guin' or not day['open'] %}
             <li>
               <b>
