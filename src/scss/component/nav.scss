@@ -51,6 +51,23 @@
           color: $white;
       }
     }
+    li.nav-item.ecampus {
+      &.ecampus-active a, a:hover, a:focus {
+        --bs-nav-tabs-link-hover-border-color: #{$color-ecampus};
+        --bs-border-color: #{$color-ecampus};
+
+        background-color: $color-ecampus !important;
+        color: $white;
+      }
+      &.all-active
+        a, a:hover, a:focus {
+          --bs-nav-tabs-link-hover-border-color: #{$color-ecampus};
+          --bs-border-color: #{$color-ecampus};
+  
+          background-color: $color-ecampus !important;
+          color: $white;
+      }
+    }
   }
 }
 

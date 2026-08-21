@@ -1752,6 +1752,21 @@ ul#superfish-header-menu-2 {
   background-color: #7A6855 !important;
   color: #fff;
 }
+#block-osulp-headermenus .nav li.nav-item.ecampus.ecampus-active a, #block-osulp-headermenus .nav li.nav-item.ecampus a:hover, #block-osulp-headermenus .nav li.nav-item.ecampus a:focus, #madrone-full-top-container .nav li.nav-item.ecampus.ecampus-active a, #madrone-full-top-container .nav li.nav-item.ecampus a:hover, #madrone-full-top-container .nav li.nav-item.ecampus a:focus, #osulp-menu-mobile-header .nav li.nav-item.ecampus.ecampus-active a, #osulp-menu-mobile-header .nav li.nav-item.ecampus a:hover, #osulp-menu-mobile-header .nav li.nav-item.ecampus a:focus {
+  --bs-nav-tabs-link-hover-border-color: #7A6855;
+  --bs-border-color: #7A6855;
+  background-color: #7A6855 !important;
+  color: #fff;
+}
+#block-osulp-headermenus .nav li.nav-item.ecampus.all-active a,
+#block-osulp-headermenus .nav li.nav-item.ecampus a:hover, #block-osulp-headermenus .nav li.nav-item.ecampus a:focus, #madrone-full-top-container .nav li.nav-item.ecampus.all-active a,
+#madrone-full-top-container .nav li.nav-item.ecampus a:hover, #madrone-full-top-container .nav li.nav-item.ecampus a:focus, #osulp-menu-mobile-header .nav li.nav-item.ecampus.all-active a,
+#osulp-menu-mobile-header .nav li.nav-item.ecampus a:hover, #osulp-menu-mobile-header .nav li.nav-item.ecampus a:focus {
+  --bs-nav-tabs-link-hover-border-color: #7A6855;
+  --bs-border-color: #7A6855;
+  background-color: #7A6855 !important;
+  color: #fff;
+}
 
 #madrone-left-sidebar-container .nav-link {
   --bs-nav-link-padding-x: 1rem;
