@@ -15,6 +15,20 @@ $color-grey-400: #979695;
 $color-paddletailblack: #212529;
 $color-shared: #423E3C;
 $color-valley: #7A6855;
+$color-ecampus: #7A6855;
+$color-parchment: #f1edce;
+$color-valley-purple-400: #70637e;
+$color-valley-purple: rgb(71, 43, 89);
+$color-marionberry: #610733 ;
+$color-basalt-blush: #98606f;
+$color-lava-100: #ffdedf;
+$color-lava-200: #ee878a;
+$color-lava-300: #e54349;
+$color-lava-400: #c72127;
+$color-lava-500: #a7262b;
+$color-lava-600: #8c0e13;
+$color-lava-700: #590003 ;
+$color-till: #b7a99a;
 //$color-valley: #70637e; (purple)
 $color-guin: #006A8E;
 $color-cascades: #0D5257;
@@ -48,6 +62,7 @@ $osulp-all-colors: (
   'valley': $color-valley,
   'guin': $color-guin,
   'cascades': $color-cascades,
+  'ecampus': $color-ecampus,
 );
 
 @each $name, $color in $osulp-all-colors {

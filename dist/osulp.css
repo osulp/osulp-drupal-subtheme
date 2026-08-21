@@ -637,6 +637,35 @@
   color: #0D5257 !important;
 }
 
+.bg-ecampus {
+  background-color: #7A6855 !important;
+}
+
+.border-ecampus {
+  border-color: #7A6855 !important;
+  --bs-border-color: #7A6855 !important;
+}
+
+.border-ecampus-left {
+  border-left-color: #7A6855 !important;
+}
+
+.border-ecampus-top {
+  border-top-color: #7A6855 !important;
+}
+
+.border-ecampus-right {
+  border-right-color: #7A6855 !important;
+}
+
+.border-ecampus-bottom {
+  border-bottom-color: #7A6855 !important;
+}
+
+.color-ecampus {
+  color: #7A6855 !important;
+}
+
 :root,
 [data-bs-theme=light] {
   --bs-border-color: #A7ACA2;
@@ -1353,6 +1382,35 @@ div.more-link::before {
 
 .color-cascades {
   color: #0D5257 !important;
+}
+
+.bg-ecampus {
+  background-color: #7A6855 !important;
+}
+
+.border-ecampus {
+  border-color: #7A6855 !important;
+  --bs-border-color: #7A6855 !important;
+}
+
+.border-ecampus-left {
+  border-left-color: #7A6855 !important;
+}
+
+.border-ecampus-top {
+  border-top-color: #7A6855 !important;
+}
+
+.border-ecampus-right {
+  border-right-color: #7A6855 !important;
+}
+
+.border-ecampus-bottom {
+  border-bottom-color: #7A6855 !important;
+}
+
+.color-ecampus {
+  color: #7A6855 !important;
 }
 
 [data-bs-theme=dark] {
