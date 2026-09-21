@@ -551,32 +551,32 @@
 }
 
 .bg-valley {
-  background-color: #7A6855 !important;
+  background-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley {
-  border-color: #7A6855 !important;
-  --bs-border-color: #7A6855 !important;
+  border-color: rgb(71, 43, 89) !important;
+  --bs-border-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-left {
-  border-left-color: #7A6855 !important;
+  border-left-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-top {
-  border-top-color: #7A6855 !important;
+  border-top-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-right {
-  border-right-color: #7A6855 !important;
+  border-right-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-bottom {
-  border-bottom-color: #7A6855 !important;
+  border-bottom-color: rgb(71, 43, 89) !important;
 }
 
 .color-valley {
-  color: #7A6855 !important;
+  color: rgb(71, 43, 89) !important;
 }
 
 .bg-guin {
@@ -1298,32 +1298,32 @@ div.more-link::before {
 }
 
 .bg-valley {
-  background-color: #7A6855 !important;
+  background-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley {
-  border-color: #7A6855 !important;
-  --bs-border-color: #7A6855 !important;
+  border-color: rgb(71, 43, 89) !important;
+  --bs-border-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-left {
-  border-left-color: #7A6855 !important;
+  border-left-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-top {
-  border-top-color: #7A6855 !important;
+  border-top-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-right {
-  border-right-color: #7A6855 !important;
+  border-right-color: rgb(71, 43, 89) !important;
 }
 
 .border-valley-bottom {
-  border-bottom-color: #7A6855 !important;
+  border-bottom-color: rgb(71, 43, 89) !important;
 }
 
 .color-valley {
-  color: #7A6855 !important;
+  color: rgb(71, 43, 89) !important;
 }
 
 .bg-guin {
@@ -1738,18 +1738,18 @@ ul#superfish-header-menu-2 {
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.valley.valley-active a, #block-osulp-headermenus .nav li.nav-item.valley a:hover, #block-osulp-headermenus .nav li.nav-item.valley a:focus, #madrone-full-top-container .nav li.nav-item.valley.valley-active a, #madrone-full-top-container .nav li.nav-item.valley a:hover, #madrone-full-top-container .nav li.nav-item.valley a:focus, #osulp-menu-mobile-header .nav li.nav-item.valley.valley-active a, #osulp-menu-mobile-header .nav li.nav-item.valley a:hover, #osulp-menu-mobile-header .nav li.nav-item.valley a:focus {
-  --bs-nav-tabs-link-hover-border-color: #7A6855;
-  --bs-border-color: #7A6855;
-  background-color: #7A6855 !important;
+  --bs-nav-tabs-link-hover-border-color: rgb(71, 43, 89);
+  --bs-border-color: rgb(71, 43, 89);
+  background-color: rgb(71, 43, 89) !important;
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.valley.all-active a,
 #block-osulp-headermenus .nav li.nav-item.valley a:hover, #block-osulp-headermenus .nav li.nav-item.valley a:focus, #madrone-full-top-container .nav li.nav-item.valley.all-active a,
 #madrone-full-top-container .nav li.nav-item.valley a:hover, #madrone-full-top-container .nav li.nav-item.valley a:focus, #osulp-menu-mobile-header .nav li.nav-item.valley.all-active a,
 #osulp-menu-mobile-header .nav li.nav-item.valley a:hover, #osulp-menu-mobile-header .nav li.nav-item.valley a:focus {
-  --bs-nav-tabs-link-hover-border-color: #7A6855;
-  --bs-border-color: #7A6855;
-  background-color: #7A6855 !important;
+  --bs-nav-tabs-link-hover-border-color: rgb(71, 43, 89);
+  --bs-border-color: rgb(71, 43, 89);
+  background-color: rgb(71, 43, 89) !important;
   color: #fff;
 }
 #block-osulp-headermenus .nav li.nav-item.ecampus.ecampus-active a, #block-osulp-headermenus .nav li.nav-item.ecampus a:hover, #block-osulp-headermenus .nav li.nav-item.ecampus a:focus, #madrone-full-top-container .nav li.nav-item.ecampus.ecampus-active a, #madrone-full-top-container .nav li.nav-item.ecampus a:hover, #madrone-full-top-container .nav li.nav-item.ecampus a:focus, #osulp-menu-mobile-header .nav li.nav-item.ecampus.ecampus-active a, #osulp-menu-mobile-header .nav li.nav-item.ecampus a:hover, #osulp-menu-mobile-header .nav li.nav-item.ecampus a:focus {
