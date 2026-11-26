@@ -267,3 +267,25 @@ function hashToHiddenInputs(hash, formElem) {
   }
 }
 /* End Search Bar */
+
+
+/* FAQ */
+
+// checks for dom to load
+document.addEventListener("DOMContentLoaded", function () {
+  //checks for hash on "window location" (url)
+  const hash = window.location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target && target.classList.contains("accordion-collapse")) {
+      // Initialize and show the Bootstrap collapse instance
+      const bsCollapse = bootstrap.Collapse.getOrCreateInstance(target, {
+        toggle: false
+      });
+      bsCollapse.show();
+
+      // Optional: Smoothly scroll to the accordion header
+      target.parentElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
